@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iAgents Digital â Agentes IA Especialistas en Criptomonedas</title>
+  <meta name="description" content="Resuelve tus dudas sobre criptomonedas con un agente de IA especializado. AnÃ¡lisis, educaciÃ³n, estrategia empresarial y seÃ±ales de compra/venta. Disponible 24/7." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #0f1923;
+      --bg2:    #162130;
+      --bg3:    #1c2c3e;
+      --blue:   #378ADD;
+      --gold:   #F59E0B;
+      --green:  #1D9E75;
+      --red:    #ef4444;
+      --text:   #e2e8f0;
+      --muted:  #94a3b8;
+      --border: rgba(55,138,221,0.2);
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* âââ NAVBAR âââ */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,25,35,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-logo span { font-weight: 700; font-size: 1.1rem; color: var(--blue); letter-spacing: -0.3px; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    @media(max-width:700px){ .nav-links { display: none; } }
+
+    /* âââ SECTIONS âââ */
+    section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
+
+    /* âââ HERO âââ */
+    #inicio { text-align: center; padding-top: 6rem; padding-bottom: 6rem; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.4);
+      color: var(--gold);
+      font-size: 0.82rem; font-weight: 600;
+      padding: 0.35rem 1rem; border-radius: 999px;
+      margin-bottom: 1.5rem; letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: clamp(1.8rem, 4vw, 2.9rem);
+      font-weight: 800; line-height: 1.2;
+      margin-bottom: 1.25rem; color: #fff;
+    }
+    .hero-title em { font-style: normal; color: var(--gold); }
+    .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 580px; margin: 0 auto 2.5rem; }
+    .btn {
+      display: inline-block; padding: 0.85rem 2.25rem;
+      border-radius: var(--radius); font-size: 1.05rem; font-weight: 700;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-gold { background: var(--gold); color: #000; }
+    .btn-green { background: var(--green); color: #fff; }
+    .hero-trust { margin-top: 2.5rem; font-size: 0.85rem; color: var(--muted); }
+
+    /* âââ SECTION HEADERS âââ */
+    .section-label {
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--gold); margin-bottom: 0.75rem;
+    }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 560px; }
+
+    /* âââ AGENTES GRID âââ */
+    .agentes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .agente-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .agente-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .agente-card.analista::before { background: var(--blue); }
+    .agente-card.educador::before { background: var(--green); }
+    .agente-card.empresas::before { background: #8b5cf6; }
+    .agente-card.ventas::before   { background: var(--gold); }
+    .agente-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+    .agente-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .agente-tipo {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; margin-bottom: 0.5rem;
+    }
+    .agente-card.analista .agente-tipo { color: var(--blue); }
+    .agente-card.educador .agente-tipo { color: var(--green); }
+    .agente-card.empresas .agente-tipo { color: #8b5cf6; }
+    .agente-card.ventas   .agente-tipo { color: var(--gold); }
+    .agente-card h3 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .agente-card p { color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+    .agente-ejemplos {
+      margin-top: 1rem; padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .agente-ejemplos span {
+      display: block; font-size: 0.82rem; color: var(--muted);
+      padding: 0.2rem 0;
+    }
+    .agente-ejemplos span::before { content: 'â '; opacity: 0.5; }
+
+    /* âââ HOW IT WORKS âââ */
+    .steps { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; }
+    .step { display: flex; gap: 1.75rem; align-items: flex-start; padding: 0 0 2.5rem 0; position: relative; }
+    .step:last-child { padding-bottom: 0; }
+    .step-num {
+      flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%;
+      background: var(--bg3); border: 2px solid var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.2rem; color: var(--blue);
+      position: relative; z-index: 1;
+    }
+    .step-line {
+      position: absolute; left: 25px; top: 52px; width: 2px;
+      height: calc(100% - 52px);
+      background: linear-gradient(to bottom, var(--blue), transparent);
+    }
+    .step:last-child .step-line { display: none; }
+    .step-content h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; margin-top: 0.6rem; }
+    .step-content p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+
+    /* âââ TICKER âââ */
+    .ticker-wrapper {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      justify-content: center; margin-top: 3rem;
+    }
+    .ticker-item { text-align: center; }
+    .ticker-item .coin { font-size: 1.4rem; font-weight: 800; color: #fff; }
+    .ticker-item .label { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .ticker-item .change { font-size: 0.9rem; font-weight: 700; }
+    .change.up { color: var(--green); }
+    .change.down { color: var(--red); }
+
+    /* âââ CONTACTO âââ */
+    #contacto { text-align: center; }
+    #contacto .section-title { text-align: center; margin-bottom: 0.5rem; }
+    #contacto .section-sub { text-align: center; margin: 0 auto 2rem; }
+
+    /* âââ FOOTER âââ */
+    footer {
+      text-align: center; padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.9rem;
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="https://iagentsdigital.com" class="nav-logo">
+      <img src="logo.png" alt="iAgents Digital" onerror="this.style.display='none'" />
+      <span>iAgents Digital</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#agentes">Los agentes</a></li>
+      <li><a href="#como-funciona">CÃ³mo funciona</a></li>
+      <li><a href="#contacto">Consultar ahora</a></li>
+    </ul>
+    <a href="#contacto" class="btn btn-gold" style="font-size:0.88rem; padding:0.6rem 1.4rem;">Consultar gratis â</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio">
+    <div class="hero-badge">â¿ Inteligencia Artificial para Inversiones</div>
+    <h1 class="hero-title">
+      Â¿Tienes dudas sobre<br />
+      <em>criptomonedas o ETFs?</em>
+    </h1>
+    <p class="hero-sub">
+      Nuestros agentes de IA especializados te responden al momento.<br />
+      AnÃ¡lisis de mercado, educaciÃ³n, estrategia empresarial y seÃ±ales de compra/venta.
+    </p>
+    <a href="#contacto" class="btn btn-gold">Hacer mi consulta gratis â</a>
+    <p class="hero-trust">â Gratis &nbsp;Â·&nbsp; â Respuesta inmediata &nbsp;Â·&nbsp; â 4 agentes especializados</p>
+
+    <!-- Mini ticker decorativo -->
+    <div class="ticker-wrapper">
+      <div class="ticker-item">
+        <div class="label">Bitcoin</div>
+        <div class="coin">BTC</div>
+        <div class="change up">â AnÃ¡lisis disponible</div>
+      </div>
+      <div class="ticker-item">
+        <div class="label">Ethereum</div>
+        <div class="coin">ETH</div>
+        <div class="change up">â AnÃ¡lisis disponible</div>
+      </div>
+      <div class="ticker-item">
+        <div class="label">Solana</div>
+        <div class="coin">SOL</div>
+        <div class="change up">â AnÃ¡lisis disponible</div>
+      </div>
+      <div class="ticker-item">
+        <div class="label">VWCE / IWDA</div>
+        <div class="coin">ETF</div>
+        <div class="change up">â AnÃ¡lisis disponible</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOS 4 AGENTES -->
+  <section id="agentes">
+    <p class="section-label">Los especialistas</p>
+    <h2 class="section-title">4 agentes IA. Cada uno experto en su Ã¡rea.</h2>
+    <p class="section-sub">Tu pregunta llega al agente correcto de forma automÃ¡tica. Sin menÃºs, sin formularios complicados.</p>
+
+    <div class="agentes-grid">
+
+      <div class="agente-card analista">
+        <div class="agente-icon">ð</div>
+        <div class="agente-tipo">Agente Analista</div>
+        <h3>AnÃ¡lisis de mercado</h3>
+        <p>Analiza tendencias, precio, volumen y datos en tiempo real de cualquier cripto o ETF.</p>
+        <div class="agente-ejemplos">
+          <span>Â¿BTC estÃ¡ en soporte o resistencia?</span>
+          <span>Â¿QuÃ© dice el RSI de Ethereum?</span>
+          <span>Â¿CÃ³mo estÃ¡ el mercado hoy?</span>
+        </div>
+      </div>
+
+      <div class="agente-card educador">
+        <div class="agente-icon">ð</div>
+        <div class="agente-tipo">Agente Educador</div>
+        <h3>Aprende desde cero</h3>
+        <p>Explica conceptos de criptomonedas e inversiÃ³n de forma clara y sin tecnicismos.</p>
+        <div class="agente-ejemplos">
+          <span>Â¿QuÃ© es un ETF?</span>
+          <span>Â¿CÃ³mo funciona el halving de Bitcoin?</span>
+          <span>Â¿QuÃ© es la DeFi?</span>
+        </div>
+      </div>
+
+      <div class="agente-card empresas">
+        <div class="agente-icon">ð¢</div>
+        <div class="agente-tipo">Agente Empresas</div>
+        <h3>Estrategia para empresas</h3>
+        <p>Asesora sobre cÃ³mo integrar cripto en tu negocio, pagos digitales y contabilidad.</p>
+        <div class="agente-ejemplos">
+          <span>Â¿Mi empresa puede aceptar Bitcoin?</span>
+          <span>Â¿CÃ³mo tributa una venta de cripto?</span>
+          <span>Â¿QuÃ© es un tesoro corporativo cripto?</span>
+        </div>
+      </div>
+
+      <div class="agente-card ventas">
+        <div class="agente-icon">ð°</div>
+        <div class="agente-tipo">Agente Ventas</div>
+        <h3>SeÃ±ales de compra y venta</h3>
+        <p>Te ayuda a decidir el mejor momento para entrar o salir de una posiciÃ³n con datos objetivos.</p>
+        <div class="agente-ejemplos">
+          <span>Â¿Es buen momento para comprar ETH?</span>
+          <span>Â¿CuÃ¡ndo vendo mi SOL?</span>
+          <span>Â¿QuÃ© precio objetivo tiene BTC?</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CÃSMO FUNCIONA -->
+  <section id="como-funciona">
+    <p class="section-label">El proceso</p>
+    <h2 class="section-title">Tan fÃ¡cil como escribir tu pregunta</h2>
+    <p class="section-sub">No necesitas saber a quÃ© agente dirigirte. La IA lo decide sola.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1<div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Escribes tu consulta</h3>
+          <p>Lo que sea: una duda bÃ¡sica, un anÃ¡lisis tÃ©cnico o una pregunta de empresa. Sin lÃ­mites.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2<div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>La IA clasifica tu pregunta</h3>
+          <p>El Agente Clasificador detecta automÃ¡ticamente si es anÃ¡lisis, educaciÃ³n, empresa o seÃ±al de compra/venta.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>El especialista te responde</h3>
+          <p>El agente experto en tu tipo de consulta te da una respuesta detallada, clara y personalizada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO GHL -->
+  <section style="padding-top: 0; padding-bottom: 5rem;">
+    <div id="contacto">
+      <p class="section-label" style="text-align:center;">Consulta gratuita</p>
+      <h2 class="section-title" style="text-align:center;">Haz tu primera consulta ahora</h2>
+      <p class="section-sub" style="text-align:center; margin: 0 auto 2rem;">Sin registro. Sin tarjeta. Tu pregunta llega al agente correcto al instante.</p>
+
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/Lp39HYvDCYokqMFp7vBq"
+        style="width:100%;height:691px;border:none;border-radius:8px;background:var(--bg2)"
+        id="inline-Lp39HYvDCYokqMFp7vBq"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Consulta Criptos - iAgents Digital"
+        data-height="691"
+        data-layout-iframe-id="inline-Lp39HYvDCYokqMFp7vBq"
+        data-form-id="Lp39HYvDCYokqMFp7vBq"
+        title="Consulta Criptos - iAgents Digital"
+      ></iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="margin-bottom: 0.4rem;">
+      <strong style="color: var(--text);">iAgents Digital</strong> Â· XÃ tiva, Valencia
+    </p>
+    <p><a href="https://iagentsdigital.com">â Volver a iagentsdigital.com</a></p>
+  </footer>
+
+</body>
+</html>
