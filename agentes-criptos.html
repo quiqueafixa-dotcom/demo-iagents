@@ -161,7 +161,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.5rem 2rem;
-      display: flex; flew-wrap: wrap; gap: 2rem;
+      display: flex; flex-wrap: wrap; gap: 2rem;
       justify-content: center; margin-top: 3rem;
     }
     .ticker-item { text-align: center; }
@@ -175,6 +175,67 @@
     #contacto { text-align: center; }
     #contacto .section-title { text-align: center; margin-bottom: 0.5rem; }
     #contacto .section-sub { text-align: center; margin: 0 auto 2rem; }
+
+    /* ─── PRECIOS ─── */
+    .precios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+    .precio-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .precio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+    .precio-destacado {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, var(--bg2) 70%, rgba(245,158,11,0.07));
+      box-shadow: 0 0 0 1px var(--gold), 0 8px 24px rgba(245,158,11,0.12);
+    }
+    .precio-badge {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--muted);
+    }
+    .precio-badge-gold { color: var(--gold); }
+    .precio-nombre {
+      font-size: 1.4rem; font-weight: 800; color: #fff;
+    }
+    .precio-precio {
+      display: flex; align-items: baseline; gap: 0.25rem;
+    }
+    .precio-num {
+      font-size: 2.6rem; font-weight: 900; color: #fff; line-height: 1;
+    }
+    .precio-mes {
+      font-size: 0.95rem; color: var(--muted);
+    }
+    .precio-desc {
+      font-size: 0.9rem; color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+    .precio-lista {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.6rem;
+      flex: 1;
+    }
+    .precio-lista li {
+      font-size: 0.92rem; color: var(--text);
+    }
+    .precio-no {
+      color: var(--muted) !important;
+      opacity: 0.6;
+    }
 
     /* ─── FOOTER ─── */
     footer {
@@ -197,6 +258,7 @@
     <ul class="nav-links">
       <li><a href="#agentes">Los agentes</a></li>
       <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#precios">Precios</a></li>
       <li><a href="#contacto">Consultar ahora</a></li>
     </ul>
     <a href="#contacto" class="btn btn-gold" style="font-size:0.88rem; padding:0.6rem 1.4rem;">Consultar gratis →</a>
@@ -323,49 +385,4 @@
       </div>
       <div class="step">
         <div class="step-num">3</div>
-        <div class="step-content">
-          <h3>El especialista te responde</h3>
-          <p>El agente experto en tu tipo de consulta te da una respuesta detallada, clara y personalizada.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORMULARIO GHL -->
-  <section style="padding-top: 0; padding-bottom: 5rem;">
-    <div id="contacto">
-      <p class="section-label" style="text-align:center;">Consulta gratuita</p>
-      <h2 class="section-title" style="text-align:center;">Haz tu primera consulta ahora</h2>
-      <p class="section-sub" style="text-align:center; margin: 0 auto 2rem;">Sin registro. Sin tarjeta. Tu pregunta llega al agente correcto al instante.</p>
-
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/Lp39HYvDCYokqMFp7vBq"
-        style="width:100%;height:691px;border:none;border-radius:8px;background:var(--bg2)"
-        id="inline-Lp39HYvDCYokqMFp7vBq"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="Consulta Criptos - iAgents Digital"
-        data-height="691"
-        data-layout-iframe-id="inline-Lp39HYvDCYokqMFp7vBq"
-        data-form-id="Lp39HYvDCYokqMFp7vBq"
-        title="Consulta Criptos - iAgents Digital"
-      ></iframe>
-      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p style="margin-bottom: 0.4rem;">
-      <strong style="color: var(--text);">iAgents Digital</strong> · Xàtiva, Valencia
-    </p>
-    <p><a href="https://iagentsdigital.com">← Volver a iagentsdigital.com</a></p>
-  </footer>
-
-</body>
-</html>
+        <d
