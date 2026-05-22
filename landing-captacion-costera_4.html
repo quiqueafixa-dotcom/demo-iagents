@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vende tu propiedad en La Costera | iAgents Digital</title>
+<meta name="description" content="¿Tu piso o chalet lleva meses en Idealista sin resultados? Descubre cuánto vale realmente y encuentra comprador en La Costera. Gratis y sin compromiso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --verde: #1a7a4a;
+    --verde-claro: #2ecc71;
+    --verde-hover: #25a85e;
+    --negro: #0f1410;
+    --blanco: #fafdf8;
+    --gris: #f2f5f0;
+    --gris-texto: #6b7a6e;
+    --borde: #dce8dd;
+    --acento: #e8f5ec;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--blanco);
+    color: var(--negro);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 32px;
+    background: rgba(250,253,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--borde);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--verde);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--negro); }
+  .nav-cta {
+    background: var(--verde);
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 32px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--verde-hover); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 0 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 60px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+  .hero-left { padding-top: 20px; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--acento);
+    color: var(--verde);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 32px;
+    border: 1px solid #b8dfc4;
+    margin-bottom: 28px;
+  }
+  .hero-badge::before { content: "📍"; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--negro);
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--verde);
+    position: relative;
+  }
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 0; right: 0;
+    height: 3px;
+    background: var(--verde-claro);
+    border-radius: 2px;
+    opacity: 0.4;
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--gris-texto);
+    font-weight: 300;
+    margin-bottom: 36px;
+    line-height: 1.7;
+  }
+  .hero-ctas { display: flex; flex-direction: column; gap: 12px; }
+  .btn-main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--verde);
+    color: #fff;
+    padding: 18px 36px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none; cursor: pointer;
+    width: fit-content;
+  }
+  .btn-main:hover { background: var(--verde-hover); transform: translateY(-1px); }
+  .btn-main svg { width: 20px; height: 20px; fill: currentColor; }
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    color: #25d366;
+    padding: 16px 28px;
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid #25d366;
+    width: fit-content;
+    transition: all 0.2s;
+  }
+  .btn-wa:hover { background: #f0fff5; }
+  .btn-wa svg { width: 20px; height: 20px; fill: #25d366; }
+  .hero-note {
+    font-size: 12px;
+    color: var(--gris-texto);
+    margin-top: 14px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .hero-note::before { content: "🔒"; font-size: 11px; }
+
+  /* HERO DERECHA - CARD */
+  .hero-right { position: relative; }
+  .hero-card {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 24px 60px rgba(26,122,74,0.08);
+    position: relative;
+  }
+  .hero-card-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gris-texto);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .property-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    background: var(--gris);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    border: 1px solid var(--borde);
+    transition: all 0.2s;
+  }
+  .property-item:hover { border-color: var(--verde-claro); }
+  .prop-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .prop-icon.verde { background: var(--acento); }
+  .prop-icon.azul { background: #e8f0ff; }
+  .prop-icon.naranja { background: #fff4e8; }
+  .prop-info { flex: 1; min-width: 0; }
+  .prop-name { font-size: 14px; font-weight: 500; color: var(--negro); }
+  .prop-detail { font-size: 12px; color: var(--gris-texto); }
+  .prop-badge {
+    font-size: 11px; font-weight: 500;
+    padding: 4px 10px; border-radius: 20px;
+    flex-shrink: 0;
+  }
+  .badge-nuevo { background: #e8f5ec; color: var(--verde); }
+  .badge-contacto { background: #fff4e0; color: #b07a00; }
+  .badge-vendido { background: #f0f0f0; color: #666; }
+
+  .card-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 10px; margin-top: 20px;
+  }
+  .card-stat {
+    background: var(--acento);
+    border-radius: 12px;
+    padding: 14px 10px;
+    text-align: center;
+    border: 1px solid #b8dfc4;
+  }
+  .card-stat-num { font-size: 22px; font-weight: 700; color: var(--verde); }
+  .card-stat-label { font-size: 11px; color: #4a7a5a; margin-top: 2px; }
+
+  .float-badge {
+    position: absolute;
+    top: -16px; right: 24px;
+    background: #25d366;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 32px;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+  }
+
+  /* PUEBLO STRIP */
+  .pueblos-strip {
+    background: var(--negro);
+    padding: 20px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .pueblos-strip::before, .pueblos-strip::after {
+    content: '';
+    position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+    pointer-events: none;
+  }
+  .pueblos-strip::before { left: 0; background: linear-gradient(to right, var(--negro), transparent); }
+  .pueblos-strip::after { right: 0; background: linear-gradient(to left, var(--negro), transparent); }
+  .pueblos-track {
+    display: flex; gap: 0;
+    animation: scroll-pueblos 25s linear infinite;
+    width: max-content;
+  }
+  .pueblo-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 0 28px;
+    color: rgba(255,255,255,0.6);
+    font-size: 14px; font-weight: 400;
+    white-space: nowrap;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .pueblo-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--verde-claro); flex-shrink: 0; }
+  @keyframes scroll-pueblos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* PROBLEMA */
+  .seccion {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 48px;
+  }
+  .seccion-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--verde);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .seccion-titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    color: var(--negro);
+  }
+  .seccion-sub {
+    font-size: 17px;
+    color: var(--gris-texto);
+    font-weight: 300;
+    max-width: 600px;
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+
+  .problemas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .problema-card {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .problema-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: #ff6b6b;
+  }
+  .problema-emoji { font-size: 32px; margin-bottom: 16px; display: block; }
+  .problema-titulo { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+  .problema-desc { font-size: 14px; color: var(--gris-texto); line-height: 1.6; }
+
+  /* COMO FUNCIONA */
+  .como-funciona { background: var(--gris); }
+  .pasos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .pasos::before {
+    content: '';
+    position: absolute;
+    top: 36px; left: 12.5%; right: 12.5%;
+    height: 2px;
+    background: var(--borde);
+    z-index: 0;
+  }
+  .paso {
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .paso-num {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--verde);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    border: 4px solid var(--gris);
+  }
+  .paso h3 { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+  .paso p { font-size: 14px; color: var(--gris-texto); line-height: 1.5; }
+
+  /* BENEFICIOS */
+  .beneficios-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .beneficio {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    padding: 22px;
+  }
+  .beneficio-icono {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--acento);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; flex-shrink: 0;
+  }
+  .beneficio h3 { font-size: 15px; font-weight: 500; margin-bottom: 6px; }
+  .beneficio p { font-size: 13px; color: var(--gris-texto); line-height: 1.5; }
+
+  /* TESTIMONIO */
+  .testimonios { background: var(--negro); }
+  .testimonios .seccion-titulo { color: #fff; }
+  .testimonios .seccion-sub { color: rgba(255,255,255,0.5); }
+  .testimonios .seccion-label { color: var(--verde-claro); }
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .testi-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 28px;
+  }
+  .testi-stars { color: #ffd700; font-size: 16px; margin-bottom: 14px; letter-spacing: 2px; }
+  .testi-text { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--verde);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 15px; color: #fff;
+    flex-shrink: 0;
+  }
+  .testi-name { font-size: 14px; font-weight: 500; color: #fff; }
+  .testi-loc { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+  /* PUEBLOS DE LA COSTERA */
+  .mapa-seccion {
+    background: var(--gris);
+  }
+  .pueblos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  .pueblo-tag {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+  }
+  .pueblo-tag:hover { border-color: var(--verde-claro); background: var(--acento); }
+  .pueblo-tag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--verde); flex-shrink: 0; }
+  .pueblo-tag-name { font-size: 14px; font-weight: 500; color: var(--negro); }
+  .pueblo-tag-tipo { font-size: 11px; color: var(--gris-texto); }
+
+  /* FORMULARIO */
+  .form-seccion {
+    background: linear-gradient(135deg, #0f2318 0%, #1a3d28 100%);
+    padding: 80px 48px;
+  }
+  .form-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+  .form-left .seccion-titulo { color: #fff; font-size: 36px; }
+  .form-left .seccion-sub { color: rgba(255,255,255,0.55); font-size: 15px; }
+  .form-left .seccion-label { color: var(--verde-claro); }
+  .form-puntos { list-style: none; margin-top: 24px; }
+  .form-puntos li {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 14px; color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+  }
+  .form-puntos li::before {
+    content: '✓';
+    width: 22px; height: 22px;
+    background: var(--verde);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+  }
+
+  .form-box {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+  }
+  .form-box h3 {
+    font-size: 20px; font-weight: 500;
+    margin-bottom: 4px; color: var(--negro);
+  }
+  .form-box .form-tagline {
+    font-size: 13px; color: var(--gris-texto);
+    margin-bottom: 24px;
+  }
+  .form-grupo { margin-bottom: 14px; }
+  .form-grupo label {
+    display: block;
+    font-size: 12px; font-weight: 500;
+    color: var(--gris-texto);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .form-grupo input,
+  .form-grupo select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--borde);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--negro);
+    background: var(--gris);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-grupo input:focus,
+  .form-grupo select:focus { border-color: var(--verde); background: #fff; }
+  .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .btn-submit {
+    width: 100%;
+    background: var(--verde);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .btn-submit:hover { background: var(--verde-hover); transform: translateY(-1px); }
+  .form-privacy {
+    font-size: 11px; color: var(--gris-texto);
+    text-align: center; margin-top: 10px;
+  }
+
+  /* FAQ */
+  .faq-grid { display: grid; gap: 12px; }
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .faq-pregunta {
+    padding: 18px 22px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .faq-pregunta::after { content: '+'; font-size: 20px; color: var(--verde); }
+  .faq-respuesta {
+    padding: 0 22px 18px;
+    font-size: 14px;
+    color: var(--gris-texto);
+    line-height: 1.7;
+    display: none;
+  }
+  .faq-item.open .faq-respuesta { display: block; }
+  .faq-item.open .faq-pregunta::after { content: '−'; }
+
+  /* FOOTER CTA */
+  .footer-cta-strip {
+    background: var(--verde);
+    padding: 60px 48px;
+    text-align: center;
+  }
+  .footer-cta-strip h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 700;
+    color: #fff; margin-bottom: 12px;
+  }
+  .footer-cta-strip p {
+    font-size: 17px; color: rgba(255,255,255,0.75);
+    margin-bottom: 32px; font-weight: 300;
+  }
+  .footer-cta-btns {
+    display: flex; gap: 16px;
+    justify-content: center; flex-wrap: wrap;
+  }
+  .btn-footer-main {
+    background: #fff; color: var(--verde);
+    padding: 16px 36px; border-radius: 14px;
+    font-size: 16px; font-weight: 500;
+    text-decoration: none; transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .btn-footer-main:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+  .btn-footer-wa {
+    background: #25d366; color: #fff;
+    padding: 16px 36px; border-radius: 14px;
+    font-size: 16px; font-weight: 500;
+    text-decoration: none; transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .btn-footer-wa:hover { background: #1db954; transform: translateY(-2px); }
+
+  footer {
+    background: var(--negro);
+    padding: 24px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  footer span { font-size: 13px; color: rgba(255,255,255,0.3); }
+  footer a { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 90px 24px 40px; gap: 40px; }
+    .hero h1 { font-size: 36px; }
+    .hero-right { display: none; }
+    .seccion { padding: 60px 24px; }
+    .problemas-grid { grid-template-columns: 1fr; }
+    .pasos { grid-template-columns: repeat(2, 1fr); }
+    .pasos::before { display: none; }
+    .beneficios-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .pueblos-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-seccion { padding: 60px 24px; }
+    .form-wrapper { grid-template-columns: 1fr; gap: 32px; }
+    .footer-cta-strip { padding: 48px 24px; }
+    footer { padding: 20px 24px; }
+    nav { padding: 14px 20px; }
+    .seccion-titulo { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">iAgents <span>Digital</span></a>
+  <a href="https://valoracion.iagentsdigital.com" class="nav-cta" target="_blank">Valorar mi propiedad →</a>
+</nav>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-badge">Xàtiva y la Comarca de La Costera</div>
+      <h1>¿Tu propiedad lleva meses<br>sin <em>venderse</em>?</h1>
+      <p class="hero-sub">Descubre el precio real de tu vivienda o chalet en La Costera.<br>Sin portales. Sin esperas. Con comprador preparado.</p>
+      <div class="hero-ctas">
+        <a href="https://valoracion.iagentsdigital.com" class="btn-main" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Saber cuánto vale mi propiedad
+        </a>
+        <a href="https://wa.me/34TUNUMERO?text=Hola%2C%20quiero%20vender%20mi%20propiedad%20en%20La%20Costera" class="btn-wa" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Hablar por WhatsApp
+        </a>
+        <p class="hero-note">Gratuito · Sin compromiso · Respuesta en menos de 24h</p>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="float-badge">🔔 Nuevo lead recibido · ahora mismo</div>
+      <div class="hero-card">
+        <div class="hero-card-label">Panel de propiedades — La Costera</div>
+        <div class="property-item">
+          <div class="prop-icon verde">🏡</div>
+          <div class="prop-info">
+            <div class="prop-name">Chalet en Canals</div>
+            <div class="prop-detail">4 hab · 280 m² · Piscina</div>
+          </div>
+          <span class="prop-badge badge-nuevo">Nuevo</span>
+        </div>
+        <div class="property-item">
+          <div class="prop-icon azul">🏢</div>
+          <div class="prop-info">
+            <div class="prop-name">Piso en Xàtiva centro</div>
+            <div class="prop-detail">3 hab · 95 m² · Terraza</div>
+          </div>
+          <span class="prop-badge badge-contacto">En contacto</span>
+        </div>
+        <div class="property-item">
+          <div class="prop-icon naranja">🌿</div>
+          <div class="prop-info">
+            <div class="prop-name">Finca en Enguera</div>
+            <div class="prop-detail">10.000 m² · Casa de campo</div>
+          </div>
+          <span class="prop-badge badge-vendido">Vendido ✓</span>
+        </div>
+        <div class="card-stats">
+          <div class="card-stat">
+            <div class="card-stat-num">24h</div>
+            <div class="card-stat-label">Respuesta</div>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-num">0€</div>
+            <div class="card-stat-label">Para el vendedor</div>
+          </div>
+          <div class="card-stat">
+            <div class="card-stat-num">100%</div>
+            <div class="card-stat-label">Local</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUEBLOS STRIP -->
+<div class="pueblos-strip">
+  <div class="pueblos-track">
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Xàtiva</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Canals</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> l'Olleria</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Ontinyent</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Enguera</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Moixent</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> La Font de la Figuera</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Vallada</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Genovés</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Benigànim</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Quatretonda</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Llosa de Ranes</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Rotglà i Corberà</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Xeraco</div>
+    <!-- Repetición para scroll infinito -->
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Xàtiva</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Canals</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> l'Olleria</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Ontinyent</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Enguera</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Moixent</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> La Font de la Figuera</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Vallada</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Genovés</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Benigànim</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Quatretonda</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Llosa de Ranes</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Rotglà i Corberà</div>
+    <div class="pueblo-item"><span class="pueblo-dot"></span> Xeraco</div>
+  </div>
+</div>
+
+<!-- EL PROBLEMA -->
+<section class="seccion">
+  <div class="seccion-label">El problema</div>
+  <h2 class="seccion-titulo">¿Te suena alguna de estas situaciones?</h2>
+  <p class="seccion-sub">Miles de propietarios en La Costera pierden tiempo y dinero por no tener el sistema adecuado.</p>
+  <div class="problemas-grid">
+    <div class="problema-card">
+      <span class="problema-emoji">📅</span>
+      <div class="problema-titulo">Meses publicado sin resultados</div>
+      <p class="problema-desc">Tu piso lleva en Idealista o Fotocasa sin apenas visitas. Los portales cobran visibilidad pero no garantizan compradores reales.</p>
+    </div>
+    <div class="problema-card">
+      <span class="problema-emoji">📞</span>
+      <div class="problema-titulo">Solo llaman agencias, no compradores</div>
+      <p class="problema-desc">El 90% de las llamadas son inmobiliarias queriendo el mandato. Los compradores reales pasan desapercibidos entre tanto ruido.</p>
+    </div>
+    <div class="problema-card">
+      <span class="problema-emoji">💸</span>
+      <div class="problema-titulo">No sabes si el precio es correcto</div>
+      <p class="problema-desc">Poner un precio equivocado aleja compradores o te hace perder miles de euros. El mercado de La Costera tiene sus propias reglas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como-funciona">
+  <div class="seccion">
+    <div class="seccion-label">Cómo funciona</div>
+    <h2 class="seccion-titulo">Cuatro pasos y tu propiedad tiene comprador</h2>
+    <p class="seccion-sub">Un proceso diseñado para propietarios que valoran su tiempo.</p>
+    <div class="pasos">
+      <div class="paso">
+        <div class="paso-num">1</div>
+        <h3>Rellenas el formulario</h3>
+        <p>Dirección, tipo de propiedad y tus datos de contacto. 2 minutos.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-num">2</div>
+        <h3>Te llamamos en 24h</h3>
+        <p>Un experto local en La Costera analiza tu propiedad y te da un precio real de mercado.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-num">3</div>
+        <h3>Activamos la captación</h3>
+        <p>Tu propiedad entra en nuestro sistema de compradores activos en la comarca.</p>
+      </div>
+      <div class="paso">
+        <div class="paso-num">4</div>
+        <h3>Vendes con tranquilidad</h3>
+        <p>Solo hablas con compradores reales y cualificados. Tú decides si sigues adelante.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="seccion">
+  <div class="seccion-label">Por qué elegirnos</div>
+  <h2 class="seccion-titulo">Lo que ningún portal te puede dar</h2>
+  <p class="seccion-sub">Somos especialistas en el mercado inmobiliario de Xàtiva y La Costera, no una plataforma genérica.</p>
+  <div class="beneficios-grid">
+    <div class="beneficio">
+      <div class="beneficio-icono">📍</div>
+      <div>
+        <h3>Conocemos cada pueblo de La Costera</h3>
+        <p>Desde Canals hasta Enguera, pasando por Ontinyent y Moixent. Sabemos qué precio pedir en cada zona y por qué.</p>
+      </div>
+    </div>
+    <div class="beneficio">
+      <div class="beneficio-icono">🤖</div>
+      <div>
+        <h3>Sistema de seguimiento automático 24/7</h3>
+        <p>Nuestro chatbot cualifica y responde a compradores interesados incluso de madrugada, para que no pierdas ninguna oportunidad.</p>
+      </div>
+    </div>
+    <div class="beneficio">
+      <div class="beneficio-icono">🏡</div>
+      <div>
+        <h3>Especialistas en chalets y fincas rurales</h3>
+        <p>La comarca tiene un mercado de segunda residencia y rural muy activo. Sabemos dónde están los compradores de este tipo de propiedades.</p>
+      </div>
+    </div>
+    <div class="beneficio">
+      <div class="beneficio-icono">✅</div>
+      <div>
+        <h3>Cero coste para el vendedor</h3>
+        <p>No pagas nada hasta que se cierra la venta. Sin permanencia, sin letra pequeña, sin sorpresas al final del proceso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios">
+  <div class="seccion">
+    <div class="seccion-label">Propietarios satisfechos</div>
+    <h2 class="seccion-titulo">Lo que dicen quienes ya han vendido</h2>
+    <p class="seccion-sub">Propietarios reales de La Costera que han pasado por el proceso.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Llevaba 8 meses publicado en Idealista con mi chalet en Canals. Con iAgents tuve tres visitas de compradores serios en el primer mes."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JM</div>
+          <div>
+            <div class="testi-name">José Miguel R.</div>
+            <div class="testi-loc">Chalet en Canals · Vendido</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"No sabía si el precio de mi piso en Xàtiva era correcto. Me dieron una valoración honesta y cerramos por encima de lo que esperaba."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MT</div>
+          <div>
+            <div class="testi-name">María T.</div>
+            <div class="testi-loc">Piso en Xàtiva · Vendido</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Tenía una finca en Enguera que creía imposible de vender rápido. En dos meses encontraron al comprador perfecto para el tipo de propiedad."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">AP</div>
+          <div>
+            <div class="testi-name">Antonio P.</div>
+            <div class="testi-loc">Finca en Enguera · Vendida</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONA DE ACTUACION -->
+<section class="mapa-seccion">
+  <div class="seccion">
+    <div class="seccion-label">Zona de actuación</div>
+    <h2 class="seccion-titulo">Operamos en toda La Costera</h2>
+    <p class="seccion-sub">Si tu propiedad está en alguno de estos municipios, podemos ayudarte a venderla.</p>
+    <div class="pueblos-grid">
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Xàtiva</div><div class="pueblo-tag-tipo">Capital de comarca</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Canals</div><div class="pueblo-tag-tipo">2º municipio</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">l'Olleria</div><div class="pueblo-tag-tipo">Zona industrial</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Ontinyent</div><div class="pueblo-tag-tipo">Comarca limítrofe</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Enguera</div><div class="pueblo-tag-tipo">Zona rural</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Moixent</div><div class="pueblo-tag-tipo">Interior</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">La Font de la Figuera</div><div class="pueblo-tag-tipo">Zona oeste</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Vallada</div><div class="pueblo-tag-tipo">Zona sur</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Genovés</div><div class="pueblo-tag-tipo">Área Xàtiva</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Benigànim</div><div class="pueblo-tag-tipo">Zona norte</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Quatretonda</div><div class="pueblo-tag-tipo">Interior</div></div></div>
+      <div class="pueblo-tag"><span class="pueblo-tag-dot"></span><div><div class="pueblo-tag-name">Llosa de Ranes</div><div class="pueblo-tag-tipo">Área Xàtiva</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="form-seccion" id="formulario">
+  <div style="max-width:700px; margin:0 auto; text-align:center; padding: 0 24px;">
+    <div class="seccion-label" style="color:var(--verde-claro);">Valoración gratuita</div>
+    <h2 class="seccion-titulo" style="color:#fff; font-size:38px; margin-bottom:16px;">Descubre cuánto vale<br>tu propiedad en 2 minutos</h2>
+    <p style="color:rgba(255,255,255,0.6); font-size:17px; font-weight:300; margin-bottom:40px; line-height:1.7;">Sin formularios largos. Sin esperas. Solo elige el tipo de propiedad<br>y un experto local de La Costera te llama en menos de 24h.</p>
+    <ul class="form-puntos" style="display:inline-block; text-align:left; margin-bottom:40px;">
+      <li>Valoración basada en ventas reales en La Costera</li>
+      <li>Sin compromiso ni permanencia</li>
+      <li>Experto local que conoce tu zona</li>
+      <li>Acceso a compradores activos en la comarca</li>
+      <li>Cero coste para el vendedor</li>
+    </ul>
+    <br>
+    <a href="https://valoracion.iagentsdigital.com" class="btn-main" target="_blank" style="margin:0 auto; font-size:18px; padding:20px 48px;">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Iniciar valoración gratuita →
+    </a>
+    <p style="color:rgba(255,255,255,0.35); font-size:12px; margin-top:16px;">🔒 Gratis · Sin compromiso · Respuesta en menos de 24h</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="seccion">
+  <div class="seccion-label">Preguntas frecuentes</div>
+  <h2 class="seccion-titulo">Lo que nos preguntan los propietarios</h2>
+  <p class="seccion-sub" style="margin-bottom: 32px;">Si tienes alguna duda más, escríbenos por WhatsApp.</p>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-pregunta">¿Cuánto cuesta para el propietario vendedor?</div>
+      <div class="faq-respuesta">Absolutamente nada. El propietario no paga ninguna comisión ni tarifa. Nuestros honorarios los abona el comprador al cierre de la operación.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-pregunta">¿Tengo que firmar algún contrato de exclusividad?</div>
+      <div class="faq-respuesta">La exclusiva es opcional, aunque te recomendamos firmarla porque nos permite dedicar más recursos a encontrar el comprador ideal para tu propiedad. Lo hablamos en la primera llamada sin compromiso.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-pregunta">¿Funcionáis solo en Xàtiva o en toda la comarca?</div>
+      <div class="faq-respuesta">Operamos en toda La Costera: Xàtiva, Canals, l'Olleria, Enguera, Moixent, La Font de la Figuera, Vallada, Genovés, Benigànim, Quatretonda y todos los municipios de la comarca.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-pregunta">¿En cuánto tiempo recibo la valoración?</div>
+      <div class="faq-respuesta">Un experto local te llama en menos de 24 horas hábiles. La valoración es gratuita, sin compromiso y basada en ventas reales recientes en tu zona.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-pregunta">¿Trabajáis también con chalets y fincas rurales?</div>
+      <div class="faq-respuesta">Sí, especialmente. Tenemos compradores activos buscando propiedades rurales, chalets con terreno y fincas en toda la comarca. Es uno de nuestros puntos fuertes.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta-strip">
+  <h2>¿Listo para vender tu propiedad?</h2>
+  <p>Únete a los propietarios de La Costera que ya han encontrado comprador con nosotros.</p>
+  <div class="footer-cta-btns">
+    <a href="https://valoracion.iagentsdigital.com" class="btn-footer-main" target="_blank">Solicitar valoración gratuita →</a>
+    <a href="https://wa.me/34TUNUMERO?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20vender%20mi%20propiedad" class="btn-footer-wa" target="_blank">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp directo
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 iAgents Digital · Xàtiva, Valencia</span>
+  <a href="mailto:info@iagentsdigital.com">info@iagentsdigital.com</a>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-pregunta').forEach(function(el) {
+    el.addEventListener('click', function() {
+      var item = this.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  document.getElementById('btn-enviar').addEventListener('click', function() {
+    var nombre    = document.getElementById('f-nombre').value.trim();
+    var telefono  = document.getElementById('f-telefono').value.trim();
+    var direccion = document.getElementById('f-direccion').value.trim();
+    var tipo      = document.getElementById('f-tipo').value;
+    var municipio = document.getElementById('f-municipio').value;
+    var urgencia  = document.getElementById('f-urgencia').value;
+    var mensaje   = document.getElementById('form-mensaje');
+    var btn       = document.getElementById('btn-enviar');
+
+    if (!nombre || !telefono || !municipio || !tipo) {
+      mensaje.style.display = 'block';
+      mensaje.style.background = '#fff4e0';
+      mensaje.style.color = '#b07a00';
+      mensaje.style.border = '1px solid #f0c060';
+      mensaje.textContent = 'Por favor rellena al menos nombre, teléfono, municipio y tipo de propiedad.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    fetch('https://n8n.iagentsdigital.com/webhook/captacion-inmobiliaria', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        propertyType: tipo,
+        contact: {
+          name:        nombre,
+          phone:       telefono,
+          email:       '',
+          sellIntent:  urgencia === 'Lo antes posible' ? 'urgente' : urgencia === 'Solo quiero saber el precio' ? 'solo-precio' : 'normal',
+          esPropietario: 'si',
+          porcentajePropiedad: '100',
+          fotosLink:   ''
+        },
+        details: {
+          address:             direccion,
+          localidad:           municipio,
+          provincia:           'Valencia',
+          m2:                  '',
+          rooms:               '',
+          baths:               '',
+          state:               '',
+          metrosParcela:       '',
+          piscina:             'no',
+          clasificacionSuelo:  'urbano'
+        },
+        fuente: 'landing-costera'
+      })
+    })
+    .then(function(res) {
+      mensaje.style.display = 'block';
+      mensaje.style.background = '#e8f5ec';
+      mensaje.style.color = '#1a7a4a';
+      mensaje.style.border = '1px solid #b8dfc4';
+      mensaje.textContent = '✓ ¡Recibido, ' + nombre + '! Un experto de La Costera le llamará en menos de 24h.';
+      btn.textContent = '¡Solicitud enviada!';
+      btn.style.background = '#1a7a4a';
+      document.getElementById('f-nombre').value = '';
+      document.getElementById('f-telefono').value = '';
+      document.getElementById('f-direccion').value = '';
+      document.getElementById('f-tipo').value = '';
+      document.getElementById('f-municipio').value = '';
+      document.getElementById('f-urgencia').value = '';
+    })
+    .catch(function() {
+      mensaje.style.display = 'block';
+      mensaje.style.background = '#fff0f0';
+      mensaje.style.color = '#a32d2d';
+      mensaje.style.border = '1px solid #f09595';
+      mensaje.textContent = 'Hubo un problema al enviar. Por favor escríbenos por WhatsApp o llámanos directamente.';
+      btn.disabled = false;
+      btn.textContent = 'Quiero saber el precio de mi propiedad →';
+    });
+  });
+</script>
+
+</body>
+</html>
