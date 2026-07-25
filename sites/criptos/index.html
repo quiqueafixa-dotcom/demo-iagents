@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iAgents Digital — Agentes IA Especialistas en Criptomonedas</title>
+  <meta name="description" content="Resuelve tus dudas sobre criptomonedas con un agente de IA especializado. Análisis de mercado, educación, estrategia de inversión y asesoría para empresas. Disponible 24/7." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #0f1923;
+      --bg2:    #162130;
+      --bg3:    #1c2c3e;
+      --blue:   #378ADD;
+      --gold:   #F59E0B;
+      --green:  #1D9E75;
+      --red:    #ef4444;
+      --text:   #e2e8f0;
+      --muted:  #94a3b8;
+      --border: rgba(55,138,221,0.2);
+      --radius: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15,25,35,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-logo span { font-weight: 700; font-size: 1.1rem; color: var(--blue); letter-spacing: -0.3px; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    @media(max-width:700px){ .nav-links { display: none; } }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
+
+    /* ─── HERO ─── */
+    #inicio { text-align: center; padding-top: 6rem; padding-bottom: 6rem; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245,158,11,0.12);
+      border: 1px solid rgba(245,158,11,0.4);
+      color: var(--gold);
+      font-size: 0.82rem; font-weight: 600;
+      padding: 0.35rem 1rem; border-radius: 999px;
+      margin-bottom: 1.5rem; letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-size: clamp(1.8rem, 4vw, 2.9rem);
+      font-weight: 800; line-height: 1.2;
+      margin-bottom: 1.25rem; color: #fff;
+    }
+    .hero-title em { font-style: normal; color: var(--gold); }
+    .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 580px; margin: 0 auto 2.5rem; }
+    .btn {
+      display: inline-block; padding: 0.85rem 2.25rem;
+      border-radius: var(--radius); font-size: 1.05rem; font-weight: 700;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+    .btn-primary { background: var(--blue); color: #fff; }
+    .btn-gold { background: var(--gold); color: #000; }
+    .btn-green { background: var(--green); color: #fff; }
+    .hero-trust { margin-top: 2.5rem; font-size: 0.85rem; color: var(--muted); }
+
+    /* ─── SECTION HEADERS ─── */
+    .section-label {
+      font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--gold); margin-bottom: 0.75rem;
+    }
+    .section-title { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
+    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 560px; }
+
+    /* ─── AGENTES GRID ─── */
+    .agentes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .agente-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .agente-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .agente-card.analista::before  { background: var(--blue); }
+    .agente-card.educador::before  { background: var(--green); }
+    .agente-card.empresas::before  { background: #8b5cf6; }
+    .agente-card.estrategia::before { background: var(--gold); }
+    .agente-card:hover { border-color: var(--blue); transform: translateY(-3px); }
+    .agente-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .agente-tipo {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1.2px; margin-bottom: 0.5rem;
+    }
+    .agente-card.analista  .agente-tipo { color: var(--blue); }
+    .agente-card.educador  .agente-tipo { color: var(--green); }
+    .agente-card.empresas  .agente-tipo { color: #8b5cf6; }
+    .agente-card.estrategia .agente-tipo { color: var(--gold); }
+    .agente-card h3 { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .agente-card p { color: var(--muted); font-size: 0.93rem; line-height: 1.6; }
+    .agente-ejemplos {
+      margin-top: 1rem; padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .agente-ejemplos span {
+      display: block; font-size: 0.82rem; color: var(--muted);
+      padding: 0.2rem 0;
+    }
+    .agente-ejemplos span::before { content: '→ '; opacity: 0.5; }
+
+    /* ─── HOW IT WORKS ─── */
+    .steps { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; }
+    .step { display: flex; gap: 1.75rem; align-items: flex-start; padding: 0 0 2.5rem 0; position: relative; }
+    .step:last-child { padding-bottom: 0; }
+    .step-num {
+      flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%;
+      background: var(--bg3); border: 2px solid var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1.2rem; color: var(--blue);
+      position: relative; z-index: 1;
+    }
+    .step-line {
+      position: absolute; left: 25px; top: 52px; width: 2px;
+      height: calc(100% - 52px);
+      background: linear-gradient(to bottom, var(--blue), transparent);
+    }
+    .step:last-child .step-line { display: none; }
+    .step-content h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; margin-top: 0.6rem; }
+    .step-content p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+
+    /* ─── TICKER ─── */
+    .ticker-wrapper {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      display: flex; flex-wrap: wrap; gap: 2rem;
+      justify-content: center; margin-top: 3rem;
+    }
+    .ticker-item { text-align: center; }
+    .ticker-item .coin { font-size: 1.4rem; font-weight: 800; color: #fff; }
+    .ticker-item .label { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .ticker-item .change { font-size: 0.9rem; font-weight: 700; }
+    .change.up { color: var(--green); }
+    .change.down { color: var(--red); }
+
+    /* ─── CONTACTO ─── */
+    #contacto { text-align: center; }
+    #contacto .section-title { text-align: center; margin-bottom: 0.5rem; }
+    #contacto .section-sub { text-align: center; margin: 0 auto 2rem; }
+
+    /* ─── PRECIOS ─── */
+    .precios-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+    .precio-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .precio-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+    .precio-destacado {
+      border-color: var(--gold);
+      background: linear-gradient(135deg, var(--bg2) 70%, rgba(245,158,11,0.07));
+      box-shadow: 0 0 0 1px var(--gold), 0 8px 24px rgba(245,158,11,0.12);
+    }
+    .precio-badge {
+      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--muted);
+    }
+    .precio-badge-gold { color: var(--gold); }
+    .precio-nombre {
+      font-size: 1.4rem; font-weight: 800; color: #fff;
+    }
+    .precio-precio {
+      display: flex; align-items: baseline; gap: 0.25rem;
+    }
+    .precio-num {
+      font-size: 2.6rem; font-weight: 900; color: #fff; line-height: 1;
+    }
+    .precio-mes {
+      font-size: 0.95rem; color: var(--muted);
+    }
+    .precio-desc {
+      font-size: 0.9rem; color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+    }
+    .precio-lista {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 0.6rem;
+      flex: 1;
+    }
+    .precio-lista li {
+      font-size: 0.92rem; color: var(--text);
+    }
+    .precio-no {
+      color: var(--muted) !important;
+      opacity: 0.6;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center; padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.9rem;
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="https://iagentsdigital.com" class="nav-logo">
+      <img src="https://iagentsdigital.com/logo.png" alt="iAgents Digital" onerror="this.style.display='none'" />
+      <span>iAgents Digital</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#agentes">Los agentes</a></li>
+      <li><a href="#como-funciona">Cómo funciona</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#contacto">Consultar ahora</a></li>
+    </ul>
+    <a href="#contacto" class="btn btn-gold" style="font-size:0.88rem; padding:0.6rem 1.4rem;">Consultar gratis →</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio">
+    <div class="hero-badge">₿ Inteligencia Artificial para Inversiones</div>
+    <h1 class="hero-title">
+      ¿Tienes dudas sobre<br />
+      <em>criptomonedas o ETFs?</em>
+    </h1>
+    <p class="hero-sub">
+      Nuestros agentes de IA especializados te responden al momento.<br />
+      Análisis de mercado, educación, estrategia de inversión y asesoría para empresas.
+    </p>
+    <a href="#contacto" class="btn btn-gold">Hacer mi consulta gratis →</a>
+    <p class="hero-trust">✓ Primera consulta gratis &nbsp;·&nbsp; ✓ 4 agentes especializados &nbsp;·&nbsp; ✓ Para particulares y empresas</p>
+
+    <!-- Mini ticker decorativo -->
+    <div class="ticker-wrapper">
+      <div class="ticker-item">
+        <div class="label">Bitcoin</div>
+        <div class="coin">BTC</div>
+        <div class="change up">↑ Análisis disponible</div>
+      </div>
+      <div class="ticker-item">
+        <div class="label">Ethereum</div>
+        <div class="coin">ETH</div>
+        <div class="change up">↑ Análisis disponible</div>
+      </div>
+      <div class="ticker-item">
+        <div class="label">Solana</div>
+        <div class="coin">SOL</div>
+        <div class="change up">↑ Análisis disponible</div>
+      </div>
+      <div class="ticker-item">
+        <div class="label">VWCE / IWDA</div>
+        <div class="coin">ETF</div>
+        <div class="change up">↑ Análisis disponible</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOS 4 AGENTES -->
+  <section id="agentes">
+    <p class="section-label">Los especialistas</p>
+    <h2 class="section-title">4 agentes IA. Cada uno experto en su área.</h2>
+    <p class="section-sub">Tu pregunta llega al agente correcto de forma automática. Sin menús, sin formularios complicados.</p>
+
+    <div class="agentes-grid">
+
+      <div class="agente-card analista">
+        <div class="agente-icon">🔍</div>
+        <div class="agente-tipo">Agente Analista</div>
+        <h3>Análisis de mercado</h3>
+        <p>Analiza tendencias, precio, volumen y datos en tiempo real de cualquier cripto o ETF.</p>
+        <div class="agente-ejemplos">
+          <span>¿BTC está en soporte o resistencia?</span>
+          <span>¿Qué dice el RSI de Ethereum?</span>
+          <span>¿Cómo está el mercado hoy?</span>
+        </div>
+      </div>
+
+      <div class="agente-card educador">
+        <div class="agente-icon">📚</div>
+        <div class="agente-tipo">Agente Educador</div>
+        <h3>Aprende desde cero</h3>
+        <p>Explica conceptos de criptomonedas e inversión de forma clara y sin tecnicismos.</p>
+        <div class="agente-ejemplos">
+          <span>¿Qué es un ETF?</span>
+          <span>¿Cómo funciona el halving de Bitcoin?</span>
+          <span>¿Qué es la DeFi?</span>
+        </div>
+      </div>
+
+      <div class="agente-card empresas">
+        <div class="agente-icon">🏢</div>
+        <div class="agente-tipo">Agente Empresas</div>
+        <h3>Estrategia para empresas</h3>
+        <p>Asesora sobre cómo integrar cripto en tu negocio, pagos digitales y contabilidad.</p>
+        <div class="agente-ejemplos">
+          <span>¿Mi empresa puede aceptar Bitcoin?</span>
+          <span>¿Cómo tributa una venta de cripto?</span>
+          <span>¿Qué es un tesoro corporativo cripto?</span>
+        </div>
+      </div>
+
+      <div class="agente-card estrategia">
+        <div class="agente-icon">📊</div>
+        <div class="agente-tipo">Agente Estrategia</div>
+        <h3>Planificación de cartera</h3>
+        <p>Diseña tu estrategia de inversión a largo plazo según tu perfil de riesgo y objetivos financieros.</p>
+        <div class="agente-ejemplos">
+          <span>¿Cómo diversifico mi cartera?</span>
+          <span>¿Qué % poner en BTC vs ETFs?</span>
+          <span>¿Cómo gestiono el riesgo?</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section id="como-funciona">
+    <p class="section-label">El proceso</p>
+    <h2 class="section-title">Tan fácil como escribir tu pregunta</h2>
+    <p class="section-sub">No necesitas saber a qué agente dirigirte. La IA lo decide sola.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1<div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>Escribes tu consulta</h3>
+          <p>Lo que sea: una duda básica, un análisis técnico o una pregunta de empresa. Sin límites.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2<div class="step-line"></div></div>
+        <div class="step-content">
+          <h3>La IA clasifica tu pregunta</h3>
+          <p>El Agente Clasificador detecta automáticamente si es análisis, educación, empresa o estrategia de cartera.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>El especialista te responde</h3>
+          <p>El agente experto en tu tipo de consulta te da una respuesta detallada, clara y personalizada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section id="precios">
+    <p class="section-label" style="text-align:center;">Acceso al sistema</p>
+    <h2 class="section-title" style="text-align:center;">Para particulares y empresas</h2>
+    <p class="section-sub" style="text-align:center; margin: 0 auto 3rem;">Tu primera consulta es siempre gratis. Sin registro ni tarjeta.</p>
+
+    <div class="precios-grid">
+
+      <!-- PARTICULAR -->
+      <div class="precio-card">
+        <div class="precio-badge">Inversor particular</div>
+        <div class="precio-nombre">Acceso mensual</div>
+        <div class="precio-precio"><span class="precio-num">29€</span><span class="precio-mes">/mes</span></div>
+        <div class="precio-desc">Consultas ilimitadas con los 4 agentes por WhatsApp</div>
+        <ul class="precio-lista">
+          <li>✅ Acceso a los 4 agentes especializados</li>
+          <li>✅ Consultas ilimitadas por WhatsApp</li>
+          <li>✅ Historial de conversación</li>
+          <li>✅ Respuesta en minutos, 24/7</li>
+          <li>✅ Sin permanencia — cancela cuando quieras</li>
+        </ul>
+        <a href="https://wa.me/34617167771?text=Hola%2C%20quiero%20acceso%20mensual%20a%20los%20agentes%20IA%20de%20criptos" class="btn btn-primary" style="width:100%;text-align:center;margin-top:auto;" target="_blank">Acceder por WhatsApp →</a>
+        <p style="text-align:center; font-size:0.8rem; color:var(--muted); margin-top:0.75rem;">Pago por Bizum o link · Gestión directa con Quique</p>
+      </div>
+
+      <!-- EMPRESA -->
+      <div class="precio-card precio-destacado">
+        <div class="precio-badge precio-badge-gold">★ Para empresas</div>
+        <div class="precio-nombre">Sistema a medida</div>
+        <div class="precio-precio"><span class="precio-num">750€</span><span class="precio-mes"> setup</span></div>
+        <div class="precio-desc">+ 200€/mes mantenimiento y soporte</div>
+        <ul class="precio-lista">
+          <li>✅ Sistema personalizado con tu marca</li>
+          <li>✅ Los 4 agentes adaptados a tu sector</li>
+          <li>✅ Integración con WhatsApp Business</li>
+          <li>✅ Panel de control y métricas</li>
+          <li>✅ Ideal para academias, exchanges, gestorías e influencers fintech</li>
+        </ul>
+        <a href="#contacto" class="btn btn-gold" style="width:100%;text-align:center;margin-top:auto;">Solicitar demo gratuita →</a>
+        <p style="text-align:center; font-size:0.8rem; color:var(--muted); margin-top:0.75rem;">En marcha en menos de 2 semanas</p>
+      </div>
+
+    </div>
+    <p style="text-align:center; color:var(--muted); font-size:0.85rem; margin-top:2rem;">¿No sabes qué opción es para ti? <a href="#contacto" style="color:var(--blue);">Escríbenos y te orientamos</a>.</p>
+  </section>
+
+  <!-- FORMULARIO GHL -->
+  <section style="padding-top: 0; padding-bottom: 5rem;">
+    <div id="contacto">
+      <p class="section-label" style="text-align:center;">Hablemos</p>
+      <h2 class="section-title" style="text-align:center;">Haz tu primera consulta — o pide demo para tu empresa</h2>
+      <p class="section-sub" style="text-align:center; margin: 0 auto 2rem;">Sin registro. Sin tarjeta. Si eres empresa, cuéntanos tu caso y te mostramos el sistema en funcionamiento.</p>
+
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/Lp39HYvDCYokqMFp7vBq"
+        style="width:100%;height:691px;border:none;border-radius:8px;background:var(--bg2)"
+        id="inline-Lp39HYvDCYokqMFp7vBq"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Consulta Criptos - iAgents Digital"
+        data-height="691"
+        data-layout-iframe-id="inline-Lp39HYvDCYokqMFp7vBq"
+        data-form-id="Lp39HYvDCYokqMFp7vBq"
+        title="Consulta Criptos - iAgents Digital"
+      ></iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="margin-bottom: 0.4rem;">
+      <strong style="color: var(--text);">iAgents Digital</strong> · Xàtiva, Valencia
+    </p>
+    <p><a href="https://iagentsdigital.com">← Volver a iagentsdigital.com</a></p>
+  </footer>
+
+</body>
+</html>
