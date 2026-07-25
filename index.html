@@ -4,7 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>iAgents Digital | Convierte mensajes y formularios en clientes reales</title>
-  <meta name="description" content="Sistemas digitales para captar leads desde web o landing, responder por WhatsApp, organizar contactos en CRM y activar seguimiento comercial. Para inmobiliarias, clínicas, funerarias y negocios locales." />
+  <meta name="description" content="Automatización comercial y atención por WhatsApp para inmobiliarias y negocios locales en Xàtiva y Valencia. Cualificamos y ordenamos cada contacto en tu CRM con seguimiento automático." />
+  <link rel="canonical" href="https://iagentsdigital.com/" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iagentsdigital.com/" />
+  <meta property="og:title" content="iAgents Digital | Convierte mensajes y formularios en clientes reales" />
+  <meta property="og:description" content="Automatización comercial y atención por WhatsApp para inmobiliarias y negocios locales en Xàtiva y Valencia. Cualificamos y ordenamos cada contacto en tu CRM con seguimiento automático." />
+  <meta property="og:image" content="https://iagentsdigital.com/logo.png" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="iAgents Digital | Convierte mensajes y formularios en clientes reales" />
+  <meta name="twitter:description" content="Automatización comercial y atención por WhatsApp para inmobiliarias y negocios locales en Xàtiva y Valencia. Cualificamos y ordenamos cada contacto en tu CRM con seguimiento automático." />
+  <meta name="twitter:image" content="https://iagentsdigital.com/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -39,7 +51,20 @@
     .nav-links a:hover { color: var(--indigo); }
     .nav-cta { background: var(--wa); color: white; font-size: 14px; font-weight: 700; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; gap: 6px; white-space: nowrap; transition: opacity .2s; }
     .nav-cta:hover { opacity: .9; }
-    @media(max-width:768px){ .nav-links { display: none; } }
+    @media(max-width:768px){ .nav-links { display: none; } .nav-cta { display: none; } }
+
+    /* MENU MOVIL */
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 38px; height: 38px; background: none; border: none; cursor: pointer; padding: 6px; flex-shrink: 0; }
+    .nav-toggle-bar { display: block; width: 100%; height: 2px; background: var(--navy); border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+    .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-mobile { display: none; list-style: none; flex-direction: column; gap: 2px; position: absolute; top: 68px; left: 0; right: 0; background: white; border-bottom: 1px solid #e2e8f0; box-shadow: 0 12px 24px rgba(15,23,42,0.10); padding: 8px 24px 20px; }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { display: block; padding: 13px 4px; font-size: 15px; font-weight: 600; color: var(--navy3); text-decoration: none; border-bottom: 1px solid #f1f5f9; }
+    .nav-mobile a:last-child { border-bottom: none; }
+    .nav-mobile a:focus-visible, .nav-toggle:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
+    @media(max-width:768px){ .nav-toggle { display: flex; } }
 
     /* HELPERS */
     .container { max-width: 1140px; margin: 0 auto; }
@@ -254,7 +279,21 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Ver demo
     </a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMobile" aria-label="Abrir menú de navegación">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </div>
+  <ul class="nav-mobile" id="navMobile" aria-hidden="true">
+    <li><a href="#que-hacemos">Qué hacemos</a></li>
+    <li><a href="#soluciones">Soluciones</a></li>
+    <li><a href="#demos">Demos</a></li>
+    <li><a href="#como-funciona">Cómo funciona</a></li>
+    <li><a href="#quien">Nosotros</a></li>
+    <li><a href="#agenda">Contacto</a></li>
+    <li><a href="https://wa.me/34602433221?text=Hola%2C%20quiero%20ver%20una%20demo%20de%20iAgents%20Digital" target="_blank">Ver demo por WhatsApp</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
@@ -276,6 +315,7 @@
           <div class="hero-trust-item"><span class="icon">✅</span> Sin conocimientos técnicos</div>
           <div class="hero-trust-item"><span class="icon">👀</span> Demo real antes de contratar</div>
           <div class="hero-trust-item"><span class="icon">📊</span> Sistema conectado a CRM y seguimiento</div>
+          <div class="hero-trust-item"><span class="icon">🔒</span> Sin permanencia</div>
         </div>
       </div>
 
@@ -449,7 +489,7 @@
       </div>
       <!-- CRM MOCKUP -->
       <div class="features-visual">
-        <div class="crm-title">📥 Ejemplo de oportunidades ordenadas</div>
+        <div class="crm-title">📥 Ejemplo ilustrativo de oportunidades ordenadas</div>
         <div class="crm-row">
           <div class="crm-avatar" style="background:#6366f1">MA</div>
           <div class="crm-info"><div class="nm">María Antón</div><div class="ni">Clínica dental · Xàtiva</div></div>
@@ -474,6 +514,7 @@
           <div style="font-size:28px; font-weight:800; color:#a5b4fc;">4</div>
           <div style="font-size:13px; color:#64748b;">oportunidades ordenadas para seguimiento</div>
         </div>
+        <p style="margin-top:14px; font-size:11px; color:#64748b; text-align:center; font-style:italic;">Ejemplo ilustrativo de oportunidades ordenadas — no son datos ni clientes reales.</p>
       </div>
     </div>
   </div>
@@ -502,7 +543,7 @@
     <p class="ssub" style="margin:0 auto 52px;">Sin sorpresas. Precio fijo de entrada, sin permanencia.</p>
     <div class="planes">
       <div class="plan">
-        <div class="plan-name">Esencial</div>
+        <div class="plan-name">Plan Base</div>
         <div class="plan-setup">500 €<span class="plan-setup-label"> setup</span></div>
         <div class="plan-mensual">+ 150 €/mes mantenimiento</div>
         <p class="plan-desc">Ideal para negocios que quieren captar leads de forma automática sin complicaciones técnicas.</p>
@@ -517,12 +558,12 @@
         <a href="#agenda" class="btn-plan-outline">Pedir demo antes de contratar</a>
       </div>
       <div class="plan destacado">
-        <div class="plan-name">Completo</div>
+        <div class="plan-name">Plan Profesional</div>
         <div class="plan-setup">750 €<span class="plan-setup-label"> setup</span></div>
         <div class="plan-mensual">+ 200 €/mes mantenimiento</div>
         <p class="plan-desc">Para negocios con mayor volumen que necesitan flujos avanzados, seguimiento automatizado y varias integraciones.</p>
         <ul class="plan-features">
-          <li>Todo lo incluido en Esencial</li>
+          <li>Todo lo incluido en Plan Base</li>
           <li>Flujos de seguimiento automático</li>
           <li>Integración con tu software actual</li>
           <li>App de valoración de propiedades (inmobiliarias)</li>
@@ -530,6 +571,19 @@
           <li>Soporte prioritario</li>
         </ul>
         <a href="#agenda" class="btn-plan-filled">Pedir demo antes de contratar</a>
+      </div>
+      <div class="plan">
+        <div class="plan-name">Proyecto personalizado</div>
+        <div class="plan-setup">Desde 1.500 €<span class="plan-setup-label"> setup</span></div>
+        <div class="plan-mensual">+ mantenimiento según alcance</div>
+        <p class="plan-desc">Para negocios con necesidades específicas: integraciones a medida, varios sistemas conectados o procesos que no encajan en un plan estándar.</p>
+        <ul class="plan-features">
+          <li>Alcance y precio definidos tras la demo</li>
+          <li>Integraciones a medida</li>
+          <li>Flujos y automatizaciones personalizadas</li>
+          <li>Acompañamiento directo en el diseño del sistema</li>
+        </ul>
+        <a href="#agenda" class="btn-plan-outline">Hablar de mi proyecto</a>
       </div>
     </div>
     <p style="margin-top:32px; font-size:14px; color:var(--gray2);">¿No sabes cuál necesitas? En 20 minutos de demo lo ves claro. <a href="#agenda" style="color:var(--indigo); font-weight:600;">Reserva aquí →</a></p>
@@ -620,7 +674,7 @@
       <div class="agenda-cal">
         <iframe
           id="ghl-cal"
-          src="https://api.leadconnectorhq.com/widget/booking/6flj2WMu3wawJ3lAWlyOG"
+          src="https://api.leadconnectorhq.com/widget/booking/6flj2WMu3wawJ3IAWy0G"
           title="Reservar llamada gratuita con iAgents Digital"
           allow="payment"
           frameborder="0"
@@ -714,6 +768,34 @@
   function toggleFaq(btn) {
     btn.closest('.faq-item').classList.toggle('open');
   }
+
+  // Menú móvil
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var mobile = document.getElementById('navMobile');
+    if (!toggle || !mobile) return;
+
+    function closeMenu() {
+      toggle.setAttribute('aria-expanded', 'false');
+      mobile.classList.remove('open');
+      mobile.setAttribute('aria-hidden', 'true');
+    }
+    function openMenu() {
+      toggle.setAttribute('aria-expanded', 'true');
+      mobile.classList.add('open');
+      mobile.setAttribute('aria-hidden', 'false');
+    }
+    toggle.addEventListener('click', function () {
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) { closeMenu(); } else { openMenu(); }
+    });
+    mobile.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
 
   // Si el calendario GHL no carga en 5 segundos, mostrar botón alternativo
   window.addEventListener('load', function() {
