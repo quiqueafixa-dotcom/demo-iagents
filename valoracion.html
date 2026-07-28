@@ -1082,7 +1082,7 @@
       <div class="nav-buttons">
         <button class="btn btn-back" onclick="goToStep(2)">← Atrás</button>
         <button class="btn btn-submit" id="submitBtn" onclick="submitForm()">
-          <span class="btn-text">Solicitar valoración de mi propiedad</span>
+          <span class="btn-text" id="submitBtnText">Enviar solicitud</span>
           <div class="spinner"></div>
         </button>
       </div>
@@ -1222,8 +1222,16 @@ document.querySelectorAll('input[name="tipo_operacion"]').forEach(r => {
     const sub = document.getElementById('step2-sub');
     if (esVenta) sub.textContent = 'Esto nos ayuda a preparar la información más adecuada para vender tu propiedad.';
     else if (esAlquiler) sub.textContent = 'Esto nos ayuda a preparar la información más adecuada para alquilar tu propiedad.';
+
+    const btnText = document.getElementById('submitBtnText');
+    if (esVenta) btnText.textContent = 'Enviar solicitud de venta';
+    else if (esAlquiler) btnText.textContent = 'Enviar solicitud de alquiler';
   });
 });
+
+// Si al cargar o volver entre pasos ya hay una operación seleccionada, sincroniza el texto del botón sin duplicar lógica
+const tipoOperacionInicial = document.querySelector('input[name="tipo_operacion"]:checked');
+if (tipoOperacionInicial) tipoOperacionInicial.dispatchEvent(new Event('change'));
 
 // QA: mostrar/ocultar detalle de anuncio (portal/agencia + exclusiva) según si está anunciada
 document.querySelectorAll('input[name="propiedad_anunciada"]').forEach(r => {
