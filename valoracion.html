@@ -663,7 +663,7 @@
       <div class="step-connector"></div>
       <div class="step-item">
         <div class="step-num" id="s2">2</div>
-        <div class="step-label" id="sl2">Intención</div>
+        <div class="step-label" id="sl2">Situación</div>
       </div>
       <div class="step-connector"></div>
       <div class="step-item">
@@ -684,6 +684,24 @@
 
       <div class="property-panel">
         <div class="field-group">
+          <!-- QA: nuevo campo, primer campo obligatorio del formulario -->
+          <div style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Tu operación</div>
+          <div class="field" id="f-tipo-operacion">
+            <label><span class="field-icon">🔁</span>¿Qué quieres hacer con tu propiedad? <span class="req">*</span></label>
+            <div class="options-grid" id="tipo-operacion-options">
+              <div class="option-item">
+                <input type="radio" name="tipo_operacion" id="op-venta" value="venta">
+                <label class="option-label" for="op-venta"><span class="option-emoji">💰</span>Vender</label>
+              </div>
+              <div class="option-item">
+                <input type="radio" name="tipo_operacion" id="op-alquiler" value="alquiler">
+                <label class="option-label" for="op-alquiler"><span class="option-emoji">🔑</span>Alquilar</label>
+              </div>
+            </div>
+            <span class="error-msg">Selecciona si quieres vender o alquilar</span>
+          </div>
+
+          <div style="font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); margin:22px 0 10px;">Tu propiedad</div>
           <div class="field" id="f-direccion">
             <label><span class="field-icon">📍</span>Dirección completa <span class="req">*</span></label>
             <input type="text" id="direccion" placeholder="Calle, número, localidad" autocomplete="street-address">
@@ -723,11 +741,13 @@
               <label><span class="field-icon">🏘️</span>Tipo de propiedad <span class="req">*</span></label>
               <select id="tipo_propiedad">
                 <option value="">Selecciona...</option>
-                <option>Piso / Apartamento</option>
-                <option>Casa / Chalet</option>
-                <option>Adosado / Pareado</option>
+                <option>Piso o apartamento</option>
+                <option>Casa</option>
+                <option>Chalet</option>
+                <option>Adosado o pareado</option>
                 <option>Local comercial</option>
-                <option>Terreno / Parcela</option>
+                <option>Terreno o parcela</option>
+                <option>Finca rural</option>
                 <option>Otro</option>
               </select>
               <span class="error-msg">Selecciona el tipo</span>
@@ -736,11 +756,11 @@
 
           <div class="field-row-3">
             <div class="field" id="f-metros">
-              <label><span class="field-icon">📐</span>Superficie (m²) <span class="req">*</span></label>
+              <label id="label-metros"><span class="field-icon">📐</span>Superficie (m²) <span class="req">*</span></label>
               <input type="number" id="metros" placeholder="Ej: 90" min="10" max="9999">
               <span class="error-msg">Introduce los m²</span>
             </div>
-            <div class="field">
+            <div class="field" id="f-habitaciones">
               <label><span class="field-icon">🛏️</span>Habitaciones</label>
               <select id="habitaciones">
                 <option value="">Selecciona...</option>
@@ -751,7 +771,7 @@
                 <option>5 o más</option>
               </select>
             </div>
-            <div class="field">
+            <div class="field" id="f-banos">
               <label><span class="field-icon">🛁</span>Baños</label>
               <select id="banos">
                 <option value="">Selecciona...</option>
@@ -762,7 +782,46 @@
             </div>
           </div>
 
-          <div class="field-row">
+          <!-- QA: solo TERRENO — ¿existe alguna construcción en la parcela? -->
+          <div class="field" id="f-terreno-construccion" style="display:none">
+            <label>¿Existe alguna construcción o edificación en la parcela? <span class="req">*</span></label>
+            <div class="options-grid" style="grid-template-columns: repeat(2, 1fr);">
+              <div class="option-item">
+                <input type="radio" name="terreno_construccion_existe" id="tc-si" value="Sí">
+                <label class="option-label" for="tc-si">Sí</label>
+              </div>
+              <div class="option-item">
+                <input type="radio" name="terreno_construccion_existe" id="tc-no" value="No">
+                <label class="option-label" for="tc-no">No</label>
+              </div>
+            </div>
+            <span class="error-msg">Indica si existe alguna construcción en la parcela</span>
+          </div>
+
+          <!-- QA: solo FINCA RURAL — ¿incluye vivienda? -->
+          <div class="field" id="f-finca-vivienda" style="display:none">
+            <label>¿La finca incluye vivienda? <span class="req">*</span></label>
+            <div class="options-grid" style="grid-template-columns: repeat(2, 1fr);">
+              <div class="option-item">
+                <input type="radio" name="finca_incluye_vivienda" id="fv-si" value="Sí">
+                <label class="option-label" for="fv-si">Sí</label>
+              </div>
+              <div class="option-item">
+                <input type="radio" name="finca_incluye_vivienda" id="fv-no" value="No">
+                <label class="option-label" for="fv-no">No</label>
+              </div>
+            </div>
+            <span class="error-msg">Indica si la finca incluye vivienda</span>
+          </div>
+
+          <!-- QA: solo OTRO — descripción obligatoria -->
+          <div class="field" id="f-otro-descripcion" style="display:none">
+            <label>Describe brevemente tu propiedad <span class="req">*</span></label>
+            <input type="text" id="descripcion_tipo_propiedad" placeholder="Ej: nave industrial, plaza de garaje, trastero...">
+            <span class="error-msg">Describe brevemente qué tipo de propiedad es</span>
+          </div>
+
+          <div class="field-row" id="f-row-estado-ano">
             <div class="field" id="f-estado">
               <label><span class="field-icon">🧱</span>Estado del inmueble <span class="req">*</span></label>
               <select id="estado_inmueble">
@@ -787,9 +846,9 @@
             </div>
           </div>
 
-          <!-- Declaración de obra nueva: visible y obligatoria solo para Casa / Chalet -->
+          <!-- Declaración de obra nueva: Casa/Chalet siempre; Finca rural siempre; Terreno solo si hay construcción -->
           <div class="field" id="f-obra-nueva" style="display:none;">
-            <label><span class="field-icon">📄</span>¿Dispone de declaración de obra nueva? <span class="req">*</span></label>
+            <label id="label-obra-nueva"><span class="field-icon">📄</span>¿Dispone de declaración de obra nueva? <span class="req">*</span></label>
             <div class="options-grid" id="obra-nueva-options" style="grid-template-columns: repeat(3, 1fr);">
               <div class="option-item">
                 <input type="radio" name="declaracion_obra_nueva" id="on1" value="Sí">
@@ -830,32 +889,10 @@
 
     <!-- STEP 2: Intention -->
     <div class="form-section" id="step2">
-      <div class="section-title">Tu intención de venta</div>
-      <div class="section-sub">Esto nos ayuda a preparar la valoración más adecuada para tu situación</div>
+      <div class="section-title">Tu situación</div>
+      <div class="section-sub" id="step2-sub">Esto nos ayuda a preparar la información más adecuada para tu operación.</div>
 
       <div class="field-group">
-        <div class="field">
-          <label>¿Cuándo piensas vender? <span class="req">*</span></label>
-          <div class="options-grid" id="cuando-options">
-            <div class="option-item">
-              <input type="radio" name="cuando_vender" id="cv1" value="En menos de 3 meses">
-              <label class="option-label" for="cv1"><span class="option-emoji">🔥</span>Menos de 3 meses</label>
-            </div>
-            <div class="option-item">
-              <input type="radio" name="cuando_vender" id="cv2" value="Entre 3 y 6 meses">
-              <label class="option-label" for="cv2"><span class="option-emoji">📅</span>Entre 3 y 6 meses</label>
-            </div>
-            <div class="option-item">
-              <input type="radio" name="cuando_vender" id="cv3" value="Más adelante">
-              <label class="option-label" for="cv3"><span class="option-emoji">🗓️</span>Más adelante</label>
-            </div>
-            <div class="option-item">
-              <input type="radio" name="cuando_vender" id="cv4" value="Solo quiero saber el precio">
-              <label class="option-label" for="cv4"><span class="option-emoji">💡</span>Solo el precio</label>
-            </div>
-          </div>
-        </div>
-
         <div class="field">
           <label>¿Cuál es tu relación con la propiedad? <span class="req">*</span></label>
           <div class="options-grid" id="relacion-options">
@@ -886,6 +923,102 @@
             <span class="slider-val" id="pct-val">50%</span>
           </div>
         </div>
+      </div>
+
+      <!-- QA FASE 4: campos condicionales según tipo_operacion (venta / alquiler / comunes) -->
+      <div class="field-group">
+
+        <!-- Solo VENTA -->
+        <div id="f-campos-venta" style="display:none">
+          <div class="field-row">
+            <div class="field" id="f-precio-venta">
+              <label><span class="field-icon">💰</span>Precio de venta esperado (€) <span style="font-weight:400;color:var(--gray)">(opcional)</span></label>
+              <input type="number" id="precio_venta_esperado" placeholder="Ej: 120000" min="0">
+            </div>
+            <div class="field" id="f-plazo-venta">
+              <label><span class="field-icon">🗓️</span>Plazo previsto para vender <span class="req">*</span></label>
+              <select id="plazo_venta">
+                <option value="">Selecciona...</option>
+                <option value="menos_de_3_meses">Menos de 3 meses</option>
+                <option value="entre_3_y_6_meses">Entre 3 y 6 meses</option>
+                <option value="mas_de_6_meses">Más de 6 meses</option>
+                <option value="solo_informacion">Solo quiero información</option>
+              </select>
+              <span class="error-msg">Selecciona el plazo previsto para vender</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Solo ALQUILER -->
+        <div id="f-campos-alquiler" style="display:none">
+          <div class="field-row">
+            <div class="field" id="f-renta-alquiler">
+              <label><span class="field-icon">🔑</span>Renta mensual esperada (€) <span style="font-weight:400;color:var(--gray)">(opcional)</span></label>
+              <input type="number" id="renta_mensual_esperada" placeholder="Ej: 650" min="0">
+            </div>
+            <div class="field" id="f-plazo-alquiler">
+              <label><span class="field-icon">🗓️</span>Plazo previsto para alquilar <span class="req">*</span></label>
+              <select id="plazo_alquiler">
+                <option value="">Selecciona...</option>
+                <option value="cuanto_antes">Cuanto antes</option>
+                <option value="entre_1_y_3_meses">Entre 1 y 3 meses</option>
+                <option value="mas_adelante">Más adelante</option>
+                <option value="solo_informacion">Solo quiero información</option>
+              </select>
+              <span class="error-msg">Selecciona el plazo previsto para alquilar</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comunes a venta y alquiler: situación de anuncio / exclusiva -->
+        <div id="f-campos-anuncio" style="display:none">
+          <div class="field" id="f-propiedad-anunciada">
+            <label>¿Está actualmente anunciada? <span class="req">*</span></label>
+            <div class="options-grid">
+              <div class="option-item">
+                <input type="radio" name="propiedad_anunciada" id="pa-si" value="si">
+                <label class="option-label" for="pa-si">Sí</label>
+              </div>
+              <div class="option-item">
+                <input type="radio" name="propiedad_anunciada" id="pa-no" value="no">
+                <label class="option-label" for="pa-no">No</label>
+              </div>
+            </div>
+            <span class="error-msg">Indica si tu propiedad está actualmente anunciada</span>
+          </div>
+
+          <div id="f-campos-anuncio-detalle" style="display:none">
+            <div class="field" id="f-agencia-portal">
+              <label>¿Con qué portal o agencia? <span style="font-weight:400;color:var(--gray)">(opcional)</span></label>
+              <input type="text" id="portal_agencia_actual" placeholder="Ej: Idealista, Fotocasa, nombre de la agencia...">
+            </div>
+
+            <div class="field" id="f-exclusiva-vigente">
+              <label>¿Existe un encargo o exclusiva vigente? <span class="req">*</span></label>
+              <div class="options-grid">
+                <div class="option-item">
+                  <input type="radio" name="exclusiva_vigente" id="ex-si" value="si">
+                  <label class="option-label" for="ex-si">Sí</label>
+                </div>
+                <div class="option-item">
+                  <input type="radio" name="exclusiva_vigente" id="ex-no" value="no">
+                  <label class="option-label" for="ex-no">No</label>
+                </div>
+                <div class="option-item">
+                  <input type="radio" name="exclusiva_vigente" id="ex-nosabe" value="no_lo_se">
+                  <label class="option-label" for="ex-nosabe">No lo sé</label>
+                </div>
+              </div>
+              <span class="error-msg">Indica si existe un encargo o exclusiva vigente</span>
+            </div>
+
+            <div class="field" id="f-exclusiva-fecha" style="display:none">
+              <label>Fecha aproximada de finalización, si existe <span style="font-weight:400;color:var(--gray)">(opcional)</span></label>
+              <input type="text" id="fecha_fin_exclusiva" placeholder="Ej: octubre 2026, o mes/año aproximado">
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <div class="nav-buttons">
@@ -920,21 +1053,20 @@
         </div>
       </div>
 
-      <!-- CONSENTIMIENTO 1: OBLIGATORIO para tramitar la solicitud -->
+      <!-- QA: CONSENTIMIENTO FASE 1 — única casilla obligatoria. Fase 2 (colaborador_check) eliminada de este formulario. -->
       <div class="field" id="f-rgpd" style="margin-top: 22px;">
         <label style="display:flex; align-items:flex-start; gap:12px; cursor:pointer; text-transform:none; letter-spacing:0; font-weight:400; font-size:14.5px; color:#3a4657; line-height:1.6;">
           <input type="checkbox" id="rgpd_check" style="width:21px; height:21px; flex-shrink:0; margin-top:2px; accent-color: var(--gold); cursor:pointer;">
-          <span>He leído y acepto la <a href="privacidad-colaboradores.html" target="_blank" style="color:var(--gold); text-decoration:underline;">Política de Privacidad</a>. Autorizo a iAgents Digital a tratar mis datos para gestionar mi solicitud de información y valoración de la propiedad. <span style="color:var(--error);">*</span></span>
+          <span>Autorizo a iAgents Digital a gestionar y revisar mi solicitud y a contactar conmigo sobre ella. He leído la <a href="privacidad-colaboradores.html" target="_blank" style="color:var(--gold); text-decoration:underline;">política de privacidad</a>. <span style="color:var(--error);">*</span></span>
         </label>
         <span class="error-msg" id="rgpd-error" style="display:none; color:var(--error); font-size:13px; margin-top:4px;">Debes aceptar esta casilla para continuar</span>
       </div>
 
-      <!-- CONSENTIMIENTO 2: AUTORIZACION ESPECIFICA para compartir con inmobiliaria colaboradora (opcional, no bloquea el envío) -->
-      <div class="field" id="f-colaborador" style="margin-top: 16px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:16px 18px;">
-        <label style="display:flex; align-items:flex-start; gap:12px; cursor:pointer; text-transform:none; letter-spacing:0; font-weight:400; font-size:14.5px; color:#3a4657; line-height:1.6;">
-          <input type="checkbox" id="colaborador_check" style="width:21px; height:21px; flex-shrink:0; margin-top:2px; accent-color: var(--gold); cursor:pointer;">
-          <span>Autorizo a iAgents Digital a compartir los datos de esta solicitud con una inmobiliaria colaboradora de Xàtiva o La Costera, para que pueda contactarme, valorar la propiedad y explicarme sus servicios. Esta autorización no me obliga a contratar sus servicios ni a firmar una exclusiva. <span style="color:#16a34a; font-weight:600;">(Opcional)</span></span>
-        </label>
+      <!-- QA: texto informativo, SIN casilla — la autorización de fase 2 no se recoge en este formulario -->
+      <div style="margin-top: 14px; background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:16px 18px;">
+        <p style="font-size:13.5px; color:#166534; line-height:1.6; margin:0;">
+          iAgents Digital no compartirá tus datos personales o de contacto con ninguna agencia sin informarte previamente de qué agencia es y obtener después tu autorización expresa.
+        </p>
       </div>
 
       <!-- Texto informativo protección de datos -->
@@ -942,7 +1074,7 @@
         <p style="font-size:13px; color:#4a5568; line-height:1.7; margin:0;">
           <strong style="color:#2d3748;">Responsable:</strong> Vicente Enrique Iborra Casanova — iAgents Digital.<br>
           <strong style="color:#2d3748;">Finalidad:</strong> gestionar la solicitud de información y valoración.<br>
-          <strong style="color:#2d3748;">Destinatarios:</strong> cuando el propietario lo autorice expresamente, una inmobiliaria colaboradora de Xàtiva o La Costera.<br>
+          <strong style="color:#2d3748;">Destinatarios:</strong> ninguno, salvo que en una fase posterior autorices expresamente compartir tus datos con una agencia concreta ya identificada.<br>
           <strong style="color:#2d3748;">Derechos:</strong> acceso, rectificación, supresión y demás derechos indicados en la <a href="privacidad-colaboradores.html" target="_blank" style="color:var(--gold);">Política de Privacidad</a>.
         </p>
       </div>
@@ -986,6 +1118,85 @@ const WEBHOOK_URL = 'https://n8n.iagentsdigital.com/webhook/captacion-inmobiliar
 
 let currentStep = 1;
 
+// QA SECCIÓN 3: categorías de tipo de propiedad
+const CATEGORIAS_PROPIEDAD = {
+  'Piso o apartamento': 'residencial',
+  'Casa': 'residencial',
+  'Chalet': 'residencial',
+  'Adosado o pareado': 'residencial',
+  'Local comercial': 'local',
+  'Terreno o parcela': 'terreno',
+  'Finca rural': 'finca',
+  'Otro': 'otro'
+};
+function categoriaPropiedad(tipo) { return CATEGORIAS_PROPIEDAD[tipo] || ''; }
+
+function limpiarCampo(id) { const el = document.getElementById(id); if (el) el.value = ''; }
+function desmarcarGrupo(name) { document.querySelectorAll('input[name="' + name + '"]').forEach(r => r.checked = false); }
+
+// QA: fuente única de verdad de qué debe mostrarse/exigirse según tipo de propiedad y sus toggles
+function estadoCampos() {
+  const tipo = document.getElementById('tipo_propiedad').value;
+  const cat = categoriaPropiedad(tipo);
+  const fincaVivienda = document.querySelector('input[name="finca_incluye_vivienda"]:checked')?.value === 'Sí';
+  const terrenoConstruccion = document.querySelector('input[name="terreno_construccion_existe"]:checked')?.value === 'Sí';
+  return {
+    cat: cat,
+    mostrarHabBanos: cat === 'residencial' || (cat === 'finca' && fincaVivienda),
+    mostrarEstado: cat === 'residencial' || cat === 'local' || (cat === 'finca' && fincaVivienda),
+    mostrarAno: cat === 'residencial' || cat === 'local' || (cat === 'finca' && fincaVivienda) || (cat === 'terreno' && terrenoConstruccion),
+    mostrarObraNueva: (cat === 'residencial' && (tipo === 'Casa' || tipo === 'Chalet')) || cat === 'finca' || (cat === 'terreno' && terrenoConstruccion),
+    mostrarTerrenoToggle: cat === 'terreno',
+    mostrarFincaToggle: cat === 'finca',
+    mostrarOtroDescripcion: cat === 'otro',
+    metrosRequerido: cat !== 'otro'
+  };
+}
+
+// QA SECCIÓN 3: aplicar visibilidad + etiquetas dinámicas según tipo de propiedad
+function actualizarCamposPorTipo() {
+  const est = estadoCampos();
+
+  document.getElementById('f-habitaciones').style.display = est.mostrarHabBanos ? '' : 'none';
+  document.getElementById('f-banos').style.display = est.mostrarHabBanos ? '' : 'none';
+  if (!est.mostrarHabBanos) { limpiarCampo('habitaciones'); limpiarCampo('banos'); }
+
+  document.getElementById('f-estado').style.display = est.mostrarEstado ? '' : 'none';
+  if (!est.mostrarEstado) limpiarCampo('estado_inmueble');
+
+  document.getElementById('f-ano').style.display = est.mostrarAno ? '' : 'none';
+  if (!est.mostrarAno) limpiarCampo('ano_construccion');
+
+  document.getElementById('f-row-estado-ano').style.display = (est.mostrarEstado || est.mostrarAno) ? '' : 'none';
+
+  document.getElementById('f-obra-nueva').style.display = est.mostrarObraNueva ? 'block' : 'none';
+  if (!est.mostrarObraNueva) desmarcarGrupo('declaracion_obra_nueva');
+
+  document.getElementById('f-terreno-construccion').style.display = est.mostrarTerrenoToggle ? 'block' : 'none';
+  if (!est.mostrarTerrenoToggle) desmarcarGrupo('terreno_construccion_existe');
+
+  document.getElementById('f-finca-vivienda').style.display = est.mostrarFincaToggle ? 'block' : 'none';
+  if (!est.mostrarFincaToggle) desmarcarGrupo('finca_incluye_vivienda');
+
+  document.getElementById('f-otro-descripcion').style.display = est.mostrarOtroDescripcion ? 'block' : 'none';
+  if (!est.mostrarOtroDescripcion) limpiarCampo('descripcion_tipo_propiedad');
+
+  const req = est.metrosRequerido ? ' <span class="req">*</span>' : '';
+  const labelMetros = document.getElementById('label-metros');
+  if (est.cat === 'terreno') labelMetros.innerHTML = '<span class="field-icon">📐</span>Superficie aproximada de la parcela (m²)' + req;
+  else if (est.cat === 'finca') labelMetros.innerHTML = '<span class="field-icon">📐</span>Superficie aproximada (m²)' + req;
+  else labelMetros.innerHTML = '<span class="field-icon">📐</span>Superficie (m²)' + req;
+
+  const labelObraNueva = document.getElementById('label-obra-nueva');
+  if (est.cat === 'terreno' || est.cat === 'finca') labelObraNueva.innerHTML = '<span class="field-icon">📄</span>¿Existen construcciones con declaración de obra nueva? <span class="req">*</span>';
+  else labelObraNueva.innerHTML = '<span class="field-icon">📄</span>¿Dispone de declaración de obra nueva? <span class="req">*</span>';
+}
+
+document.getElementById('tipo_propiedad').addEventListener('change', actualizarCamposPorTipo);
+document.querySelectorAll('input[name="terreno_construccion_existe"]').forEach(r => r.addEventListener('change', actualizarCamposPorTipo));
+document.querySelectorAll('input[name="finca_incluye_vivienda"]').forEach(r => r.addEventListener('change', actualizarCamposPorTipo));
+actualizarCamposPorTipo(); // estado inicial (sin tipo seleccionado)
+
 // Show/hide percentage slider
 document.querySelectorAll('input[name="relacion_propiedad"]').forEach(r => {
   r.addEventListener('change', () => {
@@ -997,15 +1208,44 @@ document.querySelectorAll('input[name="relacion_propiedad"]').forEach(r => {
 // Año de construcción: no permitir un año futuro (máximo = año actual)
 document.getElementById('ano_construccion').max = new Date().getFullYear();
 
-// Declaración de obra nueva: solo aplica a Casa / Chalet (equivalente a Chalet, Casa de campo, Finca rústica, Vivienda unifamiliar)
-const TIPOS_CON_OBRA_NUEVA = ['Casa / Chalet'];
-document.getElementById('tipo_propiedad').addEventListener('change', function() {
-  const bloque = document.getElementById('f-obra-nueva');
-  const aplica = TIPOS_CON_OBRA_NUEVA.includes(this.value);
-  bloque.style.display = aplica ? 'block' : 'none';
-  if (!aplica) {
-    document.querySelectorAll('input[name="declaracion_obra_nueva"]').forEach(r => r.checked = false);
-  }
+// QA SECCIÓN 1: mostrar/ocultar campos según venta o alquiler, bloque de anuncio, y texto dinámico de la sección "Tu situación"
+document.querySelectorAll('input[name="tipo_operacion"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const esVenta = r.value === 'venta';
+    const esAlquiler = r.value === 'alquiler';
+    document.getElementById('f-campos-venta').style.display = esVenta ? 'block' : 'none';
+    document.getElementById('f-campos-alquiler').style.display = esAlquiler ? 'block' : 'none';
+    document.getElementById('f-campos-anuncio').style.display = (esVenta || esAlquiler) ? 'block' : 'none';
+    if (!esVenta) { limpiarCampo('precio_venta_esperado'); limpiarCampo('plazo_venta'); }
+    if (!esAlquiler) { limpiarCampo('renta_mensual_esperada'); limpiarCampo('plazo_alquiler'); }
+
+    const sub = document.getElementById('step2-sub');
+    if (esVenta) sub.textContent = 'Esto nos ayuda a preparar la información más adecuada para vender tu propiedad.';
+    else if (esAlquiler) sub.textContent = 'Esto nos ayuda a preparar la información más adecuada para alquilar tu propiedad.';
+  });
+});
+
+// QA: mostrar/ocultar detalle de anuncio (portal/agencia + exclusiva) según si está anunciada
+document.querySelectorAll('input[name="propiedad_anunciada"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const mostrar = r.value === 'si';
+    document.getElementById('f-campos-anuncio-detalle').style.display = mostrar ? 'block' : 'none';
+    if (!mostrar) {
+      limpiarCampo('portal_agencia_actual');
+      desmarcarGrupo('exclusiva_vigente');
+      document.getElementById('f-exclusiva-fecha').style.display = 'none';
+      limpiarCampo('fecha_fin_exclusiva');
+    }
+  });
+});
+
+// QA: mostrar/ocultar fecha aproximada de fin de exclusiva
+document.querySelectorAll('input[name="exclusiva_vigente"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const mostrar = r.value === 'si';
+    document.getElementById('f-exclusiva-fecha').style.display = mostrar ? 'block' : 'none';
+    if (!mostrar) limpiarCampo('fecha_fin_exclusiva');
+  });
 });
 
 function goToStep(step) {
@@ -1046,6 +1286,7 @@ function validateStep(step) {
   let valid = true;
 
   if (step === 1) {
+    const tipoOperacion = document.querySelector('input[name="tipo_operacion"]:checked');
     const dir = document.getElementById('direccion');
     const localidad = document.getElementById('localidad');
     const tipo = document.getElementById('tipo_propiedad');
@@ -1056,27 +1297,64 @@ function validateStep(step) {
     const anoNum = Number(ano.value);
     const anoValido = !ano.value || (Number.isInteger(anoNum) && anoNum >= 1800 && anoNum <= anoActual);
 
-    const obraNuevaAplica = TIPOS_CON_OBRA_NUEVA.includes(tipo.value);
-    const obraNuevaRespondida = !!document.querySelector('input[name="declaracion_obra_nueva"]:checked');
-    const obraNuevaValida = !obraNuevaAplica || obraNuevaRespondida;
+    const est = estadoCampos();
 
+    const metrosValido = !est.metrosRequerido || (metros.value && metros.value >= 10);
+    const estadoValido = !est.mostrarEstado || !!estado.value;
+
+    const obraNuevaRespondida = !!document.querySelector('input[name="declaracion_obra_nueva"]:checked');
+    const obraNuevaValida = !est.mostrarObraNueva || obraNuevaRespondida;
+
+    const terrenoToggleRespondido = !!document.querySelector('input[name="terreno_construccion_existe"]:checked');
+    const terrenoToggleValido = !est.mostrarTerrenoToggle || terrenoToggleRespondido;
+
+    const fincaToggleRespondido = !!document.querySelector('input[name="finca_incluye_vivienda"]:checked');
+    const fincaToggleValido = !est.mostrarFincaToggle || fincaToggleRespondido;
+
+    const otroDescripcion = document.getElementById('descripcion_tipo_propiedad');
+    const otroValido = !est.mostrarOtroDescripcion || otroDescripcion.value.trim();
+
+    setError('f-tipo-operacion', !tipoOperacion);
     setError('f-direccion', !dir.value.trim());
     setError('f-localidad', !localidad.value);
     setError('f-tipo', !tipo.value);
-    setError('f-metros', !metros.value || metros.value < 10);
-    setError('f-estado', !estado.value);
+    setError('f-metros', !metrosValido);
+    setError('f-estado', !estadoValido);
     setError('f-ano', !anoValido);
     setError('f-obra-nueva', !obraNuevaValida);
+    setError('f-terreno-construccion', !terrenoToggleValido);
+    setError('f-finca-vivienda', !fincaToggleValido);
+    setError('f-otro-descripcion', !otroValido);
 
-    valid = dir.value.trim() && localidad.value && tipo.value && metros.value >= 10 && estado.value && anoValido && obraNuevaValida;
+    valid = !!tipoOperacion && dir.value.trim() && localidad.value && tipo.value &&
+      metrosValido && estadoValido && anoValido && obraNuevaValida &&
+      terrenoToggleValido && fincaToggleValido && otroValido;
   }
 
   if (step === 2) {
-    const cuando = document.querySelector('input[name="cuando_vender"]:checked');
+    const tipoOperacion = document.querySelector('input[name="tipo_operacion"]:checked')?.value || '';
     const relacion = document.querySelector('input[name="relacion_propiedad"]:checked');
-    valid = cuando && relacion;
+
+    const plazoVenta = document.getElementById('plazo_venta');
+    const plazoVentaValido = tipoOperacion !== 'venta' || !!plazoVenta.value;
+
+    const plazoAlquiler = document.getElementById('plazo_alquiler');
+    const plazoAlquilerValido = tipoOperacion !== 'alquiler' || !!plazoAlquiler.value;
+
+    const anunciada = document.querySelector('input[name="propiedad_anunciada"]:checked');
+    const anunciadaValida = !!anunciada;
+
+    const exclusiva = document.querySelector('input[name="exclusiva_vigente"]:checked');
+    const exclusivaValida = anunciada?.value !== 'si' || !!exclusiva;
+
+    setError('f-plazo-venta', !plazoVentaValido);
+    setError('f-plazo-alquiler', !plazoAlquilerValido);
+    setError('f-propiedad-anunciada', !anunciadaValida);
+    setError('f-exclusiva-vigente', !exclusivaValida);
+
+    valid = !!relacion && plazoVentaValido && plazoAlquilerValido && anunciadaValida && exclusivaValida;
     if (!valid) {
-      alert('Por favor selecciona cuándo quieres vender y tu relación con la propiedad');
+      alert('Por favor completa: tu relación con la propiedad, el plazo previsto, si está anunciada' + (anunciada?.value === 'si' ? ' y si existe exclusiva vigente' : ''));
     }
   }
 
@@ -1085,7 +1363,7 @@ function validateStep(step) {
     const tel = document.getElementById('telefono');
     const email = document.getElementById('email');
     const rgpd = document.getElementById('rgpd_check');
-    // colaborador_check es opcional: NO participa en la validación de envío
+    // QA: consentimiento de fase 1 (rgpd_check) obligatorio; fase 2 no se recoge en este formulario
     const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const telRx = /^[6789]\d{8}$/;
 
@@ -1120,45 +1398,82 @@ async function submitForm() {
   btn.classList.add('loading');
   btn.disabled = true;
 
-  const telefono = document.getElementById('telefono').value.replace(/\s/g, '');
-  const cuando = document.querySelector('input[name="cuando_vender"]:checked')?.value || '';
+  const est = estadoCampos();
+  const tipoOperacion = document.querySelector('input[name="tipo_operacion"]:checked')?.value || '';
   const relacion = document.querySelector('input[name="relacion_propiedad"]:checked')?.value || '';
-  const porcentaje = relacion === 'Soy copropietario / herencia'
-    ? parseInt(document.getElementById('porcentaje').value)
-    : 100;
+  const propiedadAnunciada = document.querySelector('input[name="propiedad_anunciada"]:checked')?.value || '';
+  const exclusivaVigente = document.querySelector('input[name="exclusiva_vigente"]:checked')?.value || '';
 
-  const payload = {
-    nombre: document.getElementById('nombre').value.trim(),
-    telefono: telefono,
-    email: document.getElementById('email').value.trim(),
+  // QA SECCIÓN 6: payloadQA definitivo — solo campos realmente visibles/aplicables.
+  const payloadQA = {
+    tipo_operacion: tipoOperacion,
+    tipo_propiedad: document.getElementById('tipo_propiedad').value,
     direccion: document.getElementById('direccion').value.trim(),
     localidad: document.getElementById('localidad').value,
-    tipo_propiedad: document.getElementById('tipo_propiedad').value,
-    metros: parseInt(document.getElementById('metros').value),
-    habitaciones: document.getElementById('habitaciones').value || 'No especificado',
-    banos: document.getElementById('banos').value || 'No especificado',
-    estado_inmueble: document.getElementById('estado_inmueble').value,
-    ano_construccion: document.getElementById('ano_construccion').value ? parseInt(document.getElementById('ano_construccion').value) : null,
-    declaracion_obra_nueva: TIPOS_CON_OBRA_NUEVA.includes(document.getElementById('tipo_propiedad').value)
-      ? (document.querySelector('input[name="declaracion_obra_nueva"]:checked')?.value || 'No lo sé')
-      : 'No aplica',
-    cuando_vender: cuando,
-    relacion_propiedad: relacion,
-    porcentaje: porcentaje,
-    fotos: document.getElementById('fotos').value.trim() || '',
-    fuente: 'Formulario Web valoracion.iagentsdigital.com',
-    consentimiento_privacidad: document.getElementById('rgpd_check').checked,
-    consentimiento_colaborador: document.getElementById('colaborador_check').checked,
-    consentimiento_fecha: new Date().toISOString(),
-    consentimiento_version: 'captacion_colaborador_v1',
-    consentimiento_fuente: 'valoracion.iagentsdigital.com'
+    metros: document.getElementById('metros').value ? parseInt(document.getElementById('metros').value) : null
   };
+
+  if (est.mostrarHabBanos) {
+    payloadQA.habitaciones = document.getElementById('habitaciones').value || 'No especificado';
+    payloadQA.banos = document.getElementById('banos').value || 'No especificado';
+  }
+  if (est.mostrarEstado) {
+    payloadQA.estado_inmueble = document.getElementById('estado_inmueble').value;
+  }
+  if (est.mostrarAno && document.getElementById('ano_construccion').value) {
+    payloadQA.ano_construccion = parseInt(document.getElementById('ano_construccion').value);
+  }
+  if (est.mostrarObraNueva) {
+    payloadQA.declaracion_obra_nueva = document.querySelector('input[name="declaracion_obra_nueva"]:checked')?.value || 'No lo sé';
+  }
+  if (est.cat === 'otro') {
+    payloadQA.descripcion_tipo_propiedad = document.getElementById('descripcion_tipo_propiedad').value.trim();
+  }
+
+  if (tipoOperacion === 'venta') {
+    // precio_venta_esperado es opcional: si queda vacío, NO se incluye la clave en el payload
+    const precioVenta = document.getElementById('precio_venta_esperado').value;
+    if (precioVenta) payloadQA.precio_venta_esperado = parseInt(precioVenta);
+    payloadQA.plazo_venta = document.getElementById('plazo_venta').value; // obligatorio: siempre presente
+  }
+  if (tipoOperacion === 'alquiler') {
+    // renta_mensual_esperada es opcional: si queda vacía, NO se incluye la clave en el payload
+    const renta = document.getElementById('renta_mensual_esperada').value;
+    if (renta) payloadQA.renta_mensual_esperada = parseInt(renta);
+    payloadQA.plazo_alquiler = document.getElementById('plazo_alquiler').value; // obligatorio: siempre presente
+  }
+
+  payloadQA.propiedad_anunciada = propiedadAnunciada; // obligatorio: "si" | "no", nunca vacío
+  if (propiedadAnunciada === 'si') {
+    const portal = document.getElementById('portal_agencia_actual').value.trim();
+    if (portal) payloadQA.portal_agencia_actual = portal; // opcional
+    payloadQA.exclusiva_vigente = exclusivaVigente; // obligatorio cuando anunciada = si
+    if (exclusivaVigente === 'si') {
+      const fecha = document.getElementById('fecha_fin_exclusiva').value.trim();
+      if (fecha) payloadQA.fecha_fin_exclusiva = fecha; // opcional
+    }
+  }
+
+  payloadQA.relacion_propiedad = relacion;
+  if (relacion === 'Soy copropietario / herencia') {
+    payloadQA.porcentaje = parseInt(document.getElementById('porcentaje').value);
+  }
+  const fotos = document.getElementById('fotos').value.trim();
+  if (fotos) payloadQA.fotos = fotos; // opcional: si está vacío, no se incluye
+  payloadQA.nombre = document.getElementById('nombre').value.trim();
+  payloadQA.telefono = document.getElementById('telefono').value.replace(/\s/g, '');
+  payloadQA.email = document.getElementById('email').value.trim();
+  payloadQA.consentimiento_fase1 = document.getElementById('rgpd_check').checked;
+  payloadQA.consentimiento_fase1_fecha = new Date().toISOString();
+  payloadQA.consentimiento_fase1_version = '2026-07-27-v1';
+  payloadQA.schema_version = 'captacion-v2-2026-07-27';
+  payloadQA.fuente = 'Formulario Web valoracion.iagentsdigital.com';
 
   try {
     const response = await fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payloadQA)
     });
 
     if (response.ok) {
@@ -1178,9 +1493,12 @@ async function submitForm() {
       success.classList.add('active');
 
       document.getElementById('successDetails').innerHTML = `
-        <strong>Propiedad:</strong> ${payload.tipo_propiedad} · ${payload.metros} m²<br>
-        <strong>Dirección:</strong> ${payload.direccion}<br>
-        <strong>Contacto:</strong> ${payload.nombre} · ${payload.email}
+        <p>Hemos recibido correctamente los datos de tu propiedad.</p>
+        <strong>Operación:</strong> ${payloadQA.tipo_operacion || '—'}<br>
+        <strong>Tipo de propiedad:</strong> ${payloadQA.tipo_propiedad || '—'}${payloadQA.metros ? ' · ' + payloadQA.metros + ' m²' : ''}<br>
+        <strong>Dirección:</strong> ${payloadQA.direccion}<br>
+        <strong>Contacto:</strong> ${payloadQA.nombre} · ${payloadQA.email}<br>
+        <span style="font-size:12px; color:#8898aa;">iAgents Digital revisará la información y podrá contactarte para ampliar datos. Tus datos no se compartirán con ninguna agencia sin informarte previamente y obtener tu autorización expresa.</span>
       `;
 
       document.querySelector('.card').scrollIntoView({ behavior: 'smooth', block: 'start' });
