@@ -3,3 +3,8 @@ index_home_comercial_preview.html
 *.bak
 .git
 .gitignore
+deploy-agencias/
+deploy-clinicas/
+deploy-funerarias/
+qa/
+sites/
