@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://clinicas.iagentsdigital.com/sitemap.xml

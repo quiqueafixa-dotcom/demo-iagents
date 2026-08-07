@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://funerarias.iagentsdigital.com/sitemap.xml
