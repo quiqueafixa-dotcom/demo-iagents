@@ -237,13 +237,14 @@
           <strong style="color:#94a3b8;">Protección de datos:</strong> Responsable: Vicente Enrique Iborra Casanova (iAgents Digital). Finalidad: gestionar su solicitud de demo y enviarle información comercial. Legitimación: consentimiento del interesado. Destinatarios: no se cederán datos a terceros salvo obligación legal. Derechos: acceso, rectificación y supresión según la <a href="https://iagentsdigital.com/privacidad.html" target="_blank" style="color:#378ADD;">Política de Privacidad</a>.
         </p>
       </div>
-      <!-- Formulario oficial embebido de GoHighLevel (reemplaza el fetch() directo al endpoint interno, que devolvia 500) -->
+      <!-- Formulario oficial embebido de GoHighLevel. Carga diferida hasta que se
+           concede la categoria "Funcionales" del consentimiento (Dia 11). -->
       <div id="ghlFormGate" style="position:relative; border-radius:12px; overflow:hidden;">
         <div id="ghlFormOverlay" style="position:absolute; inset:0; background:rgba(10,14,23,0.6); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; z-index:5;">
-          <p style="color:#94a3b8; font-size:13px; max-width:260px; margin:0;">Marca la casilla de arriba para activar el formulario.</p>
+          <p id="ghlFormOverlayText" style="color:#94a3b8; font-size:13px; max-width:280px; margin:0;">Cargando...</p>
         </div>
         <iframe
-          src="https://api.leadconnectorhq.com/widget/form/iGFh651LIbaO0Fj6nPGq"
+          data-src="https://api.leadconnectorhq.com/widget/form/iGFh651LIbaO0Fj6nPGq"
           style="width:100%; height:700px; border:none; border-radius:12px; display:block;"
           id="inline-iGFh651LIbaO0Fj6nPGq"
           data-layout="{'id':'INLINE'}"
@@ -262,11 +263,82 @@
       </div>
       <p class="form-note">Tus datos están seguros. Sin spam, sin permanencia.</p>
     </div>
-    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
     <script>
-    document.getElementById('rgpd_check').addEventListener('change', function() {
-      document.getElementById('ghlFormOverlay').style.display = this.checked ? 'none' : 'flex';
-    });
+    (function () {
+      'use strict';
+
+      function getCookie(name) {
+        var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+        return m ? decodeURIComponent(m[1]) : null;
+      }
+      function functionalConcedida() {
+        var raw = getCookie('ia_consent');
+        if (!raw) return false;
+        try { return JSON.parse(raw).functional === 'granted'; } catch (e) { return false; }
+      }
+
+      // Cargador idempotente: asigna iframe.src e inserta form_embed.js una sola vez,
+      // y solo cuando la categoria "Funcionales" esta concedida.
+      var ghlLoaded = false;
+      function loadGhlFormOnce() {
+        if (ghlLoaded) return;
+        var iframe = document.getElementById('inline-iGFh651LIbaO0Fj6nPGq');
+        if (!iframe || !iframe.dataset.src) return;
+        ghlLoaded = true;
+        iframe.src = iframe.dataset.src;
+        if (!document.getElementById('ghl-form-embed-script')) {
+          var s = document.createElement('script');
+          s.id = 'ghl-form-embed-script';
+          s.src = 'https://link.msgsndr.com/js/form_embed.js';
+          document.body.appendChild(s);
+        }
+      }
+
+      if (functionalConcedida()) loadGhlFormOnce();
+      window.addEventListener('ia_functional_granted', loadGhlFormOnce);
+
+      // Gate visual de dos condiciones independientes: consentimiento de cookies
+      // (Funcionales) y aceptacion de la Politica de Privacidad (rgpd_check).
+      var overlay = document.getElementById('ghlFormOverlay');
+      var overlayText = document.getElementById('ghlFormOverlayText');
+      var rgpdCheck = document.getElementById('rgpd_check');
+
+      function actualizarGate() {
+        var functionalOk = functionalConcedida();
+        var rgpdOk = rgpdCheck.checked;
+
+        if (!functionalOk) {
+          overlay.style.display = 'flex';
+          overlayText.innerHTML = 'Debes aceptar las cookies <b>Funcionales</b> para usar este formulario. ' +
+            '<br><button type="button" id="ghlOpenPrefs" style="margin-top:8px;cursor:pointer;">Configurar cookies</button>';
+          var btn = document.getElementById('ghlOpenPrefs');
+          if (btn) {
+            btn.addEventListener('click', function () {
+              if (typeof window.iaOpenConsentPreferences === 'function') window.iaOpenConsentPreferences();
+            });
+          }
+          return;
+        }
+
+        if (!rgpdOk) {
+          overlay.style.display = 'flex';
+          overlayText.textContent = 'Marca la casilla de privacidad para utilizar el formulario.';
+          return;
+        }
+
+        overlay.style.display = 'none';
+      }
+
+      rgpdCheck.addEventListener('change', actualizarGate);
+      window.addEventListener('ia_functional_granted', actualizarGate);
+      document.addEventListener('click', function (e) {
+        if (e.target && e.target.closest && e.target.closest('[data-ia-action]')) {
+          setTimeout(actualizarGate, 0);
+        }
+      });
+
+      actualizarGate();
+    })();
     </script>
   </section>
 

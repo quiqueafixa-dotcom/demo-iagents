@@ -1,13 +1,21 @@
 /*
- * iAgents Digital — Consent Mode básico (Analítica / Marketing).
+ * iAgents Digital — Consent Mode básico (Analítica / Funcionales / Marketing).
  * Fuente única cargada desde https://iagentsdigital.com/assets/consent.js
- * en los 6 sitios del ecosistema. No depende de librerías externas.
+ * en los sitios del ecosistema. No depende de librerías externas.
  *
  * Requiere que ANTES de este script se haya ejecutado, de forma inline,
  * el bloque de consentimiento por defecto (analytics_storage/ad_storage/
  * ad_user_data/ad_personalization = 'denied') y la carga de GTM. Si este
  * archivo no llega a cargar (red, bloqueador, CDN caído), ese bloque
  * inline ya deja todo denegado por defecto: el sistema falla cerrado.
+ *
+ * Categoría "Funcionales" (Día 11): gobierna recursos de terceros opcionales
+ * solicitados explícitamente por el usuario (p.ej. el formulario embebido de
+ * GoHighLevel en Agencias). Empieza denegada. Una cookie antigua sin este
+ * campo se interpreta como "denied" sin invalidar analytics/marketing ya
+ * guardados. Al conceder, se emite dataLayer.push({event:"ia_functional_granted"})
+ * y window.dispatchEvent(new CustomEvent("ia_functional_granted")) — nunca se
+ * sobrescribe ni intercepta window.dataLayer.push.
  */
 (function () {
   'use strict';
@@ -46,7 +54,13 @@
       var parsed = JSON.parse(raw);
       var validAnalytics = parsed.analytics === 'granted' || parsed.analytics === 'denied';
       var validMarketing = parsed.marketing === 'granted' || parsed.marketing === 'denied';
-      if (validAnalytics && validMarketing) return parsed;
+      var validFunctional = parsed.functional === 'granted' || parsed.functional === 'denied';
+      if (validAnalytics && validMarketing) {
+        // Retrocompatibilidad: cookie antigua sin "functional" -> se normaliza
+        // a "denied" SIN invalidar analytics/marketing ya guardados.
+        if (!validFunctional) parsed.functional = 'denied';
+        return parsed;
+      }
     } catch (e) {}
     return null; // cookie ausente o corrupta -> se trata como "sin decisión"
   }
@@ -67,20 +81,38 @@
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'ia_analytics_granted' });
     }
+    if (state.functional === 'granted') {
+      // Señal para cargadores diferidos de recursos opcionales (p.ej. el
+      // formulario de GHL en Agencias). Solo se LLAMA a dataLayer.push (uso
+      // normal): en ningún momento se sobrescribe ni intercepta el método.
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'ia_functional_granted' });
+      window.dispatchEvent(new CustomEvent('ia_functional_granted'));
+    }
   }
 
-  function applyChoice(analyticsGranted, marketingGranted) {
+  function applyChoice(analyticsGranted, marketingGranted, functionalGranted) {
     var prev = readSavedConsent();
     var wasAnalyticsGranted = !!(prev && prev.analytics === 'granted');
+    var wasFunctionalGranted = !!(prev && prev.functional === 'granted');
     var state = {
       analytics: analyticsGranted ? 'granted' : 'denied',
-      marketing: marketingGranted ? 'granted' : 'denied'
+      marketing: marketingGranted ? 'granted' : 'denied',
+      functional: functionalGranted ? 'granted' : 'denied'
     };
     setCookie(COOKIE_NAME, JSON.stringify(state), COOKIE_DAYS);
 
     if (wasAnalyticsGranted && !analyticsGranted) {
       // Revocación tras haber aceptado: recargar para descargar la instancia
       // de GA4 que ya pudiera estar activa (Enhanced Measurement incluido).
+      location.reload();
+      return;
+    }
+
+    if (wasFunctionalGranted && !functionalGranted) {
+      // Revocación de Funcionales tras haber estado concedidas: recargar para
+      // retirar el iframe/script ya cargados (no se pueden "desinstalar" en
+      // caliente sin recargar la página).
       location.reload();
       return;
     }
@@ -158,10 +190,10 @@
     els.banner = overlay;
 
     overlay.querySelector('[data-ia-action="reject"]').addEventListener('click', function () {
-      applyChoice(false, false);
+      applyChoice(false, false, false);
     });
     overlay.querySelector('[data-ia-action="accept"]').addEventListener('click', function () {
-      applyChoice(true, true);
+      applyChoice(true, true, true);
     });
     overlay.querySelector('[data-ia-action="configure"]').addEventListener('click', openPreferences);
   }
@@ -186,6 +218,12 @@
           '<span class="ia-consent-slider"></span></label>' +
         '</div>' +
         '<div class="ia-consent-row">' +
+          '<div class="ia-consent-row-text"><b>Funcionales</b>' +
+          '<span>Activan funciones opcionales que tú solicitas, como el formulario embebido de GoHighLevel en Agencias.</span></div>' +
+          '<label class="ia-consent-switch"><input type="checkbox" id="ia-consent-functional">' +
+          '<span class="ia-consent-slider"></span></label>' +
+        '</div>' +
+        '<div class="ia-consent-row">' +
           '<div class="ia-consent-row-text"><b>Marketing</b>' +
           '<span>Reservado para futuras herramientas (aún no utilizamos ninguna).</span></div>' +
           '<label class="ia-consent-switch"><input type="checkbox" id="ia-consent-marketing">' +
@@ -201,11 +239,12 @@
 
     panel.querySelector('[data-ia-action="panel-save"]').addEventListener('click', function () {
       var analytics = document.getElementById('ia-consent-analytics').checked;
+      var functional = document.getElementById('ia-consent-functional').checked;
       var marketing = document.getElementById('ia-consent-marketing').checked;
-      applyChoice(analytics, marketing);
+      applyChoice(analytics, marketing, functional);
     });
     panel.querySelector('[data-ia-action="panel-reject"]').addEventListener('click', function () {
-      applyChoice(false, false);
+      applyChoice(false, false, false);
     });
     // Cerrar el panel al hacer clic fuera de la caja.
     panel.addEventListener('click', function (e) {
@@ -216,6 +255,7 @@
   function openPreferences() {
     var saved = readSavedConsent();
     document.getElementById('ia-consent-analytics').checked = !!(saved && saved.analytics === 'granted');
+    document.getElementById('ia-consent-functional').checked = !!(saved && saved.functional === 'granted');
     document.getElementById('ia-consent-marketing').checked = !!(saved && saved.marketing === 'granted');
     els.panel.style.display = 'flex';
   }
