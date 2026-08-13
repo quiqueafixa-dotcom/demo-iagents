@@ -356,119 +356,119 @@
       <h2 style="font-size:clamp(1.5rem,3vw,2.1rem); font-weight:800; color:#0f172a; margin-bottom:0.75rem;">Solicita tu demo gratuita</h2>
       <p style="color:#64748b; margin-bottom:2rem;">Sin compromiso. Te contactamos en menos de 24 horas y te mostramos el sistema en funcionamiento.</p>
 
-      <div style="background:#fff; border:1px solid #e2e8f0; border-radius:16px; padding:2rem; text-align:left;" id="formWrap">
-        <form id="clinicasForm" novalidate>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
-            <div>
-              <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Nombre *</label>
-              <input type="text" id="f_nombre" name="first_name" placeholder="Carlos" required
-                style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-                onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
-            </div>
-            <div>
-              <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Apellidos *</label>
-              <input type="text" id="f_apellidos" name="last_name" placeholder="García" required
-                style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-                onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
-            </div>
-          </div>
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
-            <div>
-              <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Teléfono *</label>
-              <input type="tel" id="f_telefono" name="phone" placeholder="Ej. +34 6XX XXX XXX" required
-                style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-                onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
-            </div>
-            <div>
-              <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Email *</label>
-              <input type="email" id="f_email" name="email" placeholder="tu@clinica.com" required
-                style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-                onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
-            </div>
-          </div>
-          <div style="margin-bottom:14px;">
-            <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Nombre de la clínica *</label>
-            <input type="text" id="f_clinica" name="nombre_de_la_agencia" placeholder="Clínica García" required
-              style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-              onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
-          </div>
-          <div style="margin-bottom:16px;">
-            <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">¿Algo que quieras contarnos? (opcional)</label>
-            <textarea id="f_mensaje" name="mensaje" placeholder="Cuéntanos brevemente tu situación..."
-              style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; min-height:80px; resize:vertical; transition:border .2s;"
-              onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'"></textarea>
-          </div>
-
-          <!-- Checkbox RGPD -->
-          <div style="margin-bottom:12px;">
-            <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; font-size:13px; color:#64748b; line-height:1.5; font-weight:400;">
-              <input type="checkbox" id="rgpd_check" style="width:17px; height:17px; flex-shrink:0; margin-top:2px; accent-color:#5b4fe8; cursor:pointer;">
-              <span>He leído y acepto la <a href="https://iagentsdigital.com/privacidad.html" target="_blank" style="color:#5b4fe8; text-decoration:underline;">Política de Privacidad</a>. Consiento el tratamiento de mis datos para recibir información sobre los servicios de iAgents Digital. <span style="color:#e74c3c;">*</span></span>
-            </label>
-            <span id="rgpd-error" style="display:none; color:#e74c3c; font-size:12px; margin-top:4px;">Debes aceptar la Política de Privacidad para continuar</span>
-          </div>
-
-          <!-- Texto informativo RGPD -->
-          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; margin-bottom:16px;">
-            <p style="font-size:11px; color:#94a3b8; line-height:1.6; margin:0;">
-              <strong style="color:#64748b;">Protección de datos:</strong> Responsable: Vicente Enrique Iborra Casanova (iAgents Digital). Finalidad: gestionar su solicitud de demo. Legitimación: consentimiento del interesado. Los datos de salud que pudieran derivarse del uso del servicio se tratan con las medidas reforzadas del art. 9 RGPD. No se cederán datos a terceros salvo obligación legal. Derechos según la <a href="https://iagentsdigital.com/privacidad.html" target="_blank" style="color:#5b4fe8;">Política de Privacidad</a>.
-            </p>
-          </div>
-
-          <button type="submit" id="submitBtn"
-            style="width:100%; padding:14px; background:#5b4fe8; color:#fff; border:none; border-radius:10px; font-size:1rem; font-weight:700; cursor:pointer; transition:background .2s;">
-            Enviar solicitud
-          </button>
-          <div id="formError" style="display:none; color:#e74c3c; font-size:13px; margin-top:10px; text-align:center;">Ha ocurrido un error. Por favor inténtalo de nuevo.</div>
-          <p style="font-size:12px; color:#94a3b8; text-align:center; margin-top:12px;">Tus datos están seguros. Sin spam, sin permanencia.</p>
-        </form>
+      <!-- Checkbox RGPD -->
+      <div style="margin:4px 0 8px; text-align:left;">
+        <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; font-size:13px; color:#64748b; line-height:1.5; font-weight:400;">
+          <input type="checkbox" id="rgpd_check" style="width:17px; height:17px; flex-shrink:0; margin-top:2px; accent-color:#5b4fe8; cursor:pointer;">
+          <span>He leído y acepto la <a href="https://iagentsdigital.com/privacidad.html" target="_blank" style="color:#5b4fe8; text-decoration:underline;">Política de Privacidad</a>. Consiento el tratamiento de mis datos para recibir información sobre los servicios de iAgents Digital. <span style="color:#e74c3c;">*</span></span>
+        </label>
+      </div>
+      <!-- Texto informativo RGPD -->
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px 14px; margin-bottom:16px; text-align:left;">
+        <p style="font-size:11px; color:#94a3b8; line-height:1.6; margin:0;">
+          <strong style="color:#64748b;">Protección de datos:</strong> Responsable: Vicente Enrique Iborra Casanova (iAgents Digital). Finalidad: gestionar su solicitud de demo. Legitimación: consentimiento del interesado. Los datos de salud que pudieran derivarse del uso del servicio se tratan con las medidas reforzadas del art. 9 RGPD. No se cederán datos a terceros salvo obligación legal. Derechos según la <a href="https://iagentsdigital.com/privacidad.html" target="_blank" style="color:#5b4fe8;">Política de Privacidad</a>.
+        </p>
       </div>
 
-      <div id="formSuccess" style="display:none; text-align:center; padding:2rem;">
-        <div style="font-size:3rem; margin-bottom:1rem;">🏥</div>
-        <h3 style="font-size:1.4rem; font-weight:700; color:#0f172a; margin-bottom:0.5rem;">¡Solicitud recibida!</h3>
-        <p style="color:#64748b;">Gracias por contactarnos. Te responderemos en menos de 24 horas.</p>
+      <!-- Formulario oficial embebido de GoHighLevel. Carga diferida hasta que se
+           concede la categoria "Funcionales" del consentimiento (mismo patron que agencias, Dia 11/23). -->
+      <div id="ghlFormGate" style="position:relative; border-radius:16px; overflow:hidden; background:#fff; border:1px solid #e2e8f0;">
+        <div id="ghlFormOverlay" style="position:absolute; inset:0; background:rgba(255,255,255,0.85); display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem; z-index:5;">
+          <p id="ghlFormOverlayText" style="color:#64748b; font-size:13px; max-width:280px; margin:0;">Cargando...</p>
+        </div>
+        <iframe
+          data-src="https://api.leadconnectorhq.com/widget/form/JajclfUex72gxamSjdJE"
+          style="width:100%; height:600px; border:none; display:block;"
+          id="inline-JajclfUex72gxamSjdJE"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="DEMO CLINICAS-IAGENTS DIGITAL"
+          data-height="600"
+          data-layout-iframe-id="inline-JajclfUex72gxamSjdJE"
+          data-form-id="JajclfUex72gxamSjdJE"
+          title="DEMO CLINICAS-IAGENTS DIGITAL">
+        </iframe>
       </div>
+      <p style="font-size:12px; color:#94a3b8; margin-top:12px;">Tus datos están seguros. Sin spam, sin permanencia.</p>
     </div>
 
     <script>
-    document.getElementById('clinicasForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var rgpd = document.getElementById('rgpd_check');
-      var rgpdError = document.getElementById('rgpd-error');
-      if (!rgpd.checked) { rgpdError.style.display = 'block'; return; }
-      rgpdError.style.display = 'none';
-      var btn = document.getElementById('submitBtn');
-      var errBox = document.getElementById('formError');
-      errBox.style.display = 'none';
-      btn.disabled = true;
-      btn.textContent = 'Enviando...';
-      var fd = new FormData(document.getElementById('clinicasForm'));
-      var payload = {
-        formId: 'iGFh651LIbaO0Fj6nPGq',
-        locationId: 'uSt2nd51a6JuMtyk14uF',
-        first_name: fd.get('first_name') || '',
-        last_name: fd.get('last_name') || '',
-        phone: fd.get('phone') || '',
-        email: fd.get('email') || '',
-        'contact.nombre_de_la_agencia': fd.get('nombre_de_la_agencia') ? ('[Clínica] ' + fd.get('nombre_de_la_agencia')) : '',
-        'contact.mensaje': fd.get('mensaje') || ''
-      };
-      fetch('https://backend.leadconnectorhq.com/forms/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      }).then(function(res) {
-        if (res.ok || res.status === 200 || res.status === 201) {
-          document.getElementById('formWrap').style.display = 'none';
-          document.getElementById('formSuccess').style.display = 'block';
-        } else { throw new Error('err'); }
-      }).catch(function() {
-        btn.disabled = false;
-        btn.textContent = 'Enviar solicitud';
-        errBox.style.display = 'block';
+    (function () {
+      'use strict';
+
+      function getCookie(name) {
+        var m = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+        return m ? decodeURIComponent(m[1]) : null;
+      }
+      function functionalConcedida() {
+        var raw = getCookie('ia_consent');
+        if (!raw) return false;
+        try { return JSON.parse(raw).functional === 'granted'; } catch (e) { return false; }
+      }
+
+      var ghlLoaded = false;
+      function loadGhlFormOnce() {
+        if (ghlLoaded) return;
+        var iframe = document.getElementById('inline-JajclfUex72gxamSjdJE');
+        if (!iframe || !iframe.dataset.src) return;
+        ghlLoaded = true;
+        iframe.src = iframe.dataset.src;
+        if (!document.getElementById('ghl-form-embed-script')) {
+          var s = document.createElement('script');
+          s.id = 'ghl-form-embed-script';
+          s.src = 'https://link.msgsndr.com/js/form_embed.js';
+          document.body.appendChild(s);
+        }
+      }
+
+      if (functionalConcedida()) loadGhlFormOnce();
+      window.addEventListener('ia_functional_granted', loadGhlFormOnce);
+
+      var overlay = document.getElementById('ghlFormOverlay');
+      var overlayText = document.getElementById('ghlFormOverlayText');
+      var rgpdCheck = document.getElementById('rgpd_check');
+
+      function actualizarGate() {
+        var functionalOk = functionalConcedida();
+        var rgpdOk = rgpdCheck.checked;
+
+        if (!functionalOk) {
+          overlay.style.display = 'flex';
+          overlayText.innerHTML = 'Debes aceptar las cookies <b>Funcionales</b> para usar este formulario. ' +
+            '<br><button type="button" id="ghlOpenPrefs" style="margin-top:8px;cursor:pointer;">Configurar cookies</button>';
+          var btn = document.getElementById('ghlOpenPrefs');
+          if (btn) {
+            btn.addEventListener('click', function () {
+              if (typeof window.iaOpenConsentPreferences === 'function') window.iaOpenConsentPreferences();
+            });
+          }
+          return;
+        }
+
+        if (!rgpdOk) {
+          overlay.style.display = 'flex';
+          overlayText.textContent = 'Marca la casilla de privacidad para utilizar el formulario.';
+          return;
+        }
+
+        overlay.style.display = 'none';
+      }
+
+      rgpdCheck.addEventListener('change', actualizarGate);
+      window.addEventListener('ia_functional_granted', actualizarGate);
+      document.addEventListener('click', function (e) {
+        if (e.target && e.target.closest && e.target.closest('[data-ia-action]')) {
+          setTimeout(actualizarGate, 0);
+        }
       });
-    });
+
+      actualizarGate();
+    })();
     </script>
   </section>
 
