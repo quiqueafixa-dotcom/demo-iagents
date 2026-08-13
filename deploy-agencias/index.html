@@ -47,7 +47,10 @@
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
-    #inicio { text-align: center; padding-top: 6rem; padding-bottom: 6rem; }
+    #inicio { text-align: center; padding-top: 6rem; padding-bottom: 6rem; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; z-index: 0; }
+    .hero-veil { position: absolute; inset: 0; z-index: 0; background: radial-gradient(760px 520px at 50% 30%, rgba(11,14,36,.82), rgba(5,6,14,.95) 68%); }
+    #inicio > *:not(.hero-bg):not(.hero-veil) { position: relative; z-index: 1; }
     .hero-badge { display: inline-block; background: linear-gradient(120deg,rgba(47,75,255,.22),rgba(138,61,255,.2)); border: 1px solid rgba(160,140,255,.34); color: #dbe1ff; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 500; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.12em; }
     .hero-title { font-size: clamp(1.8rem,4vw,2.9rem); font-weight: 600; line-height: 1.15; margin-bottom: 1.25rem; color: #f8f9ff; }
     .hero-title em { font-style: normal; color: var(--accent); }
@@ -145,6 +148,8 @@
   </nav>
 
   <section id="inicio">
+    <img class="hero-bg" src="assets/foto-agencia.jpg" alt="" />
+    <div class="hero-veil"></div>
     <div class="hero-badge">Inteligencia Artificial para Inmobiliarias</div>
     <h1 class="hero-title">¿Tu agencia todavía atiende clientes manualmente por <em>WhatsApp</em>?</h1>
     <p class="hero-sub">Automatiza el 80% de tus consultas con IA en menos de 7 días. Sin conocimientos técnicos.</p>
