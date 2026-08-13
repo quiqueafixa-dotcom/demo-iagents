@@ -26,35 +26,35 @@
   <title>iAgents Digital — IA para Clínicas y Centros Médicos</title>
   <meta name="description" content="Sistema de inteligencia artificial para clínicas: captación automática de pacientes, gestión de citas 24/7, reducción de no-shows y reactivación de pacientes inactivos.">
   <link rel="canonical" href="https://clinicas.iagentsdigital.com/">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/logo-iagents-mark-white.png">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --navy: #0f172a; --navy2: #1e293b; --navy3: #334155;
-      --indigo: #6366f1; --indigo-d: #4f46e5;
+      --navy: #14162b; --navy2: #1e293b; --navy3: #334155;
+      --indigo: #5b4fe8; --indigo-d: #453ecf;
+      --indigo-grad: linear-gradient(120deg,#6a5ff0,#453ecf);
       --green: #10b981; --green-light: #d1fae5;
       --blue: #3b82f6;
       --text: #1e293b; --muted: #64748b; --light: #f8fafc;
-      --border: #e2e8f0; --radius: 12px;
+      --border: #e2e8f0; --radius: 14px;
       --white: #ffffff;
     }
     html { scroll-behavior: smooth; }
-    body { background: var(--white); color: var(--text); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+    body { background: var(--white); color: var(--text); font-family: Manrope, system-ui, sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+    h1, h2, h3 { font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -.03em; }
 
     /* NAV */
     nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
     .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 1rem; }
-    .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-    .nav-logo img { height: 36px; filter: brightness(0); }
-    .nav-logo span { font-size: 1.05rem; font-weight: 800; color: var(--navy); }
-    .nav-logo span em { font-style: normal; color: var(--indigo); }
+    .nav-logo { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; }
+    .nav-logo img.mark { height: 30px; filter: brightness(0); }
+    .nav-logo img.word { height: 15px; filter: brightness(0); }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
-    .nav-cta { background: var(--indigo); color: #fff; font-size: 0.9rem; font-weight: 700; padding: 0.6rem 1.4rem; border-radius: 8px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
-    .nav-cta:hover { background: var(--indigo-d); }
+    .nav-cta { background: var(--indigo-grad); color: #fff; font-size: 0.9rem; font-weight: 700; padding: 0.6rem 1.4rem; border-radius: 8px; text-decoration: none; white-space: nowrap; transition: filter 0.2s; }
+    .nav-cta:hover { filter: brightness(1.08); }
     @media(max-width:768px){ .nav-links { display: none; } }
 
     /* LAYOUT */
@@ -62,30 +62,28 @@
     section { padding: 5rem 2rem; }
 
     /* HERO */
-    #inicio { background: linear-gradient(135deg, #f0f4ff 0%, #fafbff 60%, #f0fdf4 100%); text-align: center; padding: 6rem 2rem; }
-    .hero-badge { display: inline-block; background: #eef2ff; border: 1px solid #c7d2fe; color: var(--indigo); font-size: 0.78rem; font-weight: 700; padding: 0.35rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.8px; }
-    h1.hero-title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.15; max-width: 820px; margin: 0 auto 1.25rem; color: var(--navy); }
+    #inicio { background: linear-gradient(180deg, #f4f2ee 0%, #eceaf4 100%); padding: 5rem 2rem; }
+    .hero-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; text-align: left; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: #eef2ff; border: 1px solid #c7d2fe; color: var(--indigo); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    h1.hero-title { font-size: clamp(2rem, 4vw, 2.9rem); font-weight: 600; line-height: 1.18; margin: 0 0 1.25rem; color: var(--navy); }
     h1.hero-title em { font-style: normal; color: var(--indigo); }
-    .hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 640px; margin: 0 auto 2.5rem; }
-    .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 700; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
-    .btn-primary { background: var(--indigo); color: #fff; }
-    .btn-primary:hover { background: var(--indigo-d); }
+    .hero-sub { font-size: 1.1rem; color: var(--muted); max-width: 520px; margin: 0 0 2rem; }
+    .btn { display: inline-block; padding: 0.85rem 2rem; border-radius: var(--radius); font-size: 1rem; font-weight: 600; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s, filter .15s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--indigo-grad); color: #fff; box-shadow: 0 14px 32px rgba(69,62,207,.28); }
+    .btn-primary:hover { filter: brightness(1.06); }
     .btn-outline { background: transparent; color: var(--indigo); border: 2px solid var(--indigo); }
-    .hero-trust { margin-top: 1.25rem; font-size: 0.85rem; color: var(--muted); }
-    .hero-trust span { margin: 0 0.5rem; }
-
-    /* STATS HERO */
-    .hero-stats { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 3.5rem; }
-    .hero-stat { text-align: center; }
-    .hero-stat .val { font-size: 2rem; font-weight: 900; color: var(--navy); line-height: 1; }
-    .hero-stat .val.green { color: var(--green); }
-    .hero-stat .val.red { color: #ef4444; }
-    .hero-stat .lbl { font-size: 0.82rem; color: var(--muted); font-weight: 500; margin-top: 0.2rem; }
+    .hero-trust { margin-top: 1.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: .02em; color: var(--muted); }
+    .hero-trust span { margin: 0 0.4rem; }
+    .hero-photo { position: relative; height: 420px; border-radius: 26px; overflow: hidden; border: 1px solid rgba(20,22,43,.12); box-shadow: 0 40px 90px rgba(20,22,43,.14); }
+    .hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .hero-photo .veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,26,60,.05) 0%, transparent 45%, rgba(12,14,36,.5) 100%); }
+    .hero-photo .tag { position: absolute; left: 20px; bottom: 20px; right: 20px; padding: 12px 16px; border-radius: 999px; background: rgba(20,22,43,.88); color: #fff; font-size: 12.5px; font-weight: 600; text-align: center; }
+    @media(max-width:900px){ .hero-grid { grid-template-columns: 1fr; text-align: center; } .hero-sub { margin-left: auto; margin-right: auto; } .hero-photo { height: 280px; } }
 
     /* SECTION HEADERS */
-    .s-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--indigo); margin-bottom: 0.5rem; }
-    h2.s-title { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 800; color: var(--navy); margin-bottom: 1rem; line-height: 1.2; }
+    .s-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: var(--indigo); margin-bottom: 0.6rem; }
+    h2.s-title { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-weight: 600; color: var(--navy); margin-bottom: 1rem; line-height: 1.2; }
     p.s-sub { font-size: 1.05rem; color: var(--muted); max-width: 580px; }
 
     /* PROBLEMS */
@@ -115,28 +113,15 @@
     .steps { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; }
     .step { display: flex; gap: 1.75rem; align-items: flex-start; padding-bottom: 2.5rem; position: relative; }
     .step:last-child { padding-bottom: 0; }
-    .step-num { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; background: var(--indigo); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.2rem; color: #fff; position: relative; z-index: 1; }
+    .step-num { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; background: var(--indigo-grad); display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1.1rem; color: #fff; position: relative; z-index: 1; }
     .step-line { position: absolute; left: 25px; top: 52px; width: 2px; height: calc(100% - 52px); background: linear-gradient(to bottom, var(--indigo), transparent); }
     .step:last-child .step-line { display: none; }
     .step-content { padding-top: 0.75rem; }
     .step-content h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
     .step-content p { font-size: 0.95rem; color: var(--muted); }
 
-    /* TESTIMONIAL */
-    .testimonial { background: #eef2ff; border-left: 4px solid var(--indigo); border-radius: 0 var(--radius) var(--radius) 0; padding: 1.75rem 2rem; margin-top: 3rem; max-width: 700px; }
-    .testimonial p { font-size: 1.05rem; color: var(--navy); font-style: italic; margin-bottom: 0.75rem; line-height: 1.6; }
-    .testimonial .author { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
-
-    /* RESULTS */
-    #resultados .container { max-width: 1100px; margin: 0 auto; }
-    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1.5rem; margin-top: 3rem; }
-    .result-card { background: var(--light); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; text-align: center; }
-    .result-card .big { font-size: 2.5rem; font-weight: 900; color: var(--indigo); line-height: 1; margin-bottom: 0.5rem; }
-    .result-card .desc { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; }
-    .result-card .sub { font-size: 0.82rem; color: var(--muted); }
-
     /* CTA FINAL */
-    #cta { background: linear-gradient(135deg, #4f46e5, #6366f1); text-align: center; padding: 6rem 2rem; }
+    #cta { background: linear-gradient(135deg, #453ecf, #5b4fe8); text-align: center; padding: 6rem 2rem; }
     #cta h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; color: #fff; margin-bottom: 1rem; line-height: 1.2; }
     #cta p { font-size: 1.1rem; color: rgba(255,255,255,0.8); max-width: 560px; margin: 0 auto 2.5rem; }
     .cta-checkmarks { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; }
@@ -174,14 +159,13 @@
   <nav>
     <div class="nav-inner">
       <a href="https://iagentsdigital.com" class="nav-logo">
-        <img src="assets/logo-iagents-mark-white.png" alt="iAgents Digital">
-        <span>iAgents<em>Digital</em></span>
+        <img class="mark" src="assets/logo-iagents-mark-white.png" alt="" />
+        <img class="word" src="assets/logo-iagents-word-white.png" alt="iAgents Digital" />
       </a>
       <ul class="nav-links">
         <li><a href="#problemas">El problema</a></li>
         <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#como-funciona">Cómo funciona</a></li>
-        <li><a href="#resultados">Resultados</a></li>
       </ul>
       <a href="#contacto" class="nav-cta">Solicitar demo →</a>
     </div>
@@ -189,33 +173,24 @@
 
   <!-- HERO -->
   <section id="inicio">
-    <div class="hero-badge">🏥 IA para Clínicas y Centros Médicos</div>
-    <h1 class="hero-title">Tu clínica capta pacientes<br>y gestiona citas<br><em>mientras tú trabajas.</em></h1>
-    <p class="hero-sub">Un sistema de inteligencia artificial que automatiza la captación de nuevos pacientes, gestiona tu agenda 24/7 y reduce las citas perdidas — sin cambiar tu forma de trabajar.</p>
-    <a href="#contacto" class="btn btn-primary">Solicitar demo gratuita →</a>
-    <div class="hero-trust">
-      <span>✓ Llamada gratuita de 20 min</span>
-      <span>·</span>
-      <span>✓ Sin compromiso</span>
-      <span>·</span>
-      <span>✓ Vemos tu caso concreto</span>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="val red">-60%</div>
-        <div class="lbl">No-shows</div>
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">🏥 IA para Clínicas y Centros Médicos</div>
+        <h1 class="hero-title">Tu clínica capta pacientes<br>y gestiona citas<br><em>mientras tú trabajas.</em></h1>
+        <p class="hero-sub">Un sistema de inteligencia artificial que automatiza la captación de nuevos pacientes, gestiona tu agenda 24/7 y reduce las citas perdidas — sin cambiar tu forma de trabajar.</p>
+        <a href="#contacto" class="btn btn-primary">Solicitar demo gratuita →</a>
+        <div class="hero-trust">
+          <span>✓ Llamada gratuita de 20 min</span>
+          <span>·</span>
+          <span>✓ Sin compromiso</span>
+          <span>·</span>
+          <span>✓ Vemos tu caso concreto</span>
+        </div>
       </div>
-      <div class="hero-stat">
-        <div class="val">24/7</div>
-        <div class="lbl">Gestión de citas</div>
-      </div>
-      <div class="hero-stat">
-        <div class="val green">+40%</div>
-        <div class="lbl">Nuevos pacientes</div>
-      </div>
-      <div class="hero-stat">
-        <div class="val">0</div>
-        <div class="lbl">Llamadas perdidas</div>
+      <div class="hero-photo">
+        <img src="assets/foto-clinica.jpg" alt="Equipo de una clínica dental atendiendo a una paciente" />
+        <div class="veil"></div>
+        <div class="tag">Gestión de citas y captación, automatizadas</div>
       </div>
     </div>
   </section>
@@ -331,55 +306,20 @@
           </div>
         </div>
       </div>
-      <div class="testimonial">
-        <p>"Antes perdíamos entre 8 y 12 citas al mes por no-shows. Ahora el sistema envía recordatorios automáticos y los pacientes confirman o reagendan solos. En el primer mes recuperamos más de 900€ en huecos que antes se perdían."</p>
-        <div class="author">— Clínica de fisioterapia, Valencia</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESULTADOS -->
-  <section id="resultados">
-    <div class="container">
-      <div class="s-label">Resultados reales</div>
-      <h2 class="s-title">Lo que cambia cuando automatizas</h2>
-      <p class="s-sub">Datos medios de clínicas que llevan más de 3 meses con el sistema activo.</p>
-      <div class="results-grid">
-        <div class="result-card">
-          <div class="big">-62%</div>
-          <div class="desc">Menos no-shows</div>
-          <div class="sub">Citas confirmadas vs agenda anterior</div>
-        </div>
-        <div class="result-card">
-          <div class="big">+38%</div>
-          <div class="desc">Más pacientes nuevos</div>
-          <div class="sub">Captados de forma automática sin publicidad extra</div>
-        </div>
-        <div class="result-card">
-          <div class="big">3h</div>
-          <div class="desc">Tiempo liberado/día</div>
-          <div class="sub">Recepción deja de gestionar citas manualmente</div>
-        </div>
-        <div class="result-card">
-          <div class="big">×3</div>
-          <div class="desc">Pacientes reactivados</div>
-          <div class="sub">Ratio de respuesta vs email tradicional</div>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- PRECIOS -->
   <section id="precios" style="padding:5rem 2rem; background:#f8fafc; border-top:1px solid #e2e8f0;">
     <div style="max-width:900px; margin:0 auto; text-align:center;">
-      <p style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#6366f1; margin-bottom:0.5rem;">Inversión</p>
+      <p style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#5b4fe8; margin-bottom:0.5rem;">Inversión</p>
       <h2 style="font-size:clamp(1.6rem,3vw,2.2rem); font-weight:800; color:#0f172a; margin-bottom:0.75rem;">Precio claro, sin sorpresas</h2>
       <p style="color:#64748b; margin-bottom:3rem;">Una cita recuperada al mes ya cubre el coste mensual.</p>
       <div style="max-width:480px; margin:0 auto; text-align:left;">
-        <div style="background:#fff; border:2px solid #6366f1; border-radius:16px; padding:2.5rem;">
+        <div style="background:#fff; border:2px solid #5b4fe8; border-radius:16px; padding:2.5rem;">
           <div style="font-size:1.1rem; font-weight:700; color:#0f172a; margin-bottom:1.25rem;">Solución personalizada para tu clínica</div>
           <div style="font-size:2.4rem; font-weight:800; color:#0f172a; line-height:1;">Desde 1.500€ <span style="font-size:1rem; font-weight:500; color:#64748b;">implantación</span></div>
-          <div style="color:#6366f1; font-weight:600; margin:0.5rem 0 1.5rem;">+ desde 200€/mes mantenimiento</div>
+          <div style="color:#5b4fe8; font-weight:600; margin:0.5rem 0 1.5rem;">+ desde 200€/mes mantenimiento</div>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; margin-bottom:2rem;">
             <li style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.95rem; color:#374151;"><span style="color:#10b981; margin-top:2px;">✓</span> Captación automática desde web y WhatsApp</li>
             <li style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.95rem; color:#374151;"><span style="color:#10b981; margin-top:2px;">✓</span> Gestión de citas 24/7 sin recepcionista</li>
@@ -388,7 +328,7 @@
             <li style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.95rem; color:#374151;"><span style="color:#10b981; margin-top:2px;">✓</span> Reactivación de pacientes inactivos</li>
             <li style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.95rem; color:#374151;"><span style="color:#10b981; margin-top:2px;">✓</span> Soporte técnico incluido, con atención prioritaria por WhatsApp</li>
           </ul>
-          <a href="#contacto" style="display:block; text-align:center; background:#6366f1; color:#fff; font-weight:700; padding:0.85rem 1.5rem; border-radius:10px; text-decoration:none; transition:background .2s;">Solicitar demo gratuita</a>
+          <a href="#contacto" style="display:block; text-align:center; background:#5b4fe8; color:#fff; font-weight:700; padding:0.85rem 1.5rem; border-radius:10px; text-decoration:none; transition:background .2s;">Solicitar demo gratuita</a>
         </div>
       </div>
     </div>
@@ -412,7 +352,7 @@
   <!-- FORMULARIO CONTACTO -->
   <section id="contacto" style="background:#f8fafc; border-top:1px solid #e2e8f0;">
     <div style="max-width:600px; margin:0 auto; text-align:center;">
-      <p style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#6366f1; margin-bottom:0.5rem;">Hablemos</p>
+      <p style="font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#5b4fe8; margin-bottom:0.5rem;">Hablemos</p>
       <h2 style="font-size:clamp(1.5rem,3vw,2.1rem); font-weight:800; color:#0f172a; margin-bottom:0.75rem;">Solicita tu demo gratuita</h2>
       <p style="color:#64748b; margin-bottom:2rem;">Sin compromiso. Te contactamos en menos de 24 horas y te mostramos el sistema en funcionamiento.</p>
 
@@ -423,13 +363,13 @@
               <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Nombre *</label>
               <input type="text" id="f_nombre" name="first_name" placeholder="Carlos" required
                 style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-                onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#d1d5db'">
+                onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
             </div>
             <div>
               <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Apellidos *</label>
               <input type="text" id="f_apellidos" name="last_name" placeholder="García" required
                 style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-                onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#d1d5db'">
+                onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
             </div>
           </div>
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:14px;">
@@ -437,33 +377,33 @@
               <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Teléfono *</label>
               <input type="tel" id="f_telefono" name="phone" placeholder="Ej. +34 6XX XXX XXX" required
                 style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-                onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#d1d5db'">
+                onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
             </div>
             <div>
               <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Email *</label>
               <input type="email" id="f_email" name="email" placeholder="tu@clinica.com" required
                 style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-                onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#d1d5db'">
+                onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
             </div>
           </div>
           <div style="margin-bottom:14px;">
             <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">Nombre de la clínica *</label>
             <input type="text" id="f_clinica" name="nombre_de_la_agencia" placeholder="Clínica García" required
               style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; transition:border .2s;"
-              onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#d1d5db'">
+              onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'">
           </div>
           <div style="margin-bottom:16px;">
             <label style="display:block; font-size:13px; font-weight:600; color:#374151; margin-bottom:5px;">¿Algo que quieras contarnos? (opcional)</label>
             <textarea id="f_mensaje" name="mensaje" placeholder="Cuéntanos brevemente tu situación..."
               style="width:100%; padding:10px 12px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; outline:none; min-height:80px; resize:vertical; transition:border .2s;"
-              onfocus="this.style.borderColor='#6366f1'" onblur="this.style.borderColor='#d1d5db'"></textarea>
+              onfocus="this.style.borderColor='#5b4fe8'" onblur="this.style.borderColor='#d1d5db'"></textarea>
           </div>
 
           <!-- Checkbox RGPD -->
           <div style="margin-bottom:12px;">
             <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; font-size:13px; color:#64748b; line-height:1.5; font-weight:400;">
-              <input type="checkbox" id="rgpd_check" style="width:17px; height:17px; flex-shrink:0; margin-top:2px; accent-color:#6366f1; cursor:pointer;">
-              <span>He leído y acepto la <a href="https://iagentsdigital.com/privacidad.html" target="_blank" style="color:#6366f1; text-decoration:underline;">Política de Privacidad</a>. Consiento el tratamiento de mis datos para recibir información sobre los servicios de iAgents Digital. <span style="color:#e74c3c;">*</span></span>
+              <input type="checkbox" id="rgpd_check" style="width:17px; height:17px; flex-shrink:0; margin-top:2px; accent-color:#5b4fe8; cursor:pointer;">
+              <span>He leído y acepto la <a href="https://iagentsdigital.com/privacidad.html" target="_blank" style="color:#5b4fe8; text-decoration:underline;">Política de Privacidad</a>. Consiento el tratamiento de mis datos para recibir información sobre los servicios de iAgents Digital. <span style="color:#e74c3c;">*</span></span>
             </label>
             <span id="rgpd-error" style="display:none; color:#e74c3c; font-size:12px; margin-top:4px;">Debes aceptar la Política de Privacidad para continuar</span>
           </div>
@@ -471,12 +411,12 @@
           <!-- Texto informativo RGPD -->
           <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px 14px; margin-bottom:16px;">
             <p style="font-size:11px; color:#94a3b8; line-height:1.6; margin:0;">
-              <strong style="color:#64748b;">Protección de datos:</strong> Responsable: Vicente Enrique Iborra Casanova (iAgents Digital). Finalidad: gestionar su solicitud de demo. Legitimación: consentimiento del interesado. Los datos de salud que pudieran derivarse del uso del servicio se tratan con las medidas reforzadas del art. 9 RGPD. No se cederán datos a terceros salvo obligación legal. Derechos según la <a href="https://iagentsdigital.com/privacidad.html" target="_blank" style="color:#6366f1;">Política de Privacidad</a>.
+              <strong style="color:#64748b;">Protección de datos:</strong> Responsable: Vicente Enrique Iborra Casanova (iAgents Digital). Finalidad: gestionar su solicitud de demo. Legitimación: consentimiento del interesado. Los datos de salud que pudieran derivarse del uso del servicio se tratan con las medidas reforzadas del art. 9 RGPD. No se cederán datos a terceros salvo obligación legal. Derechos según la <a href="https://iagentsdigital.com/privacidad.html" target="_blank" style="color:#5b4fe8;">Política de Privacidad</a>.
             </p>
           </div>
 
           <button type="submit" id="submitBtn"
-            style="width:100%; padding:14px; background:#6366f1; color:#fff; border:none; border-radius:10px; font-size:1rem; font-weight:700; cursor:pointer; transition:background .2s;">
+            style="width:100%; padding:14px; background:#5b4fe8; color:#fff; border:none; border-radius:10px; font-size:1rem; font-weight:700; cursor:pointer; transition:background .2s;">
             Enviar solicitud
           </button>
           <div id="formError" style="display:none; color:#e74c3c; font-size:13px; margin-top:10px; text-align:center;">Ha ocurrido un error. Por favor inténtalo de nuevo.</div>
@@ -534,7 +474,7 @@
 
 
   <footer>
-    <p><strong>iAgents Digital</strong> · Xàtiva, Valencia</p>
+    <p><strong>iAgents Digital</strong> · Xàtiva, València</p>
     <br>
     <a href="https://iagentsdigital.com">← Volver a iagentsdigital.com</a>
     <br>
