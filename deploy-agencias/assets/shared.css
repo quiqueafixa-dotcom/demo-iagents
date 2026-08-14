@@ -1,0 +1,94 @@
+/* shared.css — componentes comunes entre subdominios sectoriales (agencias, funerarias) */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: Manrope, system-ui, sans-serif; font-size: 16px; line-height: 1.6; }
+h1, h2, h3 { font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -.03em; }
+
+/* nav */
+nav { position: sticky; top: 0; z-index: 100; background: rgba(11,14,36,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.nav-logo { display: flex; align-items: center; gap: 0.65rem; text-decoration: none; }
+.nav-logo img.mark { height: 32px; }
+.nav-logo img.word { height: 17px; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+.nav-links a:hover { color: var(--text); }
+
+/* layout */
+section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
+#inicio { padding-top: 6rem; padding-bottom: 6rem; }
+
+/* hero */
+.hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; text-align: left; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(120deg,rgba(47,75,255,.22),rgba(138,61,255,.2)); border: 1px solid rgba(160,140,255,.34); color: #dbe1ff; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; font-weight: 500; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.12em; }
+.hero-title { font-size: clamp(1.8rem,4vw,2.9rem); font-weight: 600; line-height: 1.15; margin-bottom: 1.25rem; color: #f8f9ff; }
+.hero-title em { font-style: normal; color: var(--accent); }
+.hero-sub { font-size: 1.15rem; color: var(--muted); max-width: 520px; margin: 0 0 2rem; }
+.hero-trust { margin-top: 1.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: .04em; color: var(--muted); }
+.hero-photo { position: relative; height: 420px; border-radius: 26px; overflow: hidden; border: 1px solid rgba(150,170,255,.18); box-shadow: 0 40px 90px rgba(4,6,20,.5); }
+.hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.hero-photo .veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,26,60,.05) 0%, transparent 45%, rgba(12,14,36,.5) 100%); }
+.hero-photo .tag { position: absolute; left: 20px; bottom: 20px; right: 20px; padding: 12px 16px; border-radius: 999px; background: rgba(20,22,43,.88); color: #fff; font-size: 12.5px; font-weight: 600; text-align: center; }
+@media(max-width:900px){ .hero-grid { grid-template-columns: 1fr; text-align: center; } .hero-sub { margin-left: auto; margin-right: auto; } .hero-photo { height: 280px; } }
+
+/* buttons */
+.btn { display: inline-block; padding: 0.85rem 2.25rem; border-radius: var(--radius); font-size: 1.05rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; transition: filter 0.15s, box-shadow 0.15s; }
+.btn:hover { filter: brightness(1.09); }
+.btn-primary { background: var(--accent-grad); color: #fff; box-shadow: 0 14px 34px rgba(74,62,255,.35), inset 0 1px 0 rgba(255,255,255,.28); }
+
+/* section headers */
+.section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: .16em; color: #8d97c6; margin-bottom: 0.9rem; }
+.section-title { font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 600; color: #f4f6ff; margin-bottom: 1rem; }
+.section-sub { color: var(--muted); font-size: 1.05rem; max-width: 560px; }
+
+/* benefit cards */
+#beneficios { padding-top: 4rem; }
+.benefits-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+.benefit-card { background: rgba(14,18,40,.6); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 1.75rem; transition: border-color 0.2s, transform 0.2s; }
+.benefit-card:hover { border-color: rgba(170,140,255,.5); transform: translateY(-3px); }
+.benefit-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.benefit-card h3 { font-size: 1.1rem; font-weight: 600; color: #f4f6ff; margin-bottom: 0.5rem; }
+.benefit-card p { color: var(--muted); font-size: 0.95rem; }
+
+/* steps */
+.steps { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; }
+.step { display: flex; gap: 1.75rem; align-items: flex-start; padding: 0 0 2.5rem 0; position: relative; }
+.step:last-child { padding-bottom: 0; }
+.step-num { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; background: var(--bg3); border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1.1rem; color: #b9c2ff; position: relative; z-index: 1; }
+.step-line { position: absolute; left: 25px; top: 52px; width: 2px; height: calc(100% - 52px); background: linear-gradient(to bottom, var(--accent), transparent); }
+.step:last-child .step-line { display: none; }
+.step-content h3 { font-size: 1.1rem; font-weight: 600; color: #f4f6ff; margin-bottom: 0.4rem; margin-top: 0.6rem; }
+.step-content p { color: var(--muted); font-size: 0.95rem; }
+
+/* pricing */
+#precio { text-align: center; }
+.price-box { background: linear-gradient(135deg, var(--bg2), var(--bg3)); border: 1px solid rgba(160,140,255,.35); border-radius: 20px; padding: 3rem 2.5rem; max-width: 480px; margin: 3rem auto 0; position: relative; overflow: hidden; }
+.price-box::before { content: ''; position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; background: rgba(138,61,255,.12); border-radius: 50%; }
+.price-badge { display: inline-block; background: var(--accent-grad); color: #fff; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; font-weight: 500; padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: .1em; }
+.price-main { font-family: 'Bricolage Grotesque', sans-serif; font-size: 3rem; font-weight: 600; color: #fff; line-height: 1; margin-bottom: 0.25rem; }
+.price-main span { font-family: Manrope, system-ui, sans-serif; font-size: 1.3rem; font-weight: 500; color: var(--muted); }
+.price-monthly { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; }
+.price-monthly strong { color: #b9c2ff; }
+.price-features { list-style: none; text-align: left; margin-bottom: 2rem; }
+.price-features li { padding: 0.5rem 0; color: var(--text); font-size: 0.95rem; display: flex; align-items: center; gap: 0.75rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.price-features li:last-child { border-bottom: none; }
+.price-features li::before { content: '✓'; color: #8ddcff; font-weight: 700; flex-shrink: 0; }
+.form-submit { width: 100%; padding: 1rem; font-size: 1.05rem; margin-top: 0.5rem; }
+
+/* contact */
+#contacto { background: rgba(14,18,40,.6); border-radius: 20px; border: 1px solid var(--border); max-width: 620px; margin: 0 auto; padding: 3rem 2.5rem; }
+#contacto .section-label, #contacto .section-title { text-align: center; }
+#contacto .section-sub { text-align: center; margin: 0 auto 2rem; }
+.form-note { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 0.75rem; }
+
+/* footer */
+footer { text-align: center; padding: 2.5rem 2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.88rem; }
+footer a { color: #a3b7ff; text-decoration: none; }
+footer a:hover { color: #fff; }
+
+@media (max-width: 640px) {
+  nav { padding: 0.75rem 1.25rem; }
+  .nav-links { display: none; }
+  section { padding: 3.5rem 1.25rem; }
+  #contacto { padding: 2rem 1.25rem; }
+  .price-box { padding: 2rem 1.5rem; }
+}
