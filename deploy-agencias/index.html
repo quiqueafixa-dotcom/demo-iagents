@@ -1,5 +1,5 @@
-﻿<!doctype html>
-<html lang="es">
+<!doctype html>
+<html lang="es-ES">
 <head>
   <!-- Consent Mode: denegado por defecto, antes de GTM -->
   <script>
@@ -23,9 +23,28 @@
   <script src="https://iagentsdigital.com/assets/consent.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iAgents Digital - Chatbot IA para Agencias Inmobiliarias</title>
-  <meta name="description" content="Automatiza la atención por WhatsApp de tu agencia inmobiliaria con un agente de IA. Captura leads 24/7 y los entrega cualificados a tu equipo comercial.">
+  <title>Captación de propietarios para agencias inmobiliarias | iAgents Digital</title>
+  <meta name="description" content="Sistema de captación y seguimiento de propietarios para agencias inmobiliarias. Recoge información del inmueble, cualifica oportunidades y facilita el seguimiento comercial.">
   <link rel="canonical" href="https://agencias.iagentsdigital.com/">
+  <link rel="alternate" hreflang="es-ES" href="https://agencias.iagentsdigital.com/">
+  <link rel="alternate" hreflang="x-default" href="https://agencias.iagentsdigital.com/">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="iAgents Digital">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://agencias.iagentsdigital.com/">
+  <meta property="og:title" content="Captación de propietarios para agencias inmobiliarias | iAgents Digital">
+  <meta property="og:description" content="Ayuda a tu inmobiliaria a captar propietarios que quieren vender o alquilar, organizar la información de sus inmuebles y hacer seguimiento del proceso comercial.">
+  <meta property="og:image" content="https://iagentsdigital.com/assets/foto-agencia.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Captación de propietarios para agencias inmobiliarias | iAgents Digital">
+  <meta name="twitter:description" content="Ayuda a tu inmobiliaria a captar propietarios que quieren vender o alquilar, organizar la información de sus inmuebles y hacer seguimiento del proceso comercial.">
+  <meta name="twitter:image" content="https://iagentsdigital.com/assets/foto-agencia.jpg">
+
   <link rel="icon" type="image/png" href="assets/logo-iagents-mark-white.png">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="stylesheet" href="assets/shared.css">
@@ -37,6 +56,73 @@
       --border: rgba(150,170,255,.18); --radius: 14px;
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://iagentsdigital.com/#organization",
+        "name": "iAgents Digital",
+        "legalName": "Vicente Enrique Iborra Casanova",
+        "url": "https://iagentsdigital.com",
+        "logo": "https://iagentsdigital.com/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Xàtiva",
+          "addressRegion": "Comunidad Valenciana",
+          "addressCountry": "ES"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "España"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://agencias.iagentsdigital.com/#website",
+        "url": "https://agencias.iagentsdigital.com/",
+        "name": "iAgents Digital para agencias inmobiliarias",
+        "inLanguage": "es-ES",
+        "publisher": { "@id": "https://iagentsdigital.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://agencias.iagentsdigital.com/#webpage",
+        "url": "https://agencias.iagentsdigital.com/",
+        "name": "Captación de propietarios para agencias inmobiliarias",
+        "inLanguage": "es-ES",
+        "isPartOf": { "@id": "https://agencias.iagentsdigital.com/#website" },
+        "about": { "@id": "https://agencias.iagentsdigital.com/#service" },
+        "description": "Sistema para que una agencia inmobiliaria capte propietarios que quieren vender o alquilar, organice la información de sus inmuebles y facilite el seguimiento comercial según las integraciones disponibles."
+      },
+      {
+        "@type": "Service",
+        "@id": "https://agencias.iagentsdigital.com/#service",
+        "name": "Captación de propietarios para agencias inmobiliarias",
+        "serviceType": "Automatización con inteligencia artificial para la atención y el seguimiento de oportunidades en agencias inmobiliarias",
+        "url": "https://agencias.iagentsdigital.com/",
+        "description": "Sistema para que una agencia inmobiliaria capte propietarios que quieren vender o alquilar, recoja la información de su inmueble, los cualifique y haga seguimiento del proceso. La inmobiliaria continúa con la valoración profesional, la visita, el posible encargo y la comercialización.",
+        "provider": { "@id": "https://iagentsdigital.com/#organization" },
+        "areaServed": {
+          "@type": "Country",
+          "name": "España"
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "name": "Agencias inmobiliarias"
+        },
+        "offers": {
+          "@type": "Offer",
+          "priceCurrency": "EUR",
+          "price": "1500",
+          "description": "Implantación desde 1.500 € y mantenimiento desde 200 €/mes."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -51,106 +137,140 @@
     </a>
     <ul class="nav-links">
       <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#oportunidades">Captación</a></li>
       <li><a href="#como-funciona">Cómo funciona</a></li>
       <li><a href="#precio">Precio</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
-    <a href="#contacto" class="btn btn-primary">Demo gratuita</a>
+    <a href="#contacto" class="btn btn-primary">Ver cómo funciona</a>
   </nav>
 
   <section id="inicio">
     <div class="hero-grid">
       <div>
-        <div class="hero-badge">Inteligencia Artificial para Inmobiliarias</div>
-        <h1 class="hero-title">¿Tu agencia todavía atiende clientes manualmente por <em>WhatsApp</em>?</h1>
-        <p class="hero-sub">Automatiza el 80% de tus consultas con IA en menos de 7 días. Sin conocimientos técnicos.</p>
-        <a href="#contacto" class="btn btn-primary">Solicitar demo gratuita</a>
-        <div class="hero-trust">Sin permanencia &nbsp;·&nbsp; Instalación en 7 días &nbsp;·&nbsp; Soporte incluido</div>
+        <div class="hero-badge">Sistema para agencias inmobiliarias</div>
+        <h1 class="hero-title">Capta más propietarios para tu cartera</h1>
+        <p class="hero-sub">Atrae propietarios que quieren vender o alquilar, recoge la información de su inmueble, cualifícalos y haz seguimiento para que tu inmobiliaria pueda continuar el proceso comercial.</p>
+        <a href="#contacto" class="btn btn-primary">Quiero ver cómo funciona</a>
+        <div class="hero-trust">Captación de propietarios &nbsp;·&nbsp; Valoración orientativa &nbsp;·&nbsp; Seguimiento</div>
       </div>
       <div class="hero-photo">
         <img src="assets/foto-agencia.jpg" alt="Agentes inmobiliarios revisando una propiedad con una propietaria" />
         <div class="veil"></div>
-        <div class="tag">Atención automatizada por WhatsApp, 24/7</div>
+        <div class="tag">Captación y seguimiento de propietarios</div>
       </div>
     </div>
   </section>
 
-  <section id="beneficios">
-    <div class="section-label">Por qué iAgents Digital</div>
-    <h2 class="section-title">Todo lo que necesita tu agencia, listo desde el día 1</h2>
-    <p class="section-sub">Un asistente que nunca descansa, nunca olvida y nunca pierde un lead.</p>
+  <section id="oportunidades">
+    <div class="section-label">Captación y seguimiento de propietarios</div>
+    <h2 class="section-title">Así captamos y organizamos propietarios interesados en vender o alquilar</h2>
+    <p class="section-sub">Páginas de captación, formularios y canales propios de iAgents permiten recoger información del propietario, cualificarla y dejarla preparada para el seguimiento comercial.</p>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <div class="benefit-icon">🕐</div>
-        <h3>Disponible 24/7</h3>
-        <p>Tu agencia nunca duerme. El asistente responde a cualquier hora, incluso los domingos.</p>
+        <div class="benefit-icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p>Propietarios que contactan a través del asistente de WhatsApp de iAgents pueden recibir una primera atención y cualificación.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">🎯</div>
-        <h3>Captura leads automáticamente</h3>
-        <p>Recoge nombre, teléfono y necesidad del cliente. Todo ordenado en tu CRM sin tocar nada.</p>
+        <div class="benefit-icon">📝</div>
+        <h3>Formularios y páginas de valoración</h3>
+        <p>Recogemos los datos del propietario y de su inmueble mediante páginas de captación y formularios web.</p>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">🔗</div>
-        <h3>Integrado con tu sistema</h3>
-        <p>Conectamos con tu CRM, Google Sheets y WhatsApp. Sin cambiar lo que ya tienes.</p>
+        <div class="benefit-icon">📅</div>
+        <h3>Valoración orientativa</h3>
+        <p>A partir de los datos facilitados puede generarse una valoración orientativa mediante un rango estimado de precio.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔄</div>
+        <h3>Seguimiento organizado</h3>
+        <p>La información del propietario queda organizada según la etapa del proceso para facilitar su seguimiento.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📂</div>
+        <h3>GoHighLevel</h3>
+        <p>Los propietarios cualificados pueden registrarse en GoHighLevel para continuar su gestión y seguimiento.</p>
       </div>
     </div>
   </section>
 
   <section id="como-funciona">
     <div class="section-label">El proceso</div>
-    <h2 class="section-title">Tan fácil como 1, 2, 3</h2>
-    <p class="section-sub">Tu equipo solo entra cuando el lead ya está cualificado.</p>
+    <h2 class="section-title">Cómo iAgents atiende y hace seguimiento de cada oportunidad</h2>
+    <p class="section-sub">iAgents no es solo un chatbot: es un sistema para reducir las oportunidades que se pierden. Tu equipo entra cuando la oportunidad ya está clasificada y con seguimiento en marcha.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">1<div class="step-line"></div></div>
         <div class="step-content">
-          <h3>El cliente te escribe por WhatsApp</h3>
-          <p>Sin apps adicionales, sin bots externos. Directamente en tu número de empresa.</p>
+          <h3>Entra una oportunidad</h3>
+          <p>Un contacto escribe por WhatsApp, rellena un formulario de tu web o de un portal, pide una visita, deja una llamada perdida o ya está en tu CRM sin seguimiento.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2<div class="step-line"></div></div>
         <div class="step-content">
-          <h3>La IA responde, califica y recoge sus datos</h3>
-          <p>Detecta si es comprador, vendedor o arrendatario. Obtiene nombre, teléfono y presupuesto automáticamente.</p>
+          <h3>iAgents responde y organiza la información</h3>
+          <p>Contesta o recupera el contacto, entiende si es compra, venta o alquiler, recoge los datos clave y clasifica la oportunidad. Todo según las integraciones disponibles con tus canales y tu CRM.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div class="step-content">
-          <h3>Tú recibes el lead listo para cerrar</h3>
-          <p>Aparece en tu CRM con toda la información. Solo tienes que llamar y cerrar la venta.</p>
+          <h3>Tu equipo recibe la oportunidad lista y con seguimiento</h3>
+          <p>La oportunidad llega a tu CRM con contexto y con el seguimiento en marcha para que no se enfríe. El agente humano llama, visita, negocia y cierra.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <section id="integracion">
+    <div class="section-label">Integración</div>
+    <h2 class="section-title">Se conecta con lo que tu agencia inmobiliaria ya usa</h2>
+    <p class="section-sub">No hay que cambiar de herramientas. iAgents se apoya en tus canales actuales según las integraciones disponibles en cada caso.</p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">📲</div>
+        <h3>WhatsApp</h3>
+        <p>Sobre el número de empresa que ya utilizas para hablar con clientes.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌐</div>
+        <h3>Formularios de tu web y portales</h3>
+        <p>Las solicitudes que ya recibes entran en el mismo circuito de atención y seguimiento.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🗂️</div>
+        <h3>Tu CRM</h3>
+        <p>Cada oportunidad queda registrada y actualizada en el CRM de la inmobiliaria, según las opciones de integración disponibles.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="precio">
-    <div class="section-label">Precio claro, sin sorpresas</div>
-    <h2 class="section-title">Una inversión que se paga sola</h2>
-    <p class="section-sub">Un lead perdido cuesta más que todo nuestro servicio mensual.</p>
+    <div class="section-label">Precio</div>
+    <h2 class="section-title">Precio claro, sin promesas infladas</h2>
+    <p class="section-sub">Un precio de implantación y una cuota mensual de mantenimiento. Sin condiciones ocultas.</p>
     <div class="price-box">
       <div class="price-badge">Plan Profesional</div>
       <div class="price-main">Desde 1.500 € <span>implantación</span></div>
       <div class="price-monthly">+ <strong>desde 200 €/mes</strong> mantenimiento</div>
       <ul class="price-features">
-        <li>Configuración completa del chatbot IA</li>
-        <li>Integración con WhatsApp Business</li>
-        <li>Conexión a tu CRM o Google Sheets</li>
-        <li>Panel de control con estadísticas</li>
-        <li>Soporte técnico incluido</li>
-        <li>Actualizaciones y mejoras continuas</li>
+        <li>Puesta en marcha del sistema de atención y seguimiento con IA</li>
+        <li>Conexión con WhatsApp, formularios web y tu CRM, según las integraciones disponibles</li>
+        <li>Clasificación de oportunidades (compra, venta, alquiler) y recogida de datos</li>
+        <li>Seguimiento automatizado de las oportunidades que siguen sin cerrar</li>
+        <li>Integración con el CRM o software de la inmobiliaria, según las opciones disponibles</li>
+        <li>Soporte y mejoras continuas</li>
       </ul>
-      <a href="#contacto" class="btn btn-primary form-submit">Empezar ahora</a>
+      <a href="#contacto" class="btn btn-primary form-submit">Solicitar una demo</a>
     </div>
   </section>
 
   <section id="contacto">
     <div class="section-label">Hablemos</div>
-    <h2 class="section-title">Solicita tu demo gratuita</h2>
-    <p class="section-sub">Sin compromiso. Te contactamos en menos de 24 horas.</p>
+    <h2 class="section-title">Pide una demo de iAgents para tu inmobiliaria</h2>
+    <p class="section-sub">Sin compromiso. Te contamos cómo encajaría en tu agencia y qué se puede integrar.</p>
     <div class="ghl-form" id="formWrap">
       <!-- Checkbox RGPD -->
       <div style="margin: 4px 0 8px;">
@@ -189,7 +309,7 @@
           title="Demo Agencias - iAgents Digital">
         </iframe>
       </div>
-      <p class="form-note">Tus datos están seguros. Sin spam, sin permanencia.</p>
+      <p class="form-note">Tus datos están seguros. Sin spam.</p>
     </div>
     <script>
     (function () {
@@ -271,7 +391,7 @@
   </section>
 
   <footer>
-    <strong style="color:var(--text);">iAgents Digital</strong> &nbsp;·&nbsp; Xàtiva, València
+    <strong style="color:var(--text);">iAgents Digital</strong> &nbsp;·&nbsp; IA y automatización para agencias inmobiliarias en España &nbsp;·&nbsp; Xàtiva, València
     <br><br>
     <a href="https://iagentsdigital.com">iagentsdigital.com</a>
     <br>
@@ -282,4 +402,3 @@
 
 </body>
 </html>
-
