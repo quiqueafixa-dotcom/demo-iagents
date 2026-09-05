@@ -24,7 +24,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Caso real: formulario de captación con consentimiento RGPD en agencias | iAgents Digital</title>
-<meta name="description" content="Cómo iAgents Digital instaló un formulario de captación conectado a GoHighLevel que solo carga tras consentimiento explícito, con seguimiento de conversión sin duplicados." />
+<meta name="description" content="Cómo iAgents Digital instaló un formulario de captación conectado a GoHighLevel que solo carga tras consentimiento explícito, con seguimiento de conversión sujeto a las limitaciones del formulario integrado." />
 <link rel="canonical" href="https://iagentsdigital.com/caso-agencias.html" />
 <meta name="theme-color" content="#05060e" />
 <meta name="robots" content="index, follow" />
@@ -33,12 +33,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:site_name" content="iAgents Digital" />
 <meta property="og:url" content="https://iagentsdigital.com/caso-agencias.html" />
 <meta property="og:title" content="Caso real: formulario de captación con consentimiento RGPD en agencias" />
-<meta property="og:description" content="Formulario conectado a GoHighLevel que solo carga tras consentimiento explícito, con seguimiento de conversión sin duplicados. Cómo funciona el sistema instalado por iAgents Digital." />
+<meta property="og:description" content="Formulario conectado a GoHighLevel que solo carga tras consentimiento explícito, con seguimiento de conversión sujeto a las limitaciones del formulario integrado. Cómo funciona el sistema instalado por iAgents Digital." />
 <meta property="og:image" content="https://iagentsdigital.com/assets/foto-agencia.jpg" />
 <meta property="og:image:alt" content="Agentes inmobiliarios revisando una propiedad con una propietaria" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Caso real: formulario de captación con consentimiento RGPD en agencias" />
-<meta name="twitter:description" content="Cómo iAgents Digital instaló un formulario de captación conectado a GoHighLevel con consentimiento explícito y sin eventos duplicados." />
+<meta name="twitter:description" content="Cómo iAgents Digital instaló un formulario de captación conectado a GoHighLevel con consentimiento explícito y con seguimiento sujeto a las limitaciones del formulario integrado." />
 <meta name="twitter:image" content="https://iagentsdigital.com/assets/foto-agencia.jpg" />
 <link rel="icon" type="image/png" href="assets/logo-iagents-mark-white.png" />
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
@@ -47,7 +47,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Cómo iAgents Digital instaló un formulario de captación con consentimiento RGPD en agencias",
-  "description": "Caso real de instalación de un formulario conectado a GoHighLevel con consentimiento explícito y seguimiento de conversión sin duplicados.",
+  "description": "Caso real de instalación de un formulario conectado a GoHighLevel con consentimiento explícito y seguimiento de conversión sujeto a las limitaciones del formulario integrado.",
   "url": "https://iagentsdigital.com/caso-agencias.html",
   "author": { "@type": "Organization", "name": "iAgents Digital", "url": "https://iagentsdigital.com/" },
   "publisher": { "@id": "https://iagentsdigital.com/#organization" },
@@ -199,7 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="case-hero">
   <div class="wrap case-hero-inner">
     <div class="eyebrow">Caso real · Inmobiliario · Agencias</div>
-    <h1>Formulario de captación con consentimiento explícito conectado a tu CRM</h1>
+    <h1>Formulario de captación con consentimiento explícito conectado a GoHighLevel</h1>
     <div class="case-meta">
       <span>agencias.iagentsdigital.com</span>
       <span class="case-status">En fase de lanzamiento</span>
@@ -221,7 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="flow">
       <div class="flow-step"><span class="n">01</span><div>Visitante acepta<small>categoría "Funcionales"</small></div></div>
       <div class="flow-step"><span class="n">02</span><div>Formulario GHL se carga<small>de forma diferida (lazy)</small></div></div>
-      <div class="flow-step"><span class="n">03</span><div>Envío + confirmación real<small>señal set-sticky-contacts</small></div></div>
+      <div class="flow-step"><span class="n">03</span><div>Envío del formulario<small>señal asociada del CRM</small></div></div>
     </div>
   </div>
 </section>
@@ -232,9 +232,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <ul class="case-list">
       <li><i></i><span>Bloqueo técnico real, no solo un aviso de cookies: el script del formulario no se descarga sin consentimiento</span></li>
       <li><i></i><span>Doble condición visible para el usuario: consentimiento funcional + casilla RGPD del propio formulario</span></li>
-      <li><i></i><span>Seguimiento de conversión (<span class="mono">generate_lead</span>) coordinado con la confirmación real de envío del CRM, no con un temporizador estimado</span></li>
+      <li><i></i><span>Evento de conversión asociado a una señal del CRM, con las limitaciones de medición propias de un formulario en iframe de otro dominio.</span></li>
       <li><i></i><span>Sin eventos duplicados al recargar la página o repetir el consentimiento</span></li>
-      <li><i></i><span>Publicado en producción y validado con 20 pruebas automatizadas antes de salir</span></li>
+      <li><i></i><span>Publicado en producción.</span></li>
     </ul>
   </div>
 </section>
@@ -248,8 +248,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="final">
   <div class="final-inner">
-    <h2>¿Quieres un formulario así, conectado a tu CRM?</h2>
-    <p>Te mostramos cómo conectar tu propio CRM con consentimiento explícito y seguimiento de conversión fiable en 30 minutos.</p>
+    <h2>¿Quieres un formulario así, conectado a GoHighLevel?</h2>
+    <p>Te mostramos cómo funciona un formulario conectado a GoHighLevel con consentimiento explícito y las limitaciones de medición propias de un iframe de otro dominio.</p>
     <div class="final-actions">
       <a class="btn btn-primary" href="https://wa.me/34602433221" target="_blank" rel="noopener noreferrer">Solicitar una demo</a>
       <a class="btn btn-ghost" href="index.html#casos">Ver más casos</a>
