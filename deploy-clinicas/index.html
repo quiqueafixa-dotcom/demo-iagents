@@ -148,6 +148,39 @@
       #inicio { padding: 4rem 1.25rem; }
       #cta { padding: 4rem 1.25rem; }
     }
+
+    /* ===== AÑADIDO: WhatsApp · iconos · especialidades · FAQ · firma ===== */
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+    .btn-wa { background: #25d366; color: #06210f; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 14px 32px rgba(37,211,102,.20); }
+    .btn-wa:hover { background: #1eb855; color: #06210f; }
+    .hero-wa-note { font-size: 0.85rem; color: var(--muted); margin-top: 0.9rem; max-width: 430px; }
+    .btn-ghost-light { border: 2px solid rgba(255,255,255,.45); color: #fff; background: transparent; }
+    .btn-ghost-light:hover { border-color: #fff; background: rgba(255,255,255,.08); }
+    #cta .hero-cta { justify-content: center; }
+    @media(max-width:900px){ .hero-cta { justify-content: center; } .hero-wa-note { margin-left: auto; margin-right: auto; } }
+
+    .ico-box { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; background: rgba(91,79,232,.14); border: 1px solid rgba(150,170,255,.18); color: var(--indigo); margin-bottom: 1rem; }
+    .ico-box svg { width: 21px; height: 21px; }
+
+    #especialidades { background: var(--light); }
+    #especialidades .container { max-width: 1100px; margin: 0 auto; }
+    .esp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .esp-card { background: rgba(14,18,40,.6); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; }
+    .esp-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--indigo); margin-bottom: 0.5rem; }
+    .esp-card p { font-size: 0.93rem; color: var(--muted); }
+
+    #faq .container { max-width: 760px; margin: 0 auto; }
+    .faq-list { margin-top: 2.5rem; }
+    .faq-list details { border-bottom: 1px solid var(--border); padding: 1.15rem 0; }
+    .faq-list summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 1.02rem; color: var(--navy); }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after { content: "+"; color: var(--indigo); font-size: 1.4rem; line-height: 1; }
+    .faq-list details[open] summary::after { content: "\2013"; }
+    .faq-list details p { margin-top: 0.85rem; font-size: 0.95rem; color: var(--muted); }
+
+    .firma { display: flex; gap: 1rem; align-items: center; max-width: 520px; margin: 2.5rem auto 0; text-align: left; }
+    .firma-dot { width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: #fff; color: var(--indigo-d); font-weight: 800; }
+    .firma p { font-size: 0.92rem; color: rgba(255,255,255,0.82); margin: 0; }
   </style>
 </head>
 <body>
@@ -166,8 +199,9 @@
         <li><a href="#problemas">El problema</a></li>
         <li><a href="#soluciones">Soluciones</a></li>
         <li><a href="#como-funciona">Cómo funciona</a></li>
+        <li><a href="#faq">Dudas</a></li>
       </ul>
-      <a href="#contacto" class="nav-cta">Solicitar demo →</a>
+      <a href="https://wa.me/34602433221?text=Hola%2C%20tengo%20una%20cl%C3%ADnica%20y%20quiero%20probar%20el%20asistente" class="nav-cta">Probar asistente →</a>
     </div>
   </nav>
 
@@ -175,10 +209,14 @@
   <section id="inicio">
     <div class="hero-grid">
       <div>
-        <div class="hero-badge">🏥 IA para Clínicas y Centros Médicos</div>
+        <div class="hero-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M12 9v6M9 12h6"/></svg> IA para Clínicas y Centros Médicos</div>
         <h1 class="hero-title">Tu clínica capta pacientes<br>y gestiona citas<br><em>mientras tú trabajas.</em></h1>
         <p class="hero-sub">Un sistema de inteligencia artificial que automatiza la captación de nuevos pacientes, gestiona tu agenda 24/7 y reduce las citas perdidas — sin cambiar tu forma de trabajar.</p>
-        <a href="#contacto" class="btn btn-primary">Solicitar demo gratuita →</a>
+        <div class="hero-cta">
+          <a href="https://wa.me/34602433221?text=Hola%2C%20tengo%20una%20cl%C3%ADnica%20y%20quiero%20probar%20el%20asistente" class="btn btn-wa"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.6 4 5.3 5.3 0 0 0 3.2.6 2.6 2.6 0 0 0 1.7-1.2c.2-.4.2-.8.1-.9l-.4-.3Z"/></svg> Probar el asistente ahora</a>
+          <a href="#contacto" class="btn btn-outline">Solicitar demo gratuita</a>
+        </div>
+        <p class="hero-wa-note">Escríbele como si fueras un paciente tuyo. Lo que te conteste es exactamente lo que recibirían ellos.</p>
         <div class="hero-trust">
           <span>✓ Llamada gratuita de 20 min</span>
           <span>·</span>
@@ -203,22 +241,22 @@
       <p class="s-sub">Sin un sistema automático, tu equipo pierde tiempo, los pacientes no aparecen y los ingresos se van.</p>
       <div class="problems-grid">
         <div class="problem-card">
-          <div class="icon">📞</div>
+          <div class="ico-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></div>
           <h3>Llamadas sin respuesta</h3>
           <p>Pacientes que llaman fuera de horario y no consiguen cita. Se van a la competencia.</p>
         </div>
         <div class="problem-card">
-          <div class="icon">🪑</div>
+          <div class="ico-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M10 14.5l4 4M14 14.5l-4 4"/></svg></div>
           <h3>Sillas vacías por no-shows</h3>
           <p>Citas que nadie cancela y el hueco se pierde. Ingresos que nunca llegan.</p>
         </div>
         <div class="problem-card">
-          <div class="icon">📋</div>
+          <div class="ico-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6v3H9z"/><path d="M15 5.5h2A2 2 0 0 1 19 7.5v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-12a2 2 0 0 1 2-2h2"/><path d="M9 12h6M9 16h4"/></svg></div>
           <h3>Agenda gestionada a mano</h3>
           <p>Tu recepcionista pasa horas al teléfono confirmando, cambiando y registrando citas.</p>
         </div>
         <div class="problem-card">
-          <div class="icon">💤</div>
+          <div class="ico-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="8" r="4"/><path d="M4 21a7.5 7.5 0 0 1 9.5-7.2"/><circle cx="18" cy="17.5" r="4"/><path d="M18 15.8v1.9l1.3.8"/></svg></div>
           <h3>Pacientes inactivos olvidados</h3>
           <p>Cientos de pacientes que no vuelven porque nadie los ha vuelto a contactar.</p>
         </div>
@@ -234,7 +272,7 @@
       <p class="s-sub">Cada sistema funciona de forma independiente. Puedes empezar por el que más impacto te genere.</p>
       <div class="solutions-grid">
         <div class="solution-card">
-          <div class="sol-icon">🎯</div>
+          <div class="ico-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg></div>
           <h3>Captación automática de pacientes</h3>
           <p>Un agente de IA capta leads desde tu web, redes sociales o WhatsApp, los cualifica y los agenda automáticamente en tu calendario.</p>
           <ul>
@@ -244,7 +282,7 @@
           </ul>
         </div>
         <div class="solution-card">
-          <div class="sol-icon">📅</div>
+          <div class="ico-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8.5 14.8l2.2 2.2 4.3-4.3"/></svg></div>
           <h3>Gestión de citas 24/7</h3>
           <p>Los pacientes reservan, cambian o cancelan su cita a cualquier hora sin llamar a recepción. El sistema actualiza tu agenda en tiempo real.</p>
           <ul>
@@ -254,7 +292,7 @@
           </ul>
         </div>
         <div class="solution-card">
-          <div class="sol-icon">🔔</div>
+          <div class="ico-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8.5a6 6 0 1 0-12 0c0 6.5-2.5 8.5-2.5 8.5h17S18 15 18 8.5"/><path d="M13.7 20.5a2 2 0 0 1-3.4 0"/></svg></div>
           <h3>Reducción de no-shows</h3>
           <p>Secuencia automática de recordatorios por WhatsApp y SMS que confirman la asistencia y permiten reagendar si el paciente no puede venir.</p>
           <ul>
@@ -264,7 +302,7 @@
           </ul>
         </div>
         <div class="solution-card">
-          <div class="sol-icon">💬</div>
+          <div class="ico-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 14.5a2 2 0 0 1-2 2H7.5L3.5 20V5a2 2 0 0 1 2-2H19a2 2 0 0 1 2 2Z"/><path d="M8 8.5h8M8 12h5"/></svg></div>
           <h3>Reactivación de pacientes inactivos</h3>
           <p>El sistema detecta pacientes que llevan tiempo sin visita y les envía un mensaje personalizado para que vuelvan a tu clínica.</p>
           <ul>
@@ -272,6 +310,29 @@
             <li>Mensajes personalizados por especialidad</li>
             <li>Ofertas y revisiones automáticas</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES -->
+  <section id="especialidades">
+    <div class="container">
+      <div class="s-label">Por especialidad</div>
+      <h2 class="s-title">Según tu clínica cambia lo que resuelve</h2>
+      <p class="s-sub">Mismo sistema, distinto guión. Esto es lo que más mueve la aguja en cada caso.</p>
+      <div class="esp-grid">
+        <div class="esp-card">
+          <h3>Dental</h3>
+          <p>Urgencias fuera de horario, primeras visitas y presupuestos aceptados que se quedaron a medias sin que nadie volviera a llamar.</p>
+        </div>
+        <div class="esp-card">
+          <h3>Fisioterapia</h3>
+          <p>Sesiones que se cancelan a última hora, bonos que caducan sin usar y pacientes que abandonan el tratamiento a la tercera sesión.</p>
+        </div>
+        <div class="esp-card">
+          <h3>Estética y bienestar</h3>
+          <p>Consultas de precio antes de decidirse, reserva de valoración y recordatorio del siguiente tratamiento del plan.</p>
         </div>
       </div>
     </div>
@@ -318,8 +379,9 @@
       <div style="max-width:480px; margin:0 auto; text-align:left;">
         <div style="background:rgba(14,18,40,.7); border:2px solid #5b4fe8; border-radius:16px; padding:2.5rem;">
           <div style="font-size:1.1rem; font-weight:700; color:#f4f6ff; margin-bottom:1.25rem;">Solución personalizada para tu clínica</div>
-          <div style="font-size:2.4rem; font-weight:800; color:#f4f6ff; line-height:1;">Desde 1.500€ <span style="font-size:1rem; font-weight:500; color:#8a95bd;">implantación</span></div>
-          <div style="color:#8a86ff; font-weight:600; margin:0.5rem 0 1.5rem;">+ desde 200€/mes mantenimiento</div>
+          <div style="font-size:2.4rem; font-weight:800; color:#f4f6ff; line-height:1;">1.500€ <span style="font-size:1rem; font-weight:500; color:#8a95bd;">de implantación</span></div>
+          <div style="color:#8a86ff; font-weight:600; margin:0.5rem 0 0.9rem;">+ 200€/mes de mantenimiento</div>
+          <p style="font-size:0.85rem; color:#8a95bd; margin-bottom:1.5rem;">Precio cerrado de la configuración estándar. Si tu clínica tiene varias sedes o necesita integraciones a medida, te lo digo en la llamada antes de empezar nada.</p>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; margin-bottom:2rem;">
             <li style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.95rem; color:#ccd3ee;"><span style="color:#10b981; margin-top:2px;">✓</span> Captación automática desde web y WhatsApp</li>
             <li style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.95rem; color:#ccd3ee;"><span style="color:#10b981; margin-top:2px;">✓</span> Gestión de citas 24/7 sin recepcionista</li>
@@ -328,7 +390,7 @@
             <li style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.95rem; color:#ccd3ee;"><span style="color:#10b981; margin-top:2px;">✓</span> Reactivación de pacientes inactivos</li>
             <li style="display:flex; gap:0.6rem; align-items:flex-start; font-size:0.95rem; color:#ccd3ee;"><span style="color:#10b981; margin-top:2px;">✓</span> Soporte técnico incluido, con atención prioritaria por WhatsApp</li>
           </ul>
-          <a href="#contacto" style="display:block; text-align:center; background:#5b4fe8; color:#fff; font-weight:700; padding:0.85rem 1.5rem; border-radius:10px; text-decoration:none; transition:background .2s;">Solicitar demo gratuita</a>
+          <a href="#contacto" style="display:block; text-align:center; background:#5b4fe8; color:#fff; font-weight:700; padding:0.85rem 1.5rem; border-radius:10px; text-decoration:none; transition:background .2s;">Quiero el plan para mi clínica</a>
         </div>
       </div>
     </div>
@@ -344,11 +406,52 @@
       <span>Panel de métricas incluido</span>
       <span>Soporte continuo en WhatsApp</span>
     </div>
-    <a href="#contacto" class="btn btn-white">Solicitar demo gratuita →</a>
+    <div class="hero-cta">
+      <a href="https://wa.me/34602433221?text=Hola%2C%20tengo%20una%20cl%C3%ADnica%20y%20quiero%20probar%20el%20asistente" class="btn btn-white">Probar el asistente ahora</a>
+      <a href="#contacto" class="btn btn-ghost-light">Prefiero que me llaméis</a>
+    </div>
     <div class="trust">20 minutos · Sin compromiso · Vemos tu caso concreto</div>
+    <div class="firma">
+      <div class="firma-dot" aria-hidden="true">Q</div>
+      <p>Hablas directamente con Quique Iborra, que es quien monta el sistema. No hay comercial de por medio.</p>
+    </div>
   </section>
 
   
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="s-label">Dudas frecuentes</div>
+      <h2 class="s-title">Lo que me preguntan antes de decidirse</h2>
+      <div class="faq-list">
+        <details open>
+          <summary>¿Esto sustituye a mi recepcionista?</summary>
+          <p>No. Se ocupa de lo repetitivo y de las horas en las que no hay nadie. Tu recepción deja de contestar veinte veces lo mismo y se dedica al paciente que tiene delante. En cuanto una conversación se complica, pasa a una persona.</p>
+        </details>
+        <details>
+          <summary>¿Se conecta con mi software de gestión?</summary>
+          <p>Dime cuál usas y te lo digo en la misma llamada: si se conecta directamente, si hay que hacerlo con un paso intermedio o si no merece la pena. Prefiero decirte que no antes de cobrarte.</p>
+        </details>
+        <details>
+          <summary>¿Se nota que es un bot?</summary>
+          <p>Pruébalo antes de decidir. Escribe al WhatsApp de esta página como si fueras un paciente tuyo: si a ti te chirría, a tus pacientes también.</p>
+        </details>
+        <details>
+          <summary>¿Y los datos de salud? Somos una clínica.</summary>
+          <p>El asistente no pide ni guarda historiales clínicos: se queda en nombre, teléfono, motivo de consulta y cita. Los datos que pudieran derivarse se tratan con las medidas reforzadas del art. 9 del RGPD, y te entrego el texto de consentimiento y el registro de tratamiento para tu asesoría.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto tarda en estar funcionando?</summary>
+          <p>Menos de dos semanas desde la primera llamada, según lo que tarde tu clínica en darme horarios y tratamientos. La parte técnica no es el cuello de botella.</p>
+        </details>
+        <details>
+          <summary>Somos una clínica pequeña, ¿es para nosotros?</summary>
+          <p>Si tenéis un solo profesional y la agenda llena, probablemente no lo necesitéis todavía. Si perdéis llamadas o tenéis huecos que no se llenan, sí.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- FORMULARIO CONTACTO -->
   <section id="contacto" style="background:#06070f; border-top:1px solid rgba(150,170,255,.12);">
     <div style="max-width:600px; margin:0 auto; text-align:center;">
