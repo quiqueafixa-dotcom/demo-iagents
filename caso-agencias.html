@@ -23,8 +23,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script src="https://iagentsdigital.com/assets/consent.js" defer></script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Caso real: formulario de captación con consentimiento RGPD en agencias | iAgents Digital</title>
-<meta name="description" content="Cómo iAgents Digital instaló un formulario de captación conectado a GoHighLevel que solo carga tras consentimiento explícito, con seguimiento de conversión sujeto a las limitaciones del formulario integrado." />
+<title>Prototipo propio: formulario de captación con consentimiento RGPD en agencias | iAgents Digital</title>
+<meta name="description" content="Cómo está diseñado el formulario de captación de iAgents Digital conectado a GoHighLevel que solo carga tras consentimiento explícito, con seguimiento de conversión sujeto a las limitaciones del formulario integrado." />
 <link rel="canonical" href="https://iagentsdigital.com/caso-agencias.html" />
 <meta name="theme-color" content="#05060e" />
 <meta name="robots" content="index, follow" />
@@ -32,13 +32,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:locale" content="es_ES" />
 <meta property="og:site_name" content="iAgents Digital" />
 <meta property="og:url" content="https://iagentsdigital.com/caso-agencias.html" />
-<meta property="og:title" content="Caso real: formulario de captación con consentimiento RGPD en agencias" />
-<meta property="og:description" content="Formulario conectado a GoHighLevel que solo carga tras consentimiento explícito, con seguimiento de conversión sujeto a las limitaciones del formulario integrado. Cómo funciona el sistema instalado por iAgents Digital." />
+<meta property="og:title" content="Prototipo propio: formulario de captación con consentimiento RGPD en agencias" />
+<meta property="og:description" content="Formulario conectado a GoHighLevel que solo carga tras consentimiento explícito, con seguimiento de conversión sujeto a las limitaciones del formulario integrado. Cómo está diseñado el sistema desarrollado por iAgents Digital." />
 <meta property="og:image" content="https://iagentsdigital.com/assets/foto-agencia.jpg" />
 <meta property="og:image:alt" content="Agentes inmobiliarios revisando una propiedad con una propietaria" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Caso real: formulario de captación con consentimiento RGPD en agencias" />
-<meta name="twitter:description" content="Cómo iAgents Digital instaló un formulario de captación conectado a GoHighLevel con consentimiento explícito y con seguimiento sujeto a las limitaciones del formulario integrado." />
+<meta name="twitter:title" content="Prototipo propio: formulario de captación con consentimiento RGPD en agencias" />
+<meta name="twitter:description" content="Cómo está diseñado el formulario de captación de iAgents Digital conectado a GoHighLevel con consentimiento explícito y con seguimiento sujeto a las limitaciones del formulario integrado." />
 <meta name="twitter:image" content="https://iagentsdigital.com/assets/foto-agencia.jpg" />
 <link rel="icon" type="image/png" href="assets/logo-iagents-mark-white.png" />
 <link rel="stylesheet" href="assets/fonts/fonts.css" />
@@ -46,8 +46,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Cómo iAgents Digital instaló un formulario de captación con consentimiento RGPD en agencias",
-  "description": "Caso real de instalación de un formulario conectado a GoHighLevel con consentimiento explícito y seguimiento de conversión sujeto a las limitaciones del formulario integrado.",
+  "headline": "Cómo está diseñado el formulario de captación de iAgents Digital con consentimiento RGPD en agencias",
+  "description": "Prototipo propio de formulario conectado a GoHighLevel con consentimiento explícito y seguimiento de conversión sujeto a las limitaciones del formulario integrado.",
   "url": "https://iagentsdigital.com/caso-agencias.html",
   "author": { "@type": "Organization", "name": "iAgents Digital", "url": "https://iagentsdigital.com/" },
   "publisher": { "@id": "https://iagentsdigital.com/#organization" },
@@ -198,7 +198,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="case-hero">
   <div class="wrap case-hero-inner">
-    <div class="eyebrow">Caso real · Inmobiliario · Agencias</div>
+    <div class="eyebrow">Prototipo propio · Inmobiliario · Agencias</div>
     <h1>Formulario de captación con consentimiento explícito conectado a GoHighLevel</h1>
     <div class="case-meta">
       <span>agencias.iagentsdigital.com</span>
@@ -210,14 +210,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="case-block">
   <div class="wrap case-block-inner">
     <h2>El problema</h2>
-    <p>Muchas agencias insertan el formulario de su CRM (en este caso, GoHighLevel) directamente en su web como un iframe que carga desde el primer segundo, antes de que el visitante haya aceptado ninguna cookie ni script de terceros. Es rápido de instalar, pero incumple el reglamento de protección de datos: se está cargando un recurso de un tercero sin consentimiento previo. Y del lado del negocio, sin un seguimiento fiable de conversión, es imposible saber cuántos formularios se envían de verdad.</p>
+    <p>Muchas agencias insertan el formulario de su CRM (en este caso, GoHighLevel) directamente en su web como un iframe que carga desde el primer segundo, antes de que el visitante haya aceptado ninguna cookie ni script de terceros. Antes de cargarlo conviene revisar qué datos transmite, qué tecnologías utiliza y qué requisitos de información y consentimiento corresponden a esa implementación. Y del lado del negocio, sin un seguimiento fiable de conversión, es imposible saber cuántos formularios se envían de verdad.</p>
   </div>
 </section>
 
 <section class="case-block alt">
   <div class="wrap case-block-inner">
-    <h2>La solución instalada</h2>
-    <p>Creamos una categoría de consentimiento independiente ("Funcionales", separada de Analítica y Marketing) que controla exclusivamente la carga del formulario. El iframe de GoHighLevel no existe en la página hasta que el visitante da su consentimiento explícito y marca la casilla de privacidad del propio formulario.</p>
+    <h2>La solución desarrollada</h2>
+    <p>Creamos una categoría de consentimiento independiente ("Funcionales", separada de Analítica y Marketing) que controla exclusivamente la carga del formulario. El diseño prevé cargar el iframe de GoHighLevel después del consentimiento funcional. La casilla de privacidad pertenece al formulario y se completa después de cargarlo. Este comportamiento debe verificarse en navegador.</p>
     <div class="flow">
       <div class="flow-step"><span class="n">01</span><div>Visitante acepta<small>categoría "Funcionales"</small></div></div>
       <div class="flow-step"><span class="n">02</span><div>Formulario GHL se carga<small>de forma diferida (lazy)</small></div></div>
@@ -230,10 +230,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap case-block-inner">
     <h2>Qué hace diferente a este sistema</h2>
     <ul class="case-list">
-      <li><i></i><span>Bloqueo técnico real, no solo un aviso de cookies: el script del formulario no se descarga sin consentimiento</span></li>
-      <li><i></i><span>Doble condición visible para el usuario: consentimiento funcional + casilla RGPD del propio formulario</span></li>
+      <li><i></i><span>Objetivo de diseño: no cargar el formulario antes del consentimiento funcional; pendiente de verificar en navegador</span></li>
+      <li><i></i><span>Dos pasos distintos: consentimiento funcional para cargar el formulario y casilla de privacidad para enviarlo</span></li>
       <li><i></i><span>Evento de conversión asociado a una señal del CRM, con las limitaciones de medición propias de un formulario en iframe de otro dominio.</span></li>
-      <li><i></i><span>Sin eventos duplicados al recargar la página o repetir el consentimiento</span></li>
+      <li><i></i><span>Pendiente de comprobar: ausencia de eventos duplicados al recargar o repetir el consentimiento</span></li>
       <li><i></i><span>Publicado en producción.</span></li>
     </ul>
   </div>
@@ -242,7 +242,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="case-block alt">
   <div class="wrap case-block-inner">
     <h2>Estado actual</h2>
-    <p>El sistema está publicado en producción desde agosto de 2026 y funcionando correctamente, pero todavía no ha recibido ningún envío real de un propietario o agencia. En cuanto tengamos los primeros leads reales, añadiremos aquí los datos de conversión.</p>
+    <p>Se trata de un prototipo propio. La verificación en navegador del consentimiento y del recorrido completo está pendiente. No se presentan resultados de clientes; los datos comerciales históricos requieren reconciliación.</p>
   </div>
 </section>
 
