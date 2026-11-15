@@ -1,0 +1,38 @@
+:root {
+  color-scheme: light;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display: clamp(2.5rem, 4.2vw + 1rem, 4.75rem);
+  --text-section: clamp(1.875rem, 2.2vw + 1rem, 3.125rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.0625rem, 0.35vw + 1rem, 1.3125rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --container: 1280px; --gutter: 48px; --gap-columns: 32px; --section-gap: 128px;
+  --z-sticky-nav: 300;
+  /* lavender paper: the brand's light band, taken as the ground of the page */
+  --color-paper: #f3f1fa; --color-paper-2: #e9e5f6; --color-paper-3: #dcd6f0; --color-card: #ffffff;
+  --color-ink: #0c0e26; --color-ink-2: #2b2e4d; --color-muted: #565b7c;
+  --color-rule: #d3cdea; --color-rule-2: #a59dd2;
+  --color-accent: #5a3df5; --color-accent-blue: #2f4bff; --color-accent-2: #8a3dff; --color-accent-deep: #4429d6; --color-accent-soft: #dcd5fb;
+  --color-accent-ink: #ffffff; --color-focus: #5a3df5;
+  /* night: the brand's dark ground, kept for the header, the demonstration and the footer */
+  --color-night: #05060e; --color-night-2: #0e1128; --color-night-3: #1a1f44;
+  --color-night-ink: #f8f9ff; --color-night-ink-2: #c5cdea; --color-night-muted: #a2acd0;
+  --color-night-rule: #262c55; --color-night-rule-2: #3c4480; --color-night-accent: #a3b7ff;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif; --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif; --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+  --radius-card: 16px; --radius-photo: 24px; --radius-pill: 999px; --rule-hair: 1px; --rule-ring: 1.5px;
+  --shadow-card: 0 1px 2px color-mix(in oklab, var(--color-ink) 8%, transparent);
+  --shadow-float: 0 24px 56px -28px color-mix(in oklab, var(--color-ink) 45%, transparent);
+  --shadow-btn: 0 14px 32px -14px color-mix(in oklab, var(--color-accent-blue) 80%, transparent);
+  --grad-brand: linear-gradient(120deg, var(--color-accent-blue), var(--color-accent-2));
+  --scrim: linear-gradient(180deg, transparent 30%, color-mix(in oklab, var(--color-night) 88%, transparent) 100%);
+  --tracking-display: -0.035em; --display-weight: 600;
+  --header-h: 88px;
+}
+.night {
+  --color-paper: var(--color-night); --color-paper-2: var(--color-night-2); --color-paper-3: var(--color-night-3);
+  --color-ink: var(--color-night-ink); --color-ink-2: var(--color-night-ink-2); --color-muted: var(--color-night-muted);
+  --color-rule: var(--color-night-rule); --color-rule-2: var(--color-night-rule-2); --color-focus: var(--color-night-accent);
+  background: var(--color-paper); color: var(--color-ink);
+}
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap: 96px; } }
+@media (max-width: 40rem) { :root { --gutter: 20px; --section-gap: 72px; --gap-columns: 16px; --header-h: 80px; } }
