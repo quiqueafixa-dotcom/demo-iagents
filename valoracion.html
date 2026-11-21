@@ -663,6 +663,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     text-align: right;
   }
 </style>
+<!-- Cloudflare Turnstile: captcha anti-bots del formulario -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -1114,6 +1116,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
       </div>
 
+      <!-- Turnstile: verificación anti-bots (el token se valida en n8n antes de crear el lead) -->
+      <div style="display:flex; justify-content:center; margin-top:18px;">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAGMU_io0Cxck-Ao1" data-language="es"></div>
+      </div>
+      <span class="error-msg" id="turnstile-error" style="display:none; color:var(--error); font-size:13px; margin-top:6px; text-align:center;">Completa la verificación de seguridad para enviar la solicitud.</span>
+
       <div class="nav-buttons">
         <button class="btn btn-back" onclick="goToStep(2)">← Atrás</button>
         <button class="btn btn-submit" id="submitBtn" onclick="submitForm()">
@@ -1437,6 +1445,16 @@ function setError(fieldId, hasError) {
 async function submitForm() {
   if (!validateStep(3)) return;
 
+  // Turnstile: sin token válido no se envía nada
+  const tsInput = document.querySelector('[name="cf-turnstile-response"]');
+  const turnstileToken = tsInput ? tsInput.value : '';
+  const tsError = document.getElementById('turnstile-error');
+  if (!turnstileToken) {
+    if (tsError) tsError.style.display = 'block';
+    return;
+  }
+  if (tsError) tsError.style.display = 'none';
+
   const btn = document.getElementById('submitBtn');
   btn.classList.add('loading');
   btn.disabled = true;
@@ -1511,6 +1529,7 @@ async function submitForm() {
   payloadQA.consentimiento_fase1_version = '2026-07-27-v1';
   payloadQA.schema_version = 'captacion-v2-2026-07-27';
   payloadQA.fuente = 'Formulario Web valoracion.iagentsdigital.com';
+  payloadQA.cf_turnstile_token = turnstileToken; // se valida en n8n con Cloudflare
 
   try {
     const response = await fetch(WEBHOOK_URL, {
@@ -1551,6 +1570,7 @@ async function submitForm() {
   } catch (err) {
     console.error('Error:', err);
     btn.classList.remove('loading');
+    if (window.turnstile) { try { turnstile.reset(); } catch (_) {} }
     btn.disabled = false;
     // Show inline error instead of alert
     const errDiv = document.createElement('div');
